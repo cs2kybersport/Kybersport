@@ -13,7 +13,9 @@
         }
 
         body {
-            background-color: #f8fafc;
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
+                        url("https://upload.wikimedia.org/wikipedia/ru/d/db/Counter-strike_2.jpg") no-repeat center center fixed;
+            background-size: cover;
             color: #0f172a;
             display: flex;
             justify-content: center;
@@ -24,8 +26,14 @@
             overflow-x: hidden;
         }
 
-        /* Оранжевый текст CS2 по бокам на ПК */
+        /* Настройка фона и бокового текста для ПК */
         @media (min-width: 900px) {
+            body {
+                background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)), 
+                            url("https://i.ytimg.com/vi/3bCj7XWvdsQ/maxresdefault.jpg") no-repeat center center fixed;
+                background-size: cover;
+            }
+
             body::before, body::after {
                 position: fixed;
                 top: 50%;
@@ -33,7 +41,7 @@
                 font-size: 70px;
                 font-weight: 900;
                 color: #f97316;
-                text-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+                text-shadow: 0 0 20px rgba(249, 115, 22, 0.6);
                 letter-spacing: 4px;
                 white-space: nowrap;
                 pointer-events: none;
@@ -62,7 +70,7 @@
             background: #ffffff;
             border-radius: 20px;
             padding: 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             border: 3px solid #000000;
         }
 
@@ -317,7 +325,7 @@
     <div class="card">
         <span class="badge">Team Vitality</span>
         <img src="https://img-cdn.hltv.org/playerbodyshot/blnoWFtH8GUJZjhr8H0P4u.png?bg=3e4c54&h=800&ixlib=java-2.1.0&rect=121%2C8%2C467%2C467&w=800&s=e3a0e62125c9cf3f44077e5c0792687a" alt="ZywOo">
-        <h2>Mathieu "ZywOo" Herbaut</h2>
+        <h2>ZywOo (Mathieu Herbaut)</h2>
         <p>Легендарный снайпер и многократный MVP турниров. Подробные параметры:</p>
         <ul>
             <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 2.0 | <b>eDPI:</b> 800</li>
@@ -334,7 +342,7 @@
     <div class="card">
         <span class="badge">m0NESY / Falcons</span>
         <img src="https://img.championat.com/lpv1nwIFuogZ-DFpIvJArHEJrL638I7pKYyBK5-3BCo/p(w:1350/h:900)/news/big/i/s/team-falcons-s-m0nesy-proshla-v-final-iem-cologne-major-2026-v-cs-2_1781988221468219053.jpg" alt="m0NESY">
-        <h2>Ilya "m0NESY" Osipov</h2>
+        <h2>m0NESY (Ilya Osipov)</h2>
         <p>Феноменальный снайпер CS2. Невероятная скорость реакции, микро-механика и реактивные флики с AWP.</p>
         <ul>
             <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 2.0 | <b>eDPI:</b> 800</li>
@@ -350,7 +358,7 @@
     <div class="card">
         <span class="badge">Team Spirit</span>
         <img src="https://img-cdn.hltv.org/gallerypicture/puqgaF3CcnGqdXYczXVNit.jpg?auto=compress&ixlib=java-2.1.0&q=75&w=1600&s=37fe05ad8ebc37b787005875d995419a" alt="donk">
-        <h2>Danil "donk" Kryshkovets</h2>
+        <h2>donk (Danil Kryshkovets)</h2>
         <p>Молодой энтри-рифлер с космическим импактом и идеальным спрей-контролем.</p>
         <ul>
             <li><b>DPI:</b> 800 | <b>Sensitivity:</b> 1.25</li>
@@ -363,8 +371,8 @@
     <!-- s1mple -->
     <div class="card">
         <span class="badge">Legend</span>
-        <img src="https://pic.rtbcdn.ru/user/2025-12-20/24/ea/24eabb6d24af2a973af13673c3780b23.jpg" alt="s1mple">
-        <h2>Oleksandr "s1mple" Kostyliev</h2>
+        <img src="https://images.cybersport.ru/images/as-is/plain/4b/4bdd623d-d92c-4555-bf5e-0bf652bbfdf8.jpg" alt="s1mple">
+        <h2>s1mple (Oleksandr Kostyliev)</h2>
         <p>Легенда Counter-Strike с лучшей исторической статистикой на про-сцене.</p>
         <ul>
             <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 3.09</li>
@@ -377,12 +385,14 @@
     <!-- Тренировки -->
     <div class="section-title">Комплекс тренировок</div>
     <div class="card">
-        <h2>Тренировка стрельбы и реакций</h2>
+        <h2>Тренировка стрельбы и механики</h2>
         <ul>
             <li><b>Aim Botz:</b> 500 наводка и флики с AK-47 и M4A1-S.</li>
-            <li><b>Prefire Maps:</b> Чек углов и контр-стрейфы.</li>
+            <li><b>Prefire Maps:</b> Чек углов и правильный пик.</li>
+            <li><b>Контр-стрейфы:</b> Отработка мгновенного остановки движения перед выстрелом.</li>
             <li><b>Nades Training:</b> Заучивание быстрых флешек и смоков.</li>
         </ul>
+        <a href="https://youtu.be/dBE6m4KWi5o?si=7N4XBeXc6Cqaq1yP" target="_blank" class="btn">Гайд по контр-стрейфам (YouTube)</a>
     </div>
 
     <!-- Контакты -->
