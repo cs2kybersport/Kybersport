@@ -13,65 +13,35 @@
         }
 
         body {
-            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
                         url("https://upload.wikimedia.org/wikipedia/ru/d/db/Counter-strike_2.jpg") no-repeat center center fixed;
             background-size: cover;
-            color: #0f172a;
+            color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: flex-start;
             padding: 20px 10px;
             min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
         }
 
-        /* Настройка фона и бокового текста для ПК */
+        /* Настройка фона для ПК */
         @media (min-width: 900px) {
             body {
-                background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)), 
+                background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
                             url("https://i.ytimg.com/vi/3bCj7XWvdsQ/maxresdefault.jpg") no-repeat center center fixed;
                 background-size: cover;
-            }
-
-            body::before, body::after {
-                position: fixed;
-                top: 50%;
-                transform: translateY(-50%);
-                font-size: 70px;
-                font-weight: 900;
-                color: #f97316;
-                text-shadow: 0 0 20px rgba(249, 115, 22, 0.6);
-                letter-spacing: 4px;
-                white-space: nowrap;
-                pointer-events: none;
-                z-index: 0;
-                opacity: 0.85;
-            }
-
-            body::before {
-                content: "COUNTER-STRIKE 2";
-                left: -260px;
-                transform: translateY(-50%) rotate(-90deg);
-            }
-
-            body::after {
-                content: "COUNTER-STRIKE 2";
-                right: -260px;
-                transform: translateY(-50%) rotate(90deg);
             }
         }
 
         .container {
-            position: relative;
-            z-index: 1;
             width: 100%;
             max-width: 450px;
-            background: #ffffff;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
             border-radius: 20px;
             padding: 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 3px solid #000000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #f97316;
         }
 
         .header {
@@ -82,7 +52,7 @@
         .header h1 {
             font-size: 26px;
             font-weight: 900;
-            color: #000000;
+            color: #ffffff;
             margin-bottom: 6px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -94,7 +64,7 @@
 
         .header p {
             font-size: 13px;
-            color: #475569;
+            color: #94a3b8;
             font-weight: 600;
         }
 
@@ -104,13 +74,13 @@
             color: #f97316;
             margin: 25px 0 12px 0;
             padding-bottom: 6px;
-            border-bottom: 2px solid #000000;
+            border-bottom: 2px solid #f97316;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .card {
-            background: #f1f5f9;
+            background: rgba(30, 41, 59, 0.85);
             border-radius: 14px;
             padding: 16px;
             margin-bottom: 16px;
@@ -129,14 +99,14 @@
 
         .card h2 {
             font-size: 18px;
-            color: #000000;
+            color: #ffffff;
             margin-bottom: 6px;
             font-weight: 800;
         }
 
         .card p, .card ul {
             font-size: 13px;
-            color: #334155;
+            color: #cbd5e1;
             line-height: 1.5;
             margin-bottom: 10px;
         }
@@ -172,7 +142,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 0;
-            border-bottom: 1px dashed #000000;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
             font-size: 13px;
             font-weight: 600;
         }
@@ -199,7 +169,7 @@
             font-size: 12px;
             word-break: break-all;
             margin-bottom: 10px;
-            border: 2px solid #000000;
+            border: 1px solid #f97316;
             text-align: center;
             font-weight: bold;
         }
@@ -231,6 +201,7 @@
         .btn-black {
             background: #000000;
             color: #ffffff;
+            border: 1px solid #334155;
         }
 
         .btn-black:hover {
@@ -246,9 +217,9 @@
         .footer {
             text-align: center;
             font-size: 12px;
-            color: #475569;
+            color: #94a3b8;
             margin-top: 25px;
-            border-top: 2px solid #000000;
+            border-top: 2px solid #f97316;
             padding-top: 20px;
             line-height: 1.6;
             font-weight: 600;
@@ -257,12 +228,12 @@
         .authors {
             margin-top: 10px;
             font-size: 13px;
-            color: #000000;
+            color: #ffffff;
             font-weight: 800;
-            background: #fff7ed;
+            background: rgba(0, 0, 0, 0.6);
             padding: 10px;
             border-radius: 8px;
-            border: 2px solid #000000;
+            border: 1px solid #f97316;
             text-transform: uppercase;
         }
     </style>
