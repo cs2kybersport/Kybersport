@@ -13,7 +13,7 @@
         }
 
         body {
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
                         url("https://upload.wikimedia.org/wikipedia/ru/d/db/Counter-strike_2.jpg") no-repeat center center fixed;
             background-size: cover;
             color: #ffffff;
@@ -27,7 +27,7 @@
         /* Настройка фона для ПК */
         @media (min-width: 900px) {
             body {
-                background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
+                background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
                             url("https://i.ytimg.com/vi/3bCj7XWvdsQ/maxresdefault.jpg") no-repeat center center fixed;
                 background-size: cover;
             }
@@ -36,12 +36,8 @@
         .container {
             width: 100%;
             max-width: 450px;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(8px);
-            border-radius: 20px;
-            padding: 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 2px solid #f97316;
+            background: transparent;
+            padding: 10px;
         }
 
         .header {
@@ -50,12 +46,13 @@
         }
 
         .header h1 {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 900;
             color: #ffffff;
             margin-bottom: 6px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
 
         .header h1 span {
@@ -64,7 +61,7 @@
 
         .header p {
             font-size: 13px;
-            color: #94a3b8;
+            color: #cbd5e1;
             font-weight: 600;
         }
 
@@ -77,15 +74,18 @@
             border-bottom: 2px solid #f97316;
             text-transform: uppercase;
             letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
+        /* Прозрачные карточки с фоном из затемнения */
         .card {
-            background: rgba(30, 41, 59, 0.85);
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(8px);
             border-radius: 14px;
             padding: 16px;
             margin-bottom: 16px;
-            border: 2px solid #000000;
-            box-shadow: 3px 3px 0px #000000;
+            border: 1px solid rgba(249, 115, 22, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
         }
 
         .card img {
@@ -94,19 +94,19 @@
             object-fit: cover;
             border-radius: 10px;
             margin-bottom: 12px;
-            border: 2px solid #000000;
+            border: 1px solid #f97316;
         }
 
         .card h2 {
             font-size: 18px;
             color: #ffffff;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             font-weight: 800;
         }
 
         .card p, .card ul {
             font-size: 13px;
-            color: #cbd5e1;
+            color: #e2e8f0;
             line-height: 1.5;
             margin-bottom: 10px;
         }
@@ -124,7 +124,6 @@
             padding: 4px 10px;
             background: #f97316;
             color: #ffffff;
-            border: 1px solid #000000;
             border-radius: 6px;
             font-size: 11px;
             font-weight: 800;
@@ -132,6 +131,7 @@
             text-transform: uppercase;
         }
 
+        /* Полностью прозрачный прайс-лист */
         .price-list {
             list-style: none !important;
             padding-left: 0 !important;
@@ -142,7 +142,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 0;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             font-size: 13px;
             font-weight: 600;
         }
@@ -152,16 +152,16 @@
         }
 
         .price-tag {
-            color: #ffffff;
+            color: #f97316;
             font-weight: 800;
-            background: #f97316;
-            padding: 3px 8px;
+            background: rgba(249, 115, 22, 0.15);
+            padding: 4px 10px;
             border-radius: 6px;
-            border: 1px solid #000000;
+            border: 1px solid rgba(249, 115, 22, 0.5);
         }
 
         .code-box {
-            background: #000000;
+            background: rgba(0, 0, 0, 0.6);
             color: #f97316;
             padding: 10px;
             border-radius: 8px;
@@ -169,7 +169,7 @@
             font-size: 12px;
             word-break: break-all;
             margin-bottom: 10px;
-            border: 1px solid #f97316;
+            border: 1px solid rgba(249, 115, 22, 0.5);
             text-align: center;
             font-weight: bold;
         }
@@ -186,26 +186,26 @@
             border-radius: 8px;
             text-align: center;
             text-transform: uppercase;
-            border: 2px solid #000000;
-            box-shadow: 2px 2px 0px #000000;
-            transition: all 0.1s;
+            border: none;
+            transition: all 0.2s;
             margin-bottom: 8px;
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
         }
 
         .btn:hover {
             background: #ea580c;
-            transform: translate(-1px, -1px);
-            box-shadow: 3px 3px 0px #000000;
+            transform: translateY(-2px);
         }
 
         .btn-black {
-            background: #000000;
+            background: rgba(0, 0, 0, 0.7);
             color: #ffffff;
-            border: 1px solid #334155;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: none;
         }
 
         .btn-black:hover {
-            background: #1e293b;
+            background: rgba(30, 41, 59, 0.9);
         }
 
         .contact-link {
@@ -217,9 +217,9 @@
         .footer {
             text-align: center;
             font-size: 12px;
-            color: #94a3b8;
+            color: #cbd5e1;
             margin-top: 25px;
-            border-top: 2px solid #f97316;
+            border-top: 1px solid rgba(249, 115, 22, 0.4);
             padding-top: 20px;
             line-height: 1.6;
             font-weight: 600;
@@ -230,10 +230,10 @@
             font-size: 13px;
             color: #ffffff;
             font-weight: 800;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(15, 23, 42, 0.65);
             padding: 10px;
             border-radius: 8px;
-            border: 1px solid #f97316;
+            border: 1px solid rgba(249, 115, 22, 0.4);
             text-transform: uppercase;
         }
     </style>
