@@ -4,495 +4,594 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CS2 CYBERHUB</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            orange: '#f97316',
-                            orangeHover: '#ea580c',
-                            darkBg: '#0f141d',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
-
         * {
-            font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
-        /* Topographical Background Pattern via SVG & Dark Gradient Overlay */
+        /* Тёмная тема (по умолчанию) */
         body {
-            background-color: #0d1117;
+            background-color: #0b0f19;
             background-image: 
-                radial-gradient(circle at 50% 20%, rgba(249, 115, 22, 0.12), transparent 40%),
-                linear-gradient(rgba(10, 14, 22, 0.72), rgba(10, 14, 22, 0.82)),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'%3E%3Cpath fill='none' stroke='%23f97316' stroke-width='1.2' stroke-opacity='0.18' d='M0,100 Q200,150 400,100 T800,100 M0,200 Q200,250 400,180 T800,220 M0,300 Q150,220 400,310 T800,290 M0,400 Q250,480 400,390 T800,410 M0,500 Q200,450 400,520 T800,480 M0,600 Q300,680 400,590 T800,620 M0,700 Q180,650 400,710 T800,690'/%3E%3Cpath fill='none' stroke='%2338bdf8' stroke-width='0.8' stroke-opacity='0.08' d='M0,50 Q250,20 500,80 T800,40 M0,250 Q300,280 550,220 T800,260 M0,450 Q180,500 450,420 T800,470 M0,650 Q220,610 520,680 T800,630'/%3E%3C/svg%3E");
+                radial-gradient(at 0% 0%, rgba(249, 115, 22, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(249, 115, 22, 0.15) 0px, transparent 50%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 86c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm28-65c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm23-11c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zm-6 60c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zm29 22c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z' fill='%23f97316' fill-opacity='0.12' fill-rule='evenodd'/%3E%3C/svg%3E");
             background-attachment: fixed;
-            background-size: cover;
-            color: #f8fafc;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px 10px;
             min-height: 100vh;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Watermark Background Text Effect */
-        .watermark-bg {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-12deg);
-            font-size: 14vw;
-            font-weight: 900;
-            color: rgba(255, 255, 255, 0.025);
-            white-space: nowrap;
-            pointer-events: none;
-            user-select: none;
-            z-index: 0;
-            letter-spacing: -2px;
-            text-shadow: 0 0 20px rgba(249, 115, 22, 0.05);
-        }
-
-        /* Glassmorphism Semi-Transparent Card Styling (Matching screenshot) */
-        .glass-card {
-            background: rgba(18, 22, 33, 0.65);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(249, 115, 22, 0.22);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
-            border-radius: 14px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .glass-card:hover {
-            border-color: rgba(249, 115, 22, 0.45);
-            box-shadow: 0 10px 35px 0 rgba(249, 115, 22, 0.12);
-        }
-
-        /* Light Theme Overrides (Transparent Glass Layout Preserved) */
+        /* Светлая тема (фон остается топографическим/узорчатым) */
         body.light-theme {
             background-color: #e2e8f0;
             background-image: 
-                radial-gradient(circle at 50% 20%, rgba(249, 115, 22, 0.15), transparent 50%),
-                linear-gradient(rgba(241, 245, 249, 0.82), rgba(226, 232, 240, 0.88)),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'%3E%3Cpath fill='none' stroke='%23ea580c' stroke-width='1.2' stroke-opacity='0.22' d='M0,100 Q200,150 400,100 T800,100 M0,200 Q200,250 400,180 T800,220 M0,300 Q150,220 400,310 T800,290 M0,400 Q250,480 400,390 T800,410 M0,500 Q200,450 400,520 T800,480 M0,600 Q300,680 400,590 T800,620 M0,700 Q180,650 400,710 T800,690'/%3E%3C/svg%3E");
+                radial-gradient(at 0% 0%, rgba(234, 88, 12, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(234, 88, 12, 0.12) 0px, transparent 50%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 86c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm28-65c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm23-11c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zm-6 60c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zm29 22c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z' fill='%23ea580c' fill-opacity='0.18' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background-attachment: fixed;
             color: #0f172a;
         }
 
-        body.light-theme .watermark-bg {
-            color: rgba(0, 0, 0, 0.03);
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background: transparent;
+            padding: 10px;
         }
 
-        body.light-theme .glass-card {
-            background: rgba(255, 255, 255, 0.72);
+        /* Кнопка смены темы */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 0 auto 20px auto;
+            padding: 8px 18px;
+            background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(249, 115, 22, 0.35);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        body.light-theme .text-heading {
-            color: #0f172a !important;
-        }
-
-        body.light-theme .text-subtext {
-            color: #475569 !important;
-        }
-
-        body.light-theme .code-box {
-            background: rgba(241, 245, 249, 0.9);
-            color: #ea580c;
-            border-color: rgba(234, 88, 12, 0.4);
-        }
-
-        body.light-theme .btn-secondary {
-            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid #f97316;
+            border-radius: 20px;
             color: #ffffff;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
         }
 
-        /* Collapsible Accordion Smooth Transitions */
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
         }
 
-        .accordion-content.open {
-            max-height: 1000px;
-            transition: max-height 0.4s ease-in-out;
+        body.light-theme .theme-toggle {
+            background: rgba(255, 255, 255, 0.7);
+            color: #0f172a;
+            border-color: #ea580c;
         }
 
-        .accordion-arrow {
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        body.light-theme .header h1 {
+            color: #0f172a;
+        }
+
+        .header h1 span {
+            color: #f97316;
+        }
+
+        .header p {
+            font-size: 13px;
+            color: #cbd5e1;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        body.light-theme .header p {
+            color: #475569;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: #f97316;
+            margin: 25px 0 12px 0;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #f97316;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        body.light-theme .section-title {
+            color: #ea580c;
+            border-bottom-color: #ea580c;
+        }
+
+        /* Полупрозрачные карточки (фон просвечивает) */
+        .card {
+            background: rgba(20, 27, 45, 0.55);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(249, 115, 22, 0.35);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        body.light-theme .card {
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-color: rgba(234, 88, 12, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            color: #0f172a;
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #f97316;
+        }
+
+        .card h2 {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-weight: 800;
+            transition: color 0.3s;
+        }
+
+        body.light-theme .card h2 {
+            color: #0f172a;
+        }
+
+        .card p, .card ul {
+            font-size: 13px;
+            color: #e2e8f0;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        body.light-theme .card p,
+        body.light-theme .card ul {
+            color: #1e293b;
+        }
+
+        .card ul {
+            padding-left: 18px;
+        }
+
+        .card ul li {
+            margin-bottom: 4px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #f97316;
+            color: #ffffff;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        /* Аккордеон / Выпадающая плашка */
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .accordion-header h2 {
+            margin-bottom: 0;
+        }
+
+        .accordion-icon {
+            font-size: 16px;
+            color: #f97316;
             transition: transform 0.3s ease;
         }
 
-        .accordion-arrow.open {
+        .accordion-header.active .accordion-icon {
             transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+        }
+
+        .accordion-content.active {
+            max-height: 1000px;
+            transition: max-height 0.4s ease-in-out;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(249, 115, 22, 0.3);
+        }
+
+        /* Прайс-лист */
+        .price-list {
+            list-style: none !important;
+            padding-left: 0 !important;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        body.light-theme .price-item {
+            border-bottom-color: rgba(0, 0, 0, 0.12);
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+        }
+
+        .price-tag {
+            color: #f97316;
+            font-weight: 800;
+            background: rgba(249, 115, 22, 0.15);
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(249, 115, 22, 0.5);
+        }
+
+        .code-box {
+            background: rgba(15, 23, 42, 0.7);
+            color: #f97316;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            word-break: break-all;
+            margin-bottom: 10px;
+            border: 1px solid rgba(249, 115, 22, 0.5);
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        body.light-theme .code-box {
+            background: rgba(255, 255, 255, 0.8);
+            color: #ea580c;
+            border-color: rgba(234, 88, 12, 0.5);
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            background: #f97316;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 13px;
+            border-radius: 8px;
+            text-align: center;
+            text-transform: uppercase;
+            border: none;
+            transition: all 0.2s;
+            margin-bottom: 8px;
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+        }
+
+        .btn:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+        }
+
+        .btn-black {
+            background: rgba(15, 23, 42, 0.75);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: none;
+        }
+
+        body.light-theme .btn-black {
+            background: #0f172a;
+            color: #ffffff;
+        }
+
+        .btn-black:hover {
+            background: rgba(30, 41, 59, 0.9);
+        }
+
+        .btn-yt {
+            background: #FF0000;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+        }
+
+        .btn-yt:hover {
+            background: #cc0000;
+        }
+
+        .contact-link {
+            color: #f97316;
+            text-decoration: none;
+            font-weight: 800;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #cbd5e1;
+            margin-top: 25px;
+            border-top: 1px solid rgba(249, 115, 22, 0.4);
+            padding-top: 20px;
+            line-height: 1.6;
+            font-weight: 600;
+        }
+
+        body.light-theme .footer {
+            color: #475569;
+        }
+
+        .authors {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #ffffff;
+            font-weight: 800;
+            background: rgba(20, 27, 45, 0.55);
+            backdrop-filter: blur(10px);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(249, 115, 22, 0.4);
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        body.light-theme .authors {
+            background: rgba(255, 255, 255, 0.55);
+            color: #0f172a;
+            border-color: rgba(234, 88, 12, 0.4);
         }
     </style>
 </head>
-<body class="p-3 sm:p-6 flex justify-center items-start">
+<body>
 
-    <!-- Background Watermark -->
-    <div class="watermark-bg">COUNTER-STRIKE 2</div>
+<div class="container">
+    <!-- Кнопка смены темы -->
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+        <span id="themeIcon">☀️</span> <span id="themeText">Светлая тема</span>
+    </button>
 
-    <!-- Main Container -->
-    <div class="w-full max-w-md mx-auto z-10 relative space-y-6">
+    <div class="header">
+        <h1>CS2 <span>CYBERHUB</span></h1>
+        <p>Парный проект по информатике | Настройка, конфиги и аналитика</p>
+    </div>
 
-        <!-- Theme Toggle Button -->
-        <div class="flex justify-center">
-            <button id="themeToggleBtn" onclick="toggleTheme()" class="flex items-center gap-2 bg-slate-900/80 backdrop-blur-md px-5 py-2.5 rounded-full border border-orange-500/50 text-white text-xs font-bold uppercase tracking-wider shadow-lg hover:border-orange-500 hover:shadow-orange-500/20 hover:scale-105 active:scale-95 transition-all duration-200">
-                <span id="themeIcon">☀️</span>
-                <span id="themeText">Светлая тема</span>
-            </button>
+    <!-- Услуги и Прайс -->
+    <div class="section-title">Прайс-лист услуг</div>
+    <div class="card">
+        <h2>Настройка ПК и CS2 под ключ</h2>
+        <ul class="price-list">
+            <li class="price-item">
+                <span>Оптимизация Windows & NVIDIA/AMD</span>
+                <span class="price-tag">500 ₽</span>
+            </li>
+            <li class="price-item">
+                <span>Параметры запуска Steam & CS2</span>
+                <span class="price-tag">300 ₽</span>
+            </li>
+            <li class="price-item">
+                <span>Кастомное разрешение 4:3 stretched</span>
+                <span class="price-tag">250 ₽</span>
+            </li>
+            <li class="price-item">
+                <span>Полный сетап (ПК + CS2 + Прицел/Сенса)</span>
+                <span class="price-tag">900 ₽</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Инструкция -->
+    <div class="section-title">Инструкции по настройке</div>
+
+    <div class="card">
+        <h2>1. Параметры запуска Steam</h2>
+        <p>Нажмите ПКМ на CS2 в Steam -> Свойства -> Параметры запуска:</p>
+        <div class="code-box">-novid -high -threads 8 +cl_cmdrate 128 +cl_updaterate 128 -nojoy +fps_max 0</div>
+    </div>
+
+    <!-- Выпадающая плашка настройки графики -->
+    <div class="card">
+        <div class="accordion-header" onclick="toggleAccordion()">
+            <h2>2. Настройки графики</h2>
+            <span class="accordion-icon">▼</span>
         </div>
-
-        <!-- Header Titles -->
-        <header class="text-center space-y-1.5">
-            <h1 class="text-3xl sm:text-4xl font-black uppercase tracking-wider text-white drop-shadow-md text-heading">
-                CS2 <span class="text-brand-orange">CYBERHUB</span>
-            </h1>
-            <p class="text-xs sm:text-sm font-semibold text-slate-300 text-subtext drop-shadow">
-                Парный проект по информатике | Настройка, конфиги и аналитика
-            </p>
-        </header>
-
-        <!-- SECTION 1: Price List -->
-        <section>
-            <h2 class="text-xs font-extrabold text-brand-orange uppercase tracking-wider border-b-2 border-brand-orange/80 pb-1 mb-3 drop-shadow">
-                Прайс-лист услуг
-            </h2>
-            <div class="glass-card p-4 space-y-3">
-                <h3 class="text-base font-bold text-white text-heading mb-2">Настройка ПК и CS2 под ключ</h3>
-                <div class="divide-y divide-slate-700/50">
-                    <div class="flex justify-between items-center py-2.5 text-xs font-medium text-slate-200 text-subtext">
-                        <span>Оптимизация Windows & NVIDIA/AMD</span>
-                        <span class="bg-orange-500/20 text-brand-orange border border-orange-500/40 px-2.5 py-1 rounded-md font-extrabold text-xs">500 ₽</span>
-                    </div>
-                    <div class="flex justify-between items-center py-2.5 text-xs font-medium text-slate-200 text-subtext">
-                        <span>Параметры запуска Steam & CS2</span>
-                        <span class="bg-orange-500/20 text-brand-orange border border-orange-500/40 px-2.5 py-1 rounded-md font-extrabold text-xs">300 ₽</span>
-                    </div>
-                    <div class="flex justify-between items-center py-2.5 text-xs font-medium text-slate-200 text-subtext">
-                        <span>Кастомное разрешение 4:3 stretched</span>
-                        <span class="bg-orange-500/20 text-brand-orange border border-orange-500/40 px-2.5 py-1 rounded-md font-extrabold text-xs">250 ₽</span>
-                    </div>
-                    <div class="flex justify-between items-center py-2.5 text-xs font-medium text-slate-200 text-subtext">
-                        <span>Полный сетап (ПК + CS2 + Прицел/Сенса)</span>
-                        <span class="bg-orange-500/20 text-brand-orange border border-orange-500/40 px-2.5 py-1 rounded-md font-extrabold text-xs">900 ₽</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 2: Instructions -->
-        <section>
-            <h2 class="text-xs font-extrabold text-brand-orange uppercase tracking-wider border-b-2 border-brand-orange/80 pb-1 mb-3 drop-shadow">
-                Инструкции по настройке
-            </h2>
-
-            <!-- Card 1: Launch Parameters -->
-            <div class="glass-card p-4 mb-3 space-y-2.5">
-                <h3 class="text-sm font-bold text-white text-heading">1. Параметры запуска Steam</h3>
-                <p class="text-xs text-slate-300 text-subtext">Нажмите ПКМ на CS2 в Steam -> Свойства -> Параметры запуска:</p>
-                <div class="code-box bg-slate-950/80 border border-orange-500/40 text-brand-orange p-3 rounded-lg font-mono text-[11px] leading-relaxed break-all font-semibold text-center select-all cursor-pointer shadow-inner hover:border-orange-500 transition-colors" title="Нажмите, чтобы скопировать" onclick="copyToClipboard(this)">
-                    -novid -high -threads 8 +cl_cmdrate 128 +cl_updaterate 128 -nojoy +fps_max 0
-                </div>
-            </div>
-
-            <!-- Card 2: Accordion Dropdown Graphics Settings -->
-            <div class="glass-card p-4 cursor-pointer" onclick="toggleAccordion()">
-                <div class="flex justify-between items-center">
-                    <h3 class="text-sm font-bold text-white text-heading">2. Настройки графики</h3>
-                    <span id="accordionArrow" class="accordion-arrow text-brand-orange text-xs font-black">▼</span>
-                </div>
-                <div id="graphicsAccordion" class="accordion-content">
-                    <div class="pt-3 border-t border-slate-700/50 mt-3 space-y-2 text-xs text-slate-300 text-subtext">
-                        <p class="font-medium text-slate-200 text-heading">Рекомендуемые киберспортивные параметры для максимального FPS:</p>
-                        <ul class="list-disc list-inside space-y-1 pl-1">
-                            <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
-                            <li><b>Режим дисплея:</b> На весь экран</li>
-                            <li><b>Повышенный контраст игроков:</b> Включено</li>
-                            <li><b>Сглаживание:</b> 4x MSAA</li>
-                            <li><b>Качество теней:</b> Низкое</li>
-                            <li><b>Детализация моделей/текстур:</b> Низкое</li>
-                            <li><b>Детализация шейдеров/частиц:</b> Низкое</li>
-                            <li><b>NVIDIA Reflex Low Latency:</b> Включено + Буст</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 3: Pro Players -->
-        <section class="space-y-4">
-            <h2 class="text-xs font-extrabold text-brand-orange uppercase tracking-wider border-b-2 border-brand-orange/80 pb-1 mb-3 drop-shadow">
-                Про-игроки и конфиги
-            </h2>
-
-            <!-- Player 1: ZywOo -->
-            <div class="glass-card p-4 space-y-3">
-                <div>
-                    <span class="bg-orange-500 text-white font-extrabold text-[10px] uppercase px-2.5 py-1 rounded-md tracking-wider">
-                        TEAM VITALITY
-                    </span>
-                </div>
-                <div class="overflow-hidden rounded-lg border border-orange-500/30">
-                    <img src="https://img-cdn.hltv.org/playerbodyshot/blnoWFtH8GUJZjhr8H0P4u.png?bg=3e4c54&h=800&ixlib=java-2.1.0&rect=121%2C8%2C467%2C467&w=800&s=e3a0e62125c9cf3f44077e5c0792687a" 
-                         alt="ZywOo" 
-                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/1e293b/f97316?text=ZywOo+Vitality';"
-                         class="w-full h-48 object-cover object-top hover:scale-105 transition-transform duration-300">
-                </div>
-                <div>
-                    <h3 class="text-base font-extrabold text-white text-heading">ZywOo (Mathieu Herbaut)</h3>
-                    <p class="text-xs text-slate-300 text-subtext mt-1">Легендарный снайпер и многократный MVP турниров. Подробные параметры:</p>
-                </div>
-                <ul class="text-xs text-slate-300 text-subtext space-y-1 list-disc list-inside">
-                    <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 2.0 | <b>eDPI:</b> 800</li>
-                    <li><b>Zoom Sensitivity:</b> 1.0</li>
-                    <li><b>Разрешение:</b> 1280x960 (4:3 Stretched, 240Hz)</li>
-                    <li><b>Прицел:</b> Зеленый статичный крест</li>
-                </ul>
-                <div class="code-box bg-slate-950/80 border border-orange-500/40 text-brand-orange p-2.5 rounded-lg font-mono text-[11px] font-semibold text-center select-all cursor-pointer shadow-inner hover:border-orange-500 transition-colors" onclick="copyToClipboard(this)">
-                    CSGO-2zK3P-3O3U3-k8mOq-s6Pz5-983yC
-                </div>
-                <div class="space-y-2 pt-1">
-                    <a href="https://www.hltv.org/player/11893/zywoo" target="_blank" class="block w-full text-center bg-brand-orange hover:bg-brand-orangeHover text-white font-extrabold text-xs uppercase py-2.5 rounded-lg shadow-md hover:shadow-orange-500/20 transition-all">
-                        ПРОФИЛЬ ZYWOO НА HLTV
-                    </a>
-                    <a href="https://prosettings.net/players/zywoo/" target="_blank" class="btn-secondary block w-full text-center bg-slate-950/80 border border-slate-700/60 text-white font-extrabold text-xs uppercase py-2.5 rounded-lg hover:border-orange-500/50 transition-all">
-                        ПОЛНЫЙ КОНФИГ ZYWOO
-                    </a>
-                </div>
-            </div>
-
-            <!-- Player 2: m0NESY -->
-            <div class="glass-card p-4 space-y-3">
-                <div>
-                    <span class="bg-orange-500 text-white font-extrabold text-[10px] uppercase px-2.5 py-1 rounded-md tracking-wider">
-                        M0NESY / FALCONS
-                    </span>
-                </div>
-                <div class="overflow-hidden rounded-lg border border-orange-500/30">
-                    <img src="https://img.championat.com/lpv1nwIFuogZ-DFpIvJArHEJrL638I7pKYyBK5-3BCo/p(w:1350/h:900)/news/big/i/s/team-falcons-s-m0nesy-proshla-v-final-iem-cologne-major-2026-v-cs-2_1781988221468219053.jpg" 
-                         alt="m0NESY" 
-                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/1e293b/f97316?text=m0NESY';"
-                         class="w-full h-48 object-cover object-top hover:scale-105 transition-transform duration-300">
-                </div>
-                <div>
-                    <h3 class="text-base font-extrabold text-white text-heading">m0NESY (Ilya Osipov)</h3>
-                    <p class="text-xs text-slate-300 text-subtext mt-1">Феноменальный снайпер CS2. Невероятная скорость реакции, микро-механика и реактивные флики с AWP.</p>
-                </div>
-                <ul class="text-xs text-slate-300 text-subtext space-y-1 list-disc list-inside">
-                    <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 2.0 | <b>eDPI:</b> 800</li>
-                    <li><b>Zoom Sensitivity:</b> 1.0</li>
-                    <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
-                </ul>
-                <div class="code-box bg-slate-950/80 border border-orange-500/40 text-brand-orange p-2.5 rounded-lg font-mono text-[11px] font-semibold text-center select-all cursor-pointer shadow-inner hover:border-orange-500 transition-colors" onclick="copyToClipboard(this)">
-                    CSGO-wA43v-3O3U3-k8mOq-s6Pz5-983yC
-                </div>
-                <div class="space-y-2 pt-1">
-                    <a href="https://www.hltv.org/player/19230/m0nesy" target="_blank" class="block w-full text-center bg-brand-orange hover:bg-brand-orangeHover text-white font-extrabold text-xs uppercase py-2.5 rounded-lg shadow-md hover:shadow-orange-500/20 transition-all">
-                        ПРОФИЛЬ M0NESY НА HLTV
-                    </a>
-                    <a href="https://prosettings.net/players/m0nesy/" target="_blank" class="btn-secondary block w-full text-center bg-slate-950/80 border border-slate-700/60 text-white font-extrabold text-xs uppercase py-2.5 rounded-lg hover:border-orange-500/50 transition-all">
-                        ПОЛНЫЙ КОНФИГ M0NESY
-                    </a>
-                </div>
-            </div>
-
-            <!-- Player 3: donk -->
-            <div class="glass-card p-4 space-y-3">
-                <div>
-                    <span class="bg-orange-500 text-white font-extrabold text-[10px] uppercase px-2.5 py-1 rounded-md tracking-wider">
-                        TEAM SPIRIT
-                    </span>
-                </div>
-                <div class="overflow-hidden rounded-lg border border-orange-500/30">
-                    <img src="https://img-cdn.hltv.org/gallerypicture/puqgaF3CcnGqdXYczXVNit.jpg?auto=compress&ixlib=java-2.1.0&q=75&w=1600&s=37fe05ad8ebc37b787005875d995419a" 
-                         alt="donk" 
-                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/1e293b/f97316?text=donk';"
-                         class="w-full h-48 object-cover object-top hover:scale-105 transition-transform duration-300">
-                </div>
-                <div>
-                    <h3 class="text-base font-extrabold text-white text-heading">donk (Danil Kryshkovets)</h3>
-                    <p class="text-xs text-slate-300 text-subtext mt-1">Молодой энтри-рифлер с космическим импактом и идеальным спрей-контролем.</p>
-                </div>
-                <ul class="text-xs text-slate-300 text-subtext space-y-1 list-disc list-inside">
-                    <li><b>DPI:</b> 800 | <b>Sensitivity:</b> 1.25</li>
-                    <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
-                </ul>
-                <div class="code-box bg-slate-950/80 border border-orange-500/40 text-brand-orange p-2.5 rounded-lg font-mono text-[11px] font-semibold text-center select-all cursor-pointer shadow-inner hover:border-orange-500 transition-colors" onclick="copyToClipboard(this)">
-                    CSGO-2S4mZ-A8e6z-p3j38-z8d8q-983yC
-                </div>
-                <a href="https://www.hltv.org/player/21167/donk" target="_blank" class="block w-full text-center bg-brand-orange hover:bg-brand-orangeHover text-white font-extrabold text-xs uppercase py-2.5 rounded-lg shadow-md hover:shadow-orange-500/20 transition-all">
-                    ПРОФИЛЬ DONK НА HLTV
-                </a>
-            </div>
-
-            <!-- Player 4: s1mple -->
-            <div class="glass-card p-4 space-y-3">
-                <div>
-                    <span class="bg-orange-500 text-white font-extrabold text-[10px] uppercase px-2.5 py-1 rounded-md tracking-wider">
-                        LEGEND
-                    </span>
-                </div>
-                <div class="overflow-hidden rounded-lg border border-orange-500/30">
-                    <img src="https://images.cybersport.ru/images/as-is/plain/4b/4bdd623d-d92c-4555-bf5e-0bf652bbfdf8.jpg" 
-                         alt="s1mple" 
-                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/1e293b/f97316?text=s1mple';"
-                         class="w-full h-48 object-cover object-top hover:scale-105 transition-transform duration-300">
-                </div>
-                <div>
-                    <h3 class="text-base font-extrabold text-white text-heading">s1mple (Oleksandr Kostyliev)</h3>
-                    <p class="text-xs text-slate-300 text-subtext mt-1">Легенда Counter-Strike с лучшей исторической статистикой на про-сцене.</p>
-                </div>
-                <ul class="text-xs text-slate-300 text-subtext space-y-1 list-disc list-inside">
-                    <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 3.09</li>
-                    <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
-                </ul>
-                <div class="code-box bg-slate-950/80 border border-orange-500/40 text-brand-orange p-2.5 rounded-lg font-mono text-[11px] font-semibold text-center select-all cursor-pointer shadow-inner hover:border-orange-500 transition-colors" onclick="copyToClipboard(this)">
-                    CSGO-iG34v-8e2z3-m84u3-z8d8q-983yC
-                </div>
-                <a href="https://www.hltv.org/player/7998/s1mple" target="_blank" class="block w-full text-center bg-brand-orange hover:bg-brand-orangeHover text-white font-extrabold text-xs uppercase py-2.5 rounded-lg shadow-md hover:shadow-orange-500/20 transition-all">
-                    ПРОФИЛЬ S1MPLE НА HLTV
-                </a>
-            </div>
-        </section>
-
-        <!-- SECTION 4: Training Complex -->
-        <section>
-            <h2 class="text-xs font-extrabold text-brand-orange uppercase tracking-wider border-b-2 border-brand-orange/80 pb-1 mb-3 drop-shadow">
-                Комплекс тренировок
-            </h2>
-            <div class="glass-card p-4 space-y-3">
-                <h3 class="text-base font-bold text-white text-heading">Тренировка стрельбы и механики</h3>
-                <ul class="text-xs text-slate-300 text-subtext space-y-1.5 list-disc list-inside">
-                    <li><b>Aim Botz / KSTS / CS2 AIM:</b> 500 наводок и фликов с AK-47 и M4A1-S.</li>
-                    <li><b>Prefire Maps (Mirage Course):</b> Чек углов и отработка быстрых пиков.</li>
-                    <li><b>Контр-стрейфы:</b> Мгновенная остановка перед выстрелом.</li>
-                    <li><b>Nades Training:</b> Изучение смоков, молотовых и флешек.</li>
-                </ul>
-                <div class="space-y-2 pt-2">
-                    <a href="https://youtu.be/dXiMLi6YrZw?si=G3lCoMAQ2u4w4E4G" target="_blank" class="block w-full text-center bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs uppercase py-2.5 rounded-lg shadow-md hover:shadow-red-600/30 transition-all">
-                        ЛУЧШИЕ КАРТЫ ДЛЯ ТРЕНИРОВОК В CS 2 (YOUTUBE)
-                    </a>
-                    <a href="https://youtu.be/dBE6m4KWi5o?si=7N4XBeXc6Cqaq1yP" target="_blank" class="btn-secondary block w-full text-center bg-slate-950/80 border border-slate-700/60 text-white font-extrabold text-xs uppercase py-2.5 rounded-lg hover:border-orange-500/50 transition-all">
-                        ГАЙД ПО КОНТР-СТРЕЙФАМ (YOUTUBE)
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 5: Contacts -->
-        <section>
-            <h2 class="text-xs font-extrabold text-brand-orange uppercase tracking-wider border-b-2 border-brand-orange/80 pb-1 mb-3 drop-shadow">
-                Контакты и заказы
-            </h2>
-            <div class="glass-card p-4 space-y-3">
-                <h3 class="text-base font-bold text-white text-heading">Связаться с нами</h3>
-                <ul class="text-xs text-slate-300 text-subtext space-y-1.5">
-                    <li><b>Email:</b> <a href="mailto:trainingcs2@gmail.com" class="text-brand-orange font-bold hover:underline">trainingcs2@gmail.com</a></li>
-                    <li><b>Телефон:</b> <a href="tel:+79922676767" class="text-brand-orange font-bold hover:underline">+7 (992) 267 67 67</a></li>
-                </ul>
-                <a href="mailto:trainingcs2@gmail.com" class="btn-secondary block w-full text-center bg-slate-950/80 border border-slate-700/60 text-white font-extrabold text-xs uppercase py-2.5 rounded-lg hover:border-orange-500/50 transition-all pt-1">
-                    НАПИСАТЬ НА EMAIL
-                </a>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="text-center pt-4 pb-8 space-y-3 border-t border-brand-orange/30">
-            <p class="text-xs font-semibold text-slate-300 text-subtext">
-                Проект по информатике | 9Б класс
-            </p>
-            <div class="glass-card p-3 text-xs font-extrabold text-white text-heading uppercase tracking-wide border-brand-orange/40">
-                Авторы работы: Байдин Ренат & Бирганов Самир
-            </div>
-        </footer>
-
+        <div class="accordion-content" id="graphicsContent">
+            <p>Рекомендуемые киберспортивные параметры графики для высокого FPS и максимальной чёткости:</p>
+            <ul>
+                <li><b>Разрешение:</b> 1280x960 или 1440x1080 (4:3 Stretched)</li>
+                <li><b>Режим дисплея:</b> На весь экран</li>
+                <li><b>Повышенный контраст игроков:</b> Включено</li>
+                <li><b>Сглаживание:</b> 4x MSAA (или 2x MSAA)</li>
+                <li><b>Качество теней:</b> Низкое / Среднее</li>
+                <li><b>Детализация моделей и текстур:</b> Низкое</li>
+                <li><b>Детализация шейдеров и частиц:</b> Низкое</li>
+                <li><b>Глобальное затененение (Ambient Occlusion):</b> Выключено</li>
+                <li><b>NVIDIA Reflex Low Latency:</b> Включено + Буст</li>
+            </ul>
+        </div>
     </div>
 
-    <!-- Notification Toast Box -->
-    <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 bg-orange-500 text-white font-bold text-xs px-4 py-2.5 rounded-full shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 z-50">
-        Код скопирован в буфер обмена!
+    <!-- Про-игроки -->
+    <div class="section-title">Про-игроки и конфиги</div>
+
+    <!-- ZywOo -->
+    <div class="card">
+        <span class="badge">Team Vitality</span>
+        <img src="https://img-cdn.hltv.org/playerbodyshot/blnoWFtH8GUJZjhr8H0P4u.png?bg=3e4c54&h=800&ixlib=java-2.1.0&rect=121%2C8%2C467%2C467&w=800&s=e3a0e62125c9cf3f44077e5c0792687a" alt="ZywOo">
+        <h2>ZywOo (Mathieu Herbaut)</h2>
+        <p>Легендарный снайпер и многократный MVP турниров. Подробные параметры:</p>
+        <ul>
+            <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 2.0 | <b>eDPI:</b> 800</li>
+            <li><b>Zoom Sensitivity:</b> 1.0</li>
+            <li><b>Разрешение:</b> 1280x960 (4:3 Stretched, 240Hz)</li>
+            <li><b>Прицел:</b> Зеленый статичный крест</li>
+        </ul>
+        <div class="code-box">CSGO-2zK3P-3O3U3-k8mOq-s6Pz5-983yC</div>
+        <a href="https://www.hltv.org/player/11893/zywoo" target="_blank" class="btn">Профиль ZywOo на HLTV</a>
+        <a href="https://prosettings.net/players/zywoo/" target="_blank" class="btn btn-black">Полный конфиг ZywOo</a>
     </div>
 
-    <!-- JavaScript Logic -->
-    <script>
-        // Toggle Accordion Dropdown
-        function toggleAccordion() {
-            const accordion = document.getElementById('graphicsAccordion');
-            const arrow = document.getElementById('accordionArrow');
-            accordion.classList.toggle('open');
-            arrow.classList.toggle('open');
-        }
+    <!-- m0NESY -->
+    <div class="card">
+        <span class="badge">m0NESY / Falcons</span>
+        <img src="https://img.championat.com/lpv1nwIFuogZ-DFpIvJArHEJrL638I7pKYyBK5-3BCo/p(w:1350/h:900)/news/big/i/s/team-falcons-s-m0nesy-proshla-v-final-iem-cologne-major-2026-v-cs-2_1781988221468219053.jpg" alt="m0NESY">
+        <h2>m0NESY (Ilya Osipov)</h2>
+        <p>Феноменальный снайпер CS2. Невероятная скорость реакции, микро-механика и реактивные флики с AWP.</p>
+        <ul>
+            <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 2.0 | <b>eDPI:</b> 800</li>
+            <li><b>Zoom Sensitivity:</b> 1.0</li>
+            <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
+        </ul>
+        <div class="code-box">CSGO-wA43v-3O3U3-k8mOq-s6Pz5-983yC</div>
+        <a href="https://www.hltv.org/player/19230/m0nesy" target="_blank" class="btn">Профиль m0NESY на HLTV</a>
+        <a href="https://prosettings.net/players/m0nesy/" target="_blank" class="btn btn-black">Полный конфиг m0NESY</a>
+    </div>
 
-        // Copy Code Snippet to Clipboard
-        function copyToClipboard(element) {
-            const textToCopy = element.innerText.trim();
-            
-            // Native fallback method as required
-            const textarea = document.createElement('textarea');
-            textarea.value = textToCopy;
-            document.body.appendChild(textarea);
-            textarea.select();
-            try {
-                document.execCommand('copy');
-                showToast("Код скопирован в буфер обмена!");
-            } catch (err) {
-                console.error("Failed to copy:", err);
+    <!-- donk -->
+    <div class="card">
+        <span class="badge">Team Spirit</span>
+        <img src="https://img-cdn.hltv.org/gallerypicture/puqgaF3CcnGqdXYczXVNit.jpg?auto=compress&ixlib=java-2.1.0&q=75&w=1600&s=37fe05ad8ebc37b787005875d995419a" alt="donk">
+        <h2>donk (Danil Kryshkovets)</h2>
+        <p>Молодой энтри-рифлер с космическим импактом и идеальным спрей-контролем.</p>
+        <ul>
+            <li><b>DPI:</b> 800 | <b>Sensitivity:</b> 1.25</li>
+            <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
+        </ul>
+        <div class="code-box">CSGO-2S4mZ-A8e6z-p3j38-z8d8q-983yC</div>
+        <a href="https://www.hltv.org/player/21167/donk" target="_blank" class="btn">Профиль donk на HLTV</a>
+    </div>
+
+    <!-- s1mple -->
+    <div class="card">
+        <span class="badge">Legend</span>
+        <img src="https://images.cybersport.ru/images/as-is/plain/4b/4bdd623d-d92c-4555-bf5e-0bf652bbfdf8.jpg" alt="s1mple">
+        <h2>s1mple (Oleksandr Kostyliev)</h2>
+        <p>Легенда Counter-Strike с лучшей исторической статистикой на про-сцене.</p>
+        <ul>
+            <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 3.09</li>
+            <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
+        </ul>
+        <div class="code-box">CSGO-iG34v-8e2z3-m84u3-z8d8q-983yC</div>
+        <a href="https://www.hltv.org/player/7998/s1mple" target="_blank" class="btn">Профиль s1mple на HLTV</a>
+    </div>
+
+    <!-- Тренировки -->
+    <div class="section-title">Комплекс тренировок</div>
+    <div class="card">
+        <h2>Тренировка стрельбы и механики</h2>
+        <ul>
+            <li><b>Aim Botz / KSTS / CS2 AIM:</b> 500 наводок и фликов с AK-47 и M4A1-S.</li>
+            <li><b>Prefire Maps (Mirage Course):</b> Чек углов и отработка быстрых пиков.</li>
+            <li><b>Контр-стрейфы:</b> Мгновенная остановка перед выстрелом.</li>
+            <li><b>Nades Training (Astralis Maps):</b> Изучение смоков, молотовых и флешек.</li>
+        </ul>
+        <a href="https://youtu.be/dXiMLi6YrZw?si=G3lCoMAQ2u4w4E4G" target="_blank" class="btn btn-yt">Лучшие карты для тренировок в CS 2 (YouTube)</a>
+        <a href="https://youtu.be/dBE6m4KWi5o?si=7N4XBeXc6Cqaq1yP" target="_blank" class="btn btn-black">Гайд по контр-стрейфам (YouTube)</a>
+    </div>
+
+    <!-- Контакты -->
+    <div class="section-title">Контакты и заказы</div>
+    <div class="card">
+        <h2>Связаться с нами</h2>
+        <ul>
+            <li><b>Email:</b> <a href="mailto:trainingcs2@gmail.com" class="contact-link">trainingcs2@gmail.com</a></li>
+            <li><b>Телефон:</b> <a href="tel:+79922676767" class="contact-link">+7 (992) 267 67 67</a></li>
+        </ul>
+        <a href="mailto:trainingcs2@gmail.com" class="btn btn-black">Написать на Email</a>
+    </div>
+
+    <!-- Футер -->
+    <div class="footer">
+        Проект по информатике | 9Б класс
+        <div class="authors">
+            Авторы работы: Байдин Ренат & Бирганов Самир
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleAccordion() {
+        const header = document.querySelector('.accordion-header');
+        const content = document.getElementById('graphicsContent');
+        header.classList.toggle('active');
+        content.classList.toggle('active');
+    }
+
+    function toggleTheme() {
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        
+        document.body.classList.toggle('light-theme');
+        const isLight = document.body.classList.contains('light-theme');
+        
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        
+        if (isLight) {
+            themeIcon.textContent = '🌙';
+            themeText.textContent = 'Тёмная тема';
+        } else {
+            themeIcon.textContent = '☀️';
+            themeText.textContent = 'Светлая тема';
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('theme');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+
+        if (savedTheme === 'light') {
+            document.body.classList.add('light-theme');
+            if (themeIcon && themeText) {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Тёмная тема';
             }
-            document.body.removeChild(textarea);
         }
-
-        // Display Notification Toast
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            toast.innerText = message;
-            toast.classList.remove('opacity-0');
-            toast.classList.add('opacity-100');
-            
-            setTimeout(() => {
-                toast.classList.remove('opacity-100');
-                toast.classList.add('opacity-0');
-            }, 2000);
-        }
-
-        // Theme Toggle Handler
-        function toggleTheme() {
-            const isLight = document.body.classList.toggle('light-theme');
-            localStorage.setItem('cs2_theme', isLight ? 'light' : 'dark');
-            updateThemeUI(isLight);
-        }
-
-        function updateThemeUI(isLight) {
-            const icon = document.getElementById('themeIcon');
-            const text = document.getElementById('themeText');
-            if (isLight) {
-                icon.textContent = '🌙';
-                text.textContent = 'Тёмная тема';
-            } else {
-                icon.textContent = '☀️';
-                text.textContent = 'Светлая тема';
-            }
-        }
-
-        // Initialize saved theme on load
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('cs2_theme');
-            if (savedTheme === 'light') {
-                document.body.classList.add('light-theme');
-                updateThemeUI(true);
-            }
-        });
-    </script>
+    });
+</script>
 
 </body>
 </html>
-```
