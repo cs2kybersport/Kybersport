@@ -15,10 +15,13 @@
         /* Тёмная тема (по умолчанию) */
         body {
             background-color: #0b0f19;
+            /* Фоновые обои CS2 с топографическим рисунком */
             background-image: 
-                radial-gradient(at 0% 0%, rgba(249, 115, 22, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(249, 115, 22, 0.15) 0px, transparent 50%),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 86c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm28-65c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm23-11c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zm-6 60c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zm29 22c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z' fill='%23f97316' fill-opacity='0.12' fill-rule='evenodd'/%3E%3C/svg%3E");
+                radial-gradient(rgba(11, 15, 25, 0.45), rgba(11, 15, 25, 0.85)),
+                url("https://wallpapers.com/images/hd/cs2-orange-topography-pattern-8292837.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             background-attachment: fixed;
             color: #ffffff;
             display: flex;
@@ -29,13 +32,16 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Светлая тема (фон остается топографическим/узорчатым) */
+        /* Светлая тема */
         body.light-theme {
-            background-color: #e2e8f0;
+            background-color: #cbd5e1;
+            /* В светлой теме те же обои, но со светлым осветляющим градиентом */
             background-image: 
-                radial-gradient(at 0% 0%, rgba(234, 88, 12, 0.12) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(234, 88, 12, 0.12) 0px, transparent 50%),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 86c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm28-65c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm23-11c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zm-6 60c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zm29 22c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z' fill='%23ea580c' fill-opacity='0.18' fill-rule='evenodd'/%3E%3C/svg%3E");
+                radial-gradient(rgba(241, 245, 249, 0.65), rgba(203, 213, 225, 0.85)),
+                url("https://wallpapers.com/images/hd/cs2-orange-topography-pattern-8292837.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             background-attachment: fixed;
             color: #0f172a;
         }
@@ -55,8 +61,9 @@
             gap: 8px;
             margin: 0 auto 20px auto;
             padding: 8px 18px;
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(15, 23, 42, 0.65);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid #f97316;
             border-radius: 20px;
             color: #ffffff;
@@ -73,7 +80,7 @@
         }
 
         body.light-theme .theme-toggle {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.75);
             color: #0f172a;
             border-color: #ea580c;
         }
@@ -91,10 +98,12 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: color 0.3s;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
         }
 
         body.light-theme .header h1 {
             color: #0f172a;
+            text-shadow: none;
         }
 
         .header h1 span {
@@ -103,13 +112,15 @@
 
         .header p {
             font-size: 13px;
-            color: #cbd5e1;
+            color: #e2e8f0;
             font-weight: 600;
             transition: color 0.3s;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.6);
         }
 
         body.light-theme .header p {
-            color: #475569;
+            color: #334155;
+            text-shadow: none;
         }
 
         .section-title {
@@ -121,32 +132,34 @@
             border-bottom: 2px solid #f97316;
             text-transform: uppercase;
             letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         body.light-theme .section-title {
             color: #ea580c;
             border-bottom-color: #ea580c;
+            text-shadow: none;
         }
 
-        /* Полупрозрачные карточки (фон просвечивает) */
+        /* ПОЛУПРОЗРАЧНЫЕ КАРТОЧКИ (через них видны обои) */
         .card {
-            background: rgba(20, 27, 45, 0.55);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-radius: 14px;
             padding: 16px;
             margin-bottom: 16px;
             border: 1px solid rgba(249, 115, 22, 0.35);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
         }
 
         body.light-theme .card {
             background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-color: rgba(234, 88, 12, 0.4);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             color: #0f172a;
         }
 
@@ -173,7 +186,7 @@
 
         .card p, .card ul {
             font-size: 13px;
-            color: #e2e8f0;
+            color: #f1f5f9;
             line-height: 1.5;
             margin-bottom: 10px;
             transition: color 0.3s;
@@ -268,7 +281,7 @@
         .price-tag {
             color: #f97316;
             font-weight: 800;
-            background: rgba(249, 115, 22, 0.15);
+            background: rgba(249, 115, 22, 0.2);
             padding: 4px 10px;
             border-radius: 6px;
             border: 1px solid rgba(249, 115, 22, 0.5);
@@ -290,7 +303,7 @@
         }
 
         body.light-theme .code-box {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             color: #ea580c;
             border-color: rgba(234, 88, 12, 0.5);
         }
@@ -319,7 +332,7 @@
         }
 
         .btn-black {
-            background: rgba(15, 23, 42, 0.75);
+            background: rgba(15, 23, 42, 0.8);
             color: #ffffff;
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: none;
@@ -353,7 +366,7 @@
         .footer {
             text-align: center;
             font-size: 12px;
-            color: #cbd5e1;
+            color: #e2e8f0;
             margin-top: 25px;
             border-top: 1px solid rgba(249, 115, 22, 0.4);
             padding-top: 20px;
@@ -362,7 +375,7 @@
         }
 
         body.light-theme .footer {
-            color: #475569;
+            color: #334155;
         }
 
         .authors {
@@ -370,7 +383,7 @@
             font-size: 13px;
             color: #ffffff;
             font-weight: 800;
-            background: rgba(20, 27, 45, 0.55);
+            background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(10px);
             padding: 10px;
             border-radius: 8px;
@@ -380,7 +393,7 @@
         }
 
         body.light-theme .authors {
-            background: rgba(255, 255, 255, 0.55);
+            background: rgba(255, 255, 255, 0.65);
             color: #0f172a;
             border-color: rgba(234, 88, 12, 0.4);
         }
@@ -594,4 +607,4 @@
 </script>
 
 </body>
-</html>
+    </html>
