@@ -22,6 +22,7 @@
             align-items: flex-start;
             padding: 20px 10px;
             min-height: 100vh;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         /* Настройка фона для ПК */
@@ -33,11 +34,59 @@
             }
         }
 
+        /* Светлая тема */
+        body.light-theme {
+            background: linear-gradient(rgba(241, 245, 249, 0.85), rgba(241, 245, 249, 0.85)), 
+                        url("https://upload.wikimedia.org/wikipedia/ru/d/db/Counter-strike_2.jpg") no-repeat center center fixed;
+            background-size: cover;
+            color: #0f172a;
+        }
+
+        @media (min-width: 900px) {
+            body.light-theme {
+                background: linear-gradient(rgba(241, 245, 249, 0.85), rgba(241, 245, 249, 0.85)), 
+                            url("https://i.ytimg.com/vi/3bCj7XWvdsQ/maxresdefault.jpg") no-repeat center center fixed;
+                background-size: cover;
+            }
+        }
+
         .container {
             width: 100%;
             max-width: 450px;
             background: transparent;
             padding: 10px;
+        }
+
+        /* Кнопка переключения темы */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 0 auto 20px auto;
+            padding: 8px 16px;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(8px);
+            border: 1px solid #f97316;
+            border-radius: 20px;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+        }
+
+        body.light-theme .theme-toggle {
+            background: #ffffff;
+            color: #0f172a;
+            border-color: #ea580c;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .header {
@@ -53,6 +102,12 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            transition: color 0.3s;
+        }
+
+        body.light-theme .header h1 {
+            color: #0f172a;
+            text-shadow: none;
         }
 
         .header h1 span {
@@ -63,6 +118,11 @@
             font-size: 13px;
             color: #cbd5e1;
             font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        body.light-theme .header p {
+            color: #475569;
         }
 
         .section-title {
@@ -77,6 +137,10 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
+        body.light-theme .section-title {
+            text-shadow: none;
+        }
+
         /* Прозрачные карточки с фоном из затемнения */
         .card {
             background: rgba(15, 23, 42, 0.65);
@@ -86,6 +150,14 @@
             margin-bottom: 16px;
             border: 1px solid rgba(249, 115, 22, 0.4);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: background 0.3s, border 0.3s, color 0.3s;
+        }
+
+        body.light-theme .card {
+            background: rgba(255, 255, 255, 0.85);
+            border-color: rgba(234, 88, 12, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            color: #1e293b;
         }
 
         .card img {
@@ -102,6 +174,11 @@
             color: #ffffff;
             margin-bottom: 8px;
             font-weight: 800;
+            transition: color 0.3s;
+        }
+
+        body.light-theme .card h2 {
+            color: #0f172a;
         }
 
         .card p, .card ul {
@@ -109,6 +186,12 @@
             color: #e2e8f0;
             line-height: 1.5;
             margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        body.light-theme .card p,
+        body.light-theme .card ul {
+            color: #334155;
         }
 
         .card ul {
@@ -131,45 +214,23 @@
             text-transform: uppercase;
         }
 
-        /* Сворачиваемая плашка (Accordion / Accordion Details) */
-        .accordion-card {
-            background: rgba(15, 23, 42, 0.65);
-            backdrop-filter: blur(8px);
-            border-radius: 14px;
-            margin-bottom: 16px;
-            border: 1px solid rgba(249, 115, 22, 0.5);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
+        /* Аккордеон / Выпадающая плашка */
         .accordion-header {
-            width: 100%;
-            padding: 16px;
-            background: transparent;
-            color: #ffffff;
-            border: none;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 16px;
-            font-weight: 800;
             cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            text-align: left;
+            user-select: none;
         }
 
-        .accordion-header:hover {
-            background: rgba(249, 115, 22, 0.1);
+        .accordion-header h2 {
+            margin-bottom: 0;
         }
 
         .accordion-icon {
-            width: 24px;
-            height: 24px;
-            fill: #f97316;
+            font-size: 16px;
+            color: #f97316;
             transition: transform 0.3s ease;
-            flex-shrink: 0;
         }
 
         .accordion-header.active .accordion-icon {
@@ -180,28 +241,14 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
-            padding: 0 16px;
         }
 
-        .accordion-content.show {
-            max-height: 2000px; /* Достаточно для всего содержимого */
-            padding: 0 16px 16px 16px;
-            transition: max-height 0.5s ease-in-out;
-        }
-
-        .sub-card {
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 10px;
-            padding: 12px;
-            margin-bottom: 12px;
-            border: 1px solid rgba(249, 115, 22, 0.25);
-        }
-
-        .sub-card h3 {
-            font-size: 14px;
-            color: #f97316;
-            margin-bottom: 6px;
-            font-weight: 700;
+        .accordion-content.active {
+            max-height: 1000px;
+            transition: max-height 0.4s ease-in-out;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(249, 115, 22, 0.3);
         }
 
         /* Прайс-лист */
@@ -218,6 +265,10 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             font-size: 13px;
             font-weight: 600;
+        }
+
+        body.light-theme .price-item {
+            border-bottom-color: rgba(0, 0, 0, 0.1);
         }
 
         .price-item:last-child {
@@ -245,9 +296,15 @@
             border: 1px solid rgba(249, 115, 22, 0.5);
             text-align: center;
             font-weight: bold;
+            transition: background 0.3s, color 0.3s;
         }
 
-        /* Кнопки */
+        body.light-theme .code-box {
+            background: rgba(241, 245, 249, 0.9);
+            color: #ea580c;
+            border-color: rgba(234, 88, 12, 0.4);
+        }
+
         .btn {
             display: block;
             width: 100%;
@@ -264,7 +321,6 @@
             transition: all 0.2s;
             margin-bottom: 8px;
             box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
-            cursor: pointer;
         }
 
         .btn:hover {
@@ -279,6 +335,11 @@
             box-shadow: none;
         }
 
+        body.light-theme .btn-black {
+            background: #0f172a;
+            color: #ffffff;
+        }
+
         .btn-black:hover {
             background: rgba(30, 41, 59, 0.9);
         }
@@ -291,16 +352,6 @@
 
         .btn-yt:hover {
             background: #cc0000;
-        }
-
-        .btn-tg {
-            background: #229ED9;
-            color: #ffffff;
-            box-shadow: 0 4px 12px rgba(34, 158, 217, 0.3);
-        }
-
-        .btn-tg:hover {
-            background: #1d8ac0;
         }
 
         .contact-link {
@@ -318,6 +369,11 @@
             padding-top: 20px;
             line-height: 1.6;
             font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        body.light-theme .footer {
+            color: #475569;
         }
 
         .authors {
@@ -330,12 +386,24 @@
             border-radius: 8px;
             border: 1px solid rgba(249, 115, 22, 0.4);
             text-transform: uppercase;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.light-theme .authors {
+            background: rgba(255, 255, 255, 0.85);
+            color: #0f172a;
+            border-color: rgba(234, 88, 12, 0.4);
         }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <!-- Кнопка смены темы -->
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+        <span id="themeIcon">☀️</span> <span id="themeText">Светлая тема</span>
+    </button>
+
     <div class="header">
         <h1>CS2 <span>CYBERHUB</span></h1>
         <p>Парный проект по информатике | Настройка, конфиги и аналитика</p>
@@ -365,51 +433,34 @@
         </ul>
     </div>
 
-    <!-- Интерактивная плашка: Настройки графики -->
-    <div class="section-title">Инструкции и гайды</div>
+    <!-- Инструкция -->
+    <div class="section-title">Инструкции по настройке</div>
 
-    <div class="accordion-card">
-        <button class="accordion-header" id="graphicsToggle">
-            <span>⚙️ Настройки графики</span>
-            <svg class="accordion-icon" viewBox="0 0 24 24">
-                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/>
-            </svg>
-        </button>
+    <div class="card">
+        <h2>1. Параметры запуска Steam</h2>
+        <p>Нажмите ПКМ на CS2 в Steam -> Свойства -> Параметры запуска:</p>
+        <div class="code-box">-novid -high -threads 8 +cl_cmdrate 128 +cl_updaterate 128 -nojoy +fps_max 0</div>
+    </div>
 
+    <!-- Выпадающая плашка настройки графики -->
+    <div class="card">
+        <div class="accordion-header" onclick="toggleAccordion()">
+            <h2>2. Настройки графики</h2>
+            <span class="accordion-icon">▼</span>
+        </div>
         <div class="accordion-content" id="graphicsContent">
-            <!-- 1. Параметры запуска -->
-            <div class="sub-card">
-                <h3>1. Параметры запуска Steam</h3>
-                <p>Откройте Steam ➔ ПКМ на Counter-Strike 2 ➔ Свойства ➔ Параметры запуска:</p>
-                <div class="code-box">-novid -high -threads 8 +cl_cmdrate 128 +cl_updaterate 128 -nojoy +fps_max 0</div>
-            </div>
-
-            <!-- 2. Разрешение 4:3 Stretched -->
-            <div class="sub-card">
-                <h3>2. Разрешение и 4:3 Stretched</h3>
-                <p>Настройка растянутого формата без чёрных полос по бокам:</p>
-                <ul>
-                    <li><b>NVIDIA:</b> Панель управления ➔ Регулировка размера и положения рабочего стола ➔ Масштабирование: <b>«Во весь экран»</b> ➔ Выполнить масштабирование на: <b>ГП</b>.</li>
-                    <li><b>AMD:</b> AMD Software ➔ Дисплей ➔ Режим масштабирования: <b>«Полная панель»</b>.</li>
-                    <li>В CS2 выберите формат <b>4:3</b>, разрешение <b>1280x960</b> / <b>1440x1080</b> и режим <b>«На весь экран»</b>.</li>
-                </ul>
-            </div>
-
-            <!-- 3. Внутриигровые настройки графики CS2 -->
-            <div class="sub-card">
-                <h3>3. Графика в CS2 для максимального FPS</h3>
-                <ul>
-                    <li><b>Повышенный контраст игроков:</b> Вкл</li>
-                    <li><b>Сглаживание:</b> 2x MSAA или 4x MSAA</li>
-                    <li><b>Общее качество теней:</b> Низкое или Среднее</li>
-                    <li><b>Детализация моделей и текстур:</b> Низкое</li>
-                    <li><b>Детализация шейдеров:</b> Низкое</li>
-                    <li><b>Детализация частиц:</b> Низкое</li>
-                    <li><b>Глобальное затенение:</b> Выкл</li>
-                    <li><b>NVIDIA Reflex Low Latency:</b> Вкл + Буст</li>
-                    <li><b>FidelityFX Super Resolution (FSR):</b> Выключено (Наивысшее качество)</li>
-                </ul>
-            </div>
+            <p>Рекомендуемые киберспортивные параметры графики для высокого FPS и максимальной чёткости:</p>
+            <ul>
+                <li><b>Разрешение:</b> 1280x960 или 1440x1080 (4:3 Stretched)</li>
+                <li><b>Режим дисплея:</b> На весь экран</li>
+                <li><b>Повышенный контраст игроков:</b> Включено</li>
+                <li><b>Сглаживание:</b> 4x MSAA (или 2x MSAA)</li>
+                <li><b>Качество теней:</b> Низкое / Среднее</li>
+                <li><b>Детализация моделей и текстур:</b> Низкое</li>
+                <li><b>Детализация шейдеров и частиц:</b> Низкое</li>
+                <li><b>Глобальное затененение (Ambient Occlusion):</b> Выключено</li>
+                <li><b>NVIDIA Reflex Low Latency:</b> Включено + Буст</li>
+            </ul>
         </div>
     </div>
 
@@ -496,11 +547,9 @@
     <div class="card">
         <h2>Связаться с нами</h2>
         <ul>
-            <li><b>Telegram канал:</b> <a href="https://t.me/cs2kybersport" target="_blank" class="contact-link">t.me/cs2kybersport</a></li>
             <li><b>Email:</b> <a href="mailto:trainingcs2@gmail.com" class="contact-link">trainingcs2@gmail.com</a></li>
             <li><b>Телефон:</b> <a href="tel:+79922676767" class="contact-link">+7 (992) 267 67 67</a></li>
         </ul>
-        <a href="https://t.me/cs2kybersport" target="_blank" class="btn btn-tg">Наш Telegram Канал</a>
         <a href="mailto:trainingcs2@gmail.com" class="btn btn-black">Написать на Email</a>
     </div>
 
@@ -513,19 +562,49 @@
     </div>
 </div>
 
-<!-- JavaScript для анимации сворачиваемой плашки -->
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const toggleBtn = document.getElementById('graphicsToggle');
+    // Переключение анимированной плашки аккордеона
+    function toggleAccordion() {
+        const header = document.querySelector('.accordion-header');
         const content = document.getElementById('graphicsContent');
+        header.classList.toggle('active');
+        content.classList.toggle('active');
+    }
 
-        toggleBtn.addEventListener('click', function() {
-            toggleBtn.classList.toggle('active');
-            content.classList.toggle('show');
-        });
+    // Переключение темы и сохранение состояния в localStorage
+    function toggleTheme() {
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        
+        document.body.classList.toggle('light-theme');
+        const isLight = document.body.classList.contains('light-theme');
+        
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        
+        if (isLight) {
+            themeIcon.textContent = '🌙';
+            themeText.textContent = 'Тёмная тема';
+        } else {
+            themeIcon.textContent = '☀️';
+            themeText.textContent = 'Светлая тема';
+        }
+    }
+
+    // Восстановление выбранной темы при загрузке страницы
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('theme');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+
+        if (savedTheme === 'light') {
+            document.body.classList.add('light-theme');
+            if (themeIcon && themeText) {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Тёмная тема';
+            }
+        }
     });
 </script>
 
 </body>
 </html>
-```
