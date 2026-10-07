@@ -284,14 +284,11 @@
             border: 1px solid rgba(249, 115, 22, 0.5);
             cursor: pointer;
             transition: all 0.2s;
-            text-decoration: none;
-            display: inline-block;
         }
 
         .price-tag:hover {
             background: #f97316;
             color: #fff;
-            transform: scale(1.05);
         }
 
         .code-box {
@@ -371,42 +368,68 @@
             color: #0f172a;
         }
 
-        body.light-theme .copy-btn:hover {
-            background: #ea580c;
-            color: #fff;
-        }
-
         .sum-buttons {
             display: flex;
             gap: 6px;
             flex-wrap: wrap;
-            margin: 10px 0 14px 0;
+            margin: 10px 0;
         }
 
         .sum-btn {
             flex: 1;
-            min-width: 80px;
-            padding: 10px 6px;
+            min-width: 70px;
+            padding: 8px 4px;
             background: rgba(15, 23, 42, 0.8);
             border: 1px solid rgba(249, 115, 22, 0.5);
             color: #fff;
-            border-radius: 8px;
+            border-radius: 6px;
             font-size: 12px;
-            font-weight: 800;
+            font-weight: 700;
             cursor: pointer;
             text-align: center;
-            text-decoration: none;
             transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .sum-btn:hover {
             background: #f97316;
             border-color: #f97316;
             color: #fff;
-            transform: translateY(-2px);
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #e2e8f0;
+            text-transform: uppercase;
+        }
+
+        body.light-theme .input-group label {
+            color: #0f172a;
+        }
+
+        .custom-input, .custom-select {
+            width: 100%;
+            padding: 10px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(249, 115, 22, 0.5);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        body.light-theme .custom-input, body.light-theme .custom-select {
+            background: rgba(255, 255, 255, 0.8);
+            color: #0f172a;
+            border-color: rgba(234, 88, 12, 0.5);
         }
 
         .btn {
@@ -440,11 +463,6 @@
             box-shadow: none;
         }
 
-        body.light-theme .btn-black {
-            background: rgba(15, 23, 42, 0.85);
-            color: #fff;
-        }
-
         .btn-black:hover {
             background: rgba(30, 41, 59, 0.9);
         }
@@ -453,10 +471,6 @@
             background: red;
             color: #fff;
             box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
-        }
-
-        .btn-yt:hover {
-            background: #cc0000;
         }
 
         .btn-ymoney {
@@ -475,18 +489,10 @@
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
 
-        .btn-ckassa:hover {
-            background: #1d4ed8;
-        }
-
         .contact-link {
             color: #f97316;
             text-decoration: none;
             font-weight: 800;
-        }
-
-        body.light-theme .contact-link {
-            color: #ea580c;
         }
 
         .footer {
@@ -515,13 +521,11 @@
             border-radius: 8px;
             border: 1px solid rgba(249, 115, 22, 0.4);
             text-transform: uppercase;
-            transition: all 0.3s;
         }
 
         body.light-theme .authors {
             background: rgba(255, 255, 255, 0.5);
             color: #0f172a;
-            border-color: rgba(234, 88, 12, 0.4);
         }
     </style>
 </head>
@@ -539,38 +543,27 @@
         <div class="section-title">Прайс-лист услуг</div>
         <div class="card">
             <h2>Настройка ПК и CS2 под ключ</h2>
+            <p>Нажмите на цену, чтобы сразу перейти к оплате нужной суммы:</p>
             <ul class="price-list">
-                <li class="price-item">
-                    <span>Оптимизация Windows &amp; NVIDIA/AMD</span>
-                    <button class="price-tag" onclick="payViaYoomoney(500)">500 ₽</button>
-                </li>
-                <li class="price-item">
-                    <span>Параметры запуска Steam &amp; CS2</span>
-                    <button class="price-tag" onclick="payViaYoomoney(300)">300 ₽</button>
-                </li>
-                <li class="price-item">
-                    <span>Кастомное разрешение 4:3 stretched</span>
-                    <button class="price-tag" onclick="payViaYoomoney(250)">250 ₽</button>
-                </li>
-                <li class="price-item">
-                    <span>Полный сетап (ПК + CS2 + Прицел/Сенса)</span>
-                    <button class="price-tag" onclick="payViaYoomoney(900)">900 ₽</button>
-                </li>
+                <li class="price-item"><span>Оптимизация Windows &amp; NVIDIA/AMD</span><span class="price-tag" onclick="payInstant(500)">500 ₽</span></li>
+                <li class="price-item"><span>Параметры запуска Steam &amp; CS2</span><span class="price-tag" onclick="payInstant(300)">300 ₽</span></li>
+                <li class="price-item"><span>Кастомное разрешение 4:3 stretched</span><span class="price-tag" onclick="payInstant(250)">250 ₽</span></li>
+                <li class="price-item"><span>Полный сетап (ПК + CS2 + Прицел/Сенса)</span><span class="price-tag" onclick="payInstant(900)">900 ₽</span></li>
             </ul>
         </div>
 
         <div class="section-title">Оплата и Реквизиты</div>
         <div class="card">
-            <h2>Оплата услуг через СБП (ЮMoney)</h2>
-            <p>Нажмите на нужную сумму для моментального перехода к оплате в ЮMoney:</p>
+            <h2>Быстрый перевод через ЮMoney / СБП</h2>
+            <p>Нажмите на быструю сумму или введите свою — перекинет прямо на форму перевода с вбитым номером:</p>
             <ul class="payment-list">
                 <li class="payment-row">
-                    <span>📱 Номер телефона (СБП):</span>
+                    <span>📱 Номер телефона:</span>
                     <span><strong class="payment-val" id="phoneNum">+7 (992) 237-06-72</strong><button class="copy-btn" onclick="copyPhone()">Копировать</button></span>
                 </li>
                 <li class="payment-row">
-                    <span>🏦 Банк получателя:</span>
-                    <span class="payment-val">ЮMoney (YooMoney)</span>
+                    <span>🏦 Банк:</span>
+                    <span class="payment-val">ЮMoney (СБП)</span>
                 </li>
                 <li class="payment-row">
                     <span>👤 Получатель:</span>
@@ -578,23 +571,52 @@
                 </li>
             </ul>
 
-            <!-- Быстрые кнопки мгновенного перехода в ЮMoney -->
-            <div class="sum-buttons">
-                <button class="sum-btn" onclick="payViaYoomoney(250)">Оплатить 250 ₽</button>
-                <button class="sum-btn" onclick="payViaYoomoney(300)">Оплатить 300 ₽</button>
-                <button class="sum-btn" onclick="payViaYoomoney(500)">Оплатить 500 ₽</button>
-                <button class="sum-btn" onclick="payViaYoomoney(900)">Оплатить 900 ₽</button>
+            <!-- Быстрые кнопки сумм -->
+            <div class="input-group">
+                <label>Быстрый выбор суммы (сразу откроет оплату):</label>
+                <div class="sum-buttons">
+                    <button class="sum-btn" onclick="payInstant(250)">250 ₽</button>
+                    <button class="sum-btn" onclick="payInstant(300)">300 ₽</button>
+                    <button class="sum-btn" onclick="payInstant(500)">500 ₽</button>
+                    <button class="sum-btn" onclick="payInstant(900)">900 ₽</button>
+                </div>
             </div>
 
-            <button class="btn btn-ymoney" onclick="payViaYoomoney(500)">Перейти к оплате в ЮMoney (500 ₽)</button>
+            <!-- Ввод произвольной суммы -->
+            <div class="input-group">
+                <label>Или введите свою сумму (₽):</label>
+                <input type="number" id="ymAmount" class="custom-input" placeholder="Введите сумму..." value="500">
+            </div>
+
+            <button onclick="payCustom()" class="btn btn-ymoney">Перевести на номер +79922370672</button>
         </div>
 
         <div class="section-title">Пополнение игр (CKassa)</div>
         <div class="card">
             <h2>Оплата и Донат в игры</h2>
-            <p>Быстрый переход к пополнению баланса через платёжный шлюз CKassa:</p>
+            <p>Переход на шлюз CKassa с автоподставлением данных:</p>
             
-            <a href="https://game.ckassa.ru/pay" target="_blank" class="btn btn-ckassa">Перейти к оплате игр на CKassa</a>
+            <div class="input-group">
+                <label>Выберите игру:</label>
+                <select id="gameSelect" class="custom-select">
+                    <option value="steam">Steam (Пополнение баланса)</option>
+                    <option value="pubg">PUBG Mobile (UC)</option>
+                    <option value="brawlstars">Brawl Stars (Гемы/Пасс)</option>
+                    <option value="genshin">Genshin Impact (Кристаллы)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Логин / Player ID:</label>
+                <input type="text" id="gameAccountId" class="custom-input" placeholder="Введите Ваш ID или логин...">
+            </div>
+
+            <div class="input-group">
+                <label>Сумма пополнения (₽):</label>
+                <input type="number" id="gameAmount" class="custom-input" placeholder="Введите сумму..." value="100">
+            </div>
+
+            <button class="btn btn-ckassa" onclick="payGameCkassa()">Оплатить через CKassa</button>
         </div>
 
         <div class="section-title">Инструкции по настройке</div>
@@ -610,16 +632,13 @@
                 <span class="accordion-icon">▼</span>
             </div>
             <div class="accordion-content" id="graphicsContent">
-                <p>Рекомендуемые киберспортивные параметры графики для высокого FPS и максимальной чёткости:</p>
+                <p>Рекомендуемые киберспортивные параметры графики для высокого FPS:</p>
                 <ul>
                     <li><b>Разрешение:</b> 1280x960 или 1440x1080 (4:3 Stretched)</li>
                     <li><b>Режим дисплея:</b> На весь экран</li>
                     <li><b>Повышенный контраст игроков:</b> Включено</li>
-                    <li><b>Сглаживание:</b> 4x MSAA (или 2x MSAA)</li>
+                    <li><b>Сглаживание:</b> 4x MSAA</li>
                     <li><b>Качество теней:</b> Низкое / Среднее</li>
-                    <li><b>Детализация моделей и текстур:</b> Низкое</li>
-                    <li><b>Детализация шейдеров и частиц:</b> Низкое</li>
-                    <li><b>Глобальное затененение (Ambient Occlusion):</b> Выключено</li>
                     <li><b>NVIDIA Reflex Low Latency:</b> Включено + Буст</li>
                 </ul>
             </div>
@@ -630,80 +649,35 @@
             <span class="badge">Team Vitality</span>
             <img src="https://img-cdn.hltv.org/playerbodyshot/blnoWFtH8GUJZjhr8H0P4u.png?bg=3e4c54&amp;h=800&amp;ixlib=java-2.1.0&amp;rect=121%2C8%2C467%2C467&amp;w=800&amp;s=e3a0e62125c9cf3f44077e5c0792687a" alt="ZywOo">
             <h2>ZywOo (Mathieu Herbaut)</h2>
-            <p>Легендарный снайпер и многократный MVP турниров. Подробные параметры:</p>
+            <p>Параметры:</p>
             <ul>
                 <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 2.0 | <b>eDPI:</b> 800</li>
-                <li><b>Zoom Sensitivity:</b> 1.0</li>
-                <li><b>Разрешение:</b> 1280x960 (4:3 Stretched, 240Hz)</li>
-                <li><b>Прицел:</b> Зеленый статичный крест</li>
+                <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
             </ul>
             <div class="code-box">CSGO-2zK3P-3O3U3-k8mOq-s6Pz5-983yC</div>
             <a href="https://www.hltv.org/player/11893/zywoo" target="_blank" class="btn">Профиль ZywOo на HLTV</a>
-            <a href="https://prosettings.net/players/zywoo/" target="_blank" class="btn btn-black">Полный конфиг ZywOo</a>
         </div>
 
         <div class="card">
-            <span class="badge">m0NESY / Falcons</span>
+            <span class="badge">Team Falcons</span>
             <img src="https://img.championat.com/lpv1nwIFuogZ-DFpIvJArHEJrL638I7pKYyBK5-3BCo/p(w:1350/h:900)/news/big/i/s/team-falcons-s-m0nesy-proshla-v-final-iem-cologne-major-2026-v-cs-2_1781988221468219053.jpg" alt="m0NESY">
             <h2>m0NESY (Ilya Osipov)</h2>
-            <p>Феноменальный снайпер CS2. Невероятная скорость реакции, микро-механика и реактивные флики с AWP.</p>
+            <p>Параметры:</p>
             <ul>
-                <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 2.0 | <b>eDPI:</b> 800</li>
-                <li><b>Zoom Sensitivity:</b> 1.0</li>
+                <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 2.0</li>
                 <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
             </ul>
             <div class="code-box">CSGO-wA43v-3O3U3-k8mOq-s6Pz5-983yC</div>
             <a href="https://www.hltv.org/player/19230/m0nesy" target="_blank" class="btn">Профиль m0NESY на HLTV</a>
-            <a href="https://prosettings.net/players/m0nesy/" target="_blank" class="btn btn-black">Полный конфиг m0NESY</a>
         </div>
 
-        <div class="card">
-            <span class="badge">Team Spirit</span>
-            <img src="https://img-cdn.hltv.org/gallerypicture/puqgaF3CcnGqdXYczXVNit.jpg?auto=compress&amp;ixlib=java-2.1.0&amp;q=75&amp;w=1600&amp;s=37fe05ad8ebc37b787005875d995419a" alt="donk">
-            <h2>donk (Danil Kryshkovets)</h2>
-            <p>Молодой энтри-рифлер с космическим импактом и идеальным спрей-контролем.</p>
-            <ul>
-                <li><b>DPI:</b> 800 | <b>Sensitivity:</b> 1.25</li>
-                <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
-            </ul>
-            <div class="code-box">CSGO-2S4mZ-A8e6z-p3j38-z8d8q-983yC</div>
-            <a href="https://www.hltv.org/player/21167/donk" target="_blank" class="btn">Профиль donk на HLTV</a>
-        </div>
-
-        <div class="card">
-            <span class="badge">Legend</span>
-            <img src="https://images.cybersport.ru/images/as-is/plain/4b/4bdd623d-d92c-4555-bf5e-0bf652bbfdf8.jpg" alt="s1mple">
-            <h2>s1mple (Oleksandr Kostyliev)</h2>
-            <p>Легенда Counter-Strike с лучшей исторической статистикой на про-сцене.</p>
-            <ul>
-                <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 3.09</li>
-                <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
-            </ul>
-            <div class="code-box">CSGO-iG34v-8e2z3-m84u3-z8d8q-983yC</div>
-            <a href="https://www.hltv.org/player/7998/s1mple" target="_blank" class="btn">Профиль s1mple на HLTV</a>
-        </div>
-
-        <div class="section-title">Комплекс тренировок</div>
-        <div class="card">
-            <h2>Тренировка стрельбы и механики</h2>
-            <ul>
-                <li><b>Aim Botz / KSTS / CS2 AIM:</b> 500 наводок и фликов с AK-47 и M4A1-S.</li>
-                <li><b>Prefire Maps (Mirage Course):</b> Чек углов и отработка быстрых пиков.</li>
-                <li><b>Контр-стрейфы:</b> Мгновенная остановка перед выстрелом.</li>
-                <li><b>Nades Training (Astralis Maps):</b> Изучение смоков, молотовых и флешек.</li>
-            </ul>
-            <a href="https://youtu.be/dXiMLi6YrZw?si=G3lCoMAQ2u4w4E4G" target="_blank" class="btn btn-yt">Лучшие карты для тренировок в CS 2 (YouTube)</a>
-            <a href="https://youtu.be/dBE6m4KWi5o?si=7N4XBeXc6Cqaq1yP" target="_blank" class="btn btn-black">Гайд по контр-стрейфам (YouTube)</a>
-        </div>
-
-        <div class="section-title">Контакты и заказы</div>
+        <div class="section-title">Контакты</div>
         <div class="card">
             <h2>Связаться с нами</h2>
             <ul>
                 <li><b>Email:</b> <a href="mailto:trainingcs2cybersport@gmail.com" class="contact-link">trainingcs2cybersport@gmail.com</a></li>
                 <li><b>Телефон:</b> <a href="tel:+79922370672" class="contact-link">+7 (992) 237-06-72</a></li>
             </ul>
-            <a href="mailto:trainingcs2cybersport@gmail.com" class="btn btn-black">Написать на Email</a>
         </div>
 
         <div class="footer">
@@ -713,11 +687,31 @@
     </div>
 
     <script>
-        // Функция мгновенного редиректа в ЮMoney с нужной суммой и номером телефона
-        function payViaYoomoney(amount) {
-            const phone = "79922370672";
-            const url = `https://yoomoney.ru/transfer/quickpay?receiver=${phone}&sum=${amount}&comment=CS2_CYBERHUB_Service`;
+        const PHONE_NUMBER = "79922370672";
+
+        // Функция моментальной оплаты при клике на сумму/услугу
+        function payInstant(sum) {
+            const url = `https://yoomoney.ru/transfer/quickpay?receiver=${PHONE_NUMBER}&sum=${sum}`;
             window.open(url, '_blank');
+        }
+
+        // Оплата произвольной суммы из инпута
+        function payCustom() {
+            const sum = document.getElementById("ymAmount").value || 100;
+            payInstant(sum);
+        }
+
+        // Оплата через CKassa
+        function payGameCkassa() {
+            const accountId = document.getElementById("gameAccountId").value;
+            const amount = document.getElementById("gameAmount").value;
+            
+            if (!accountId) {
+                alert("Пожалуйста, введите Ваш ID или логин!");
+                return;
+            }
+            
+            window.open(`https://game.ckassa.ru/pay?account=${encodeURIComponent(accountId)}&amount=${amount}`, '_blank');
         }
 
         function toggleAccordion() {
@@ -745,9 +739,7 @@
         function copyPhone() {
             const e = document.getElementById("phoneNum").innerText;
             navigator.clipboard.writeText(e).then(() => {
-                alert("Номер телефона скопирован в буфер обмена!");
-            }).catch((e) => {
-                console.error("Ошибка копирования: ", e);
+                alert("Номер телефона скопирован!");
             });
         }
 
@@ -766,4 +758,3 @@
     </script>
 </body>
 </html>
-```
