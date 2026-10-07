@@ -13,17 +13,14 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
-        /* --- ТЁМНАЯ ТЕМА (ПО УМОЛЧАНИЮ) --- */
         body {
             background-color: #0b0f19;
-            background-image: 
-                linear-gradient(rgba(11, 15, 25, 0.65), rgba(11, 15, 25, 0.85)),
-                url("https://i.ytimg.com/vi/3bCj7XWvdsQ/maxresdefault.jpg");
+            background-image: linear-gradient(rgba(11, 15, 25, 0.65), rgba(11, 15, 25, 0.85)), url("https://i.ytimg.com/vi/3bCj7XWvdsQ/maxresdefault.jpg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            color: #ffffff;
+            color: #fff;
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -34,26 +31,19 @@
 
         @media (max-width: 767px) {
             body {
-                background-image: 
-                    linear-gradient(rgba(11, 15, 25, 0.65), rgba(11, 15, 25, 0.85)),
-                    url("https://pic.rtbcdn.ru/video/2025-07-18/ac/74/ac7421528283e1aeee43fa96c756ca98.jpg");
+                background-image: linear-gradient(rgba(11, 15, 25, 0.65), rgba(11, 15, 25, 0.85)), url("https://pic.rtbcdn.ru/video/2025-07-18/ac/74/ac7421528283e1aeee43fa96c756ca98.jpg");
             }
         }
 
-        /* --- СВЕТЛАЯ ТЕМА (ПОВЫШЕННАЯ ПРОЗРАЧНОСТЬ) --- */
         body.light-theme {
             background-color: #cbd5e1;
-            background-image: 
-                linear-gradient(rgba(241, 245, 249, 0.5), rgba(203, 213, 225, 0.6)),
-                url("https://i.ytimg.com/vi/3bCj7XWvdsQ/maxresdefault.jpg");
+            background-image: linear-gradient(rgba(241, 245, 249, 0.5), rgba(203, 213, 225, 0.6)), url("https://i.ytimg.com/vi/3bCj7XWvdsQ/maxresdefault.jpg");
             color: #0f172a;
         }
 
         @media (max-width: 767px) {
             body.light-theme {
-                background-image: 
-                    linear-gradient(rgba(241, 245, 249, 0.5), rgba(203, 213, 225, 0.6)),
-                    url("https://pic.rtbcdn.ru/video/2025-07-18/ac/74/ac7421528283e1aeee43fa96c756ca98.jpg");
+                background-image: linear-gradient(rgba(241, 245, 249, 0.5), rgba(203, 213, 225, 0.6)), url("https://pic.rtbcdn.ru/video/2025-07-18/ac/74/ac7421528283e1aeee43fa96c756ca98.jpg");
             }
         }
 
@@ -64,7 +54,6 @@
             padding: 10px;
         }
 
-        /* Кнопка смены темы */
         .theme-toggle {
             display: flex;
             align-items: center;
@@ -77,7 +66,7 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid #f97316;
             border-radius: 20px;
-            color: #ffffff;
+            color: #fff;
             font-size: 12px;
             font-weight: 800;
             cursor: pointer;
@@ -104,17 +93,17 @@
         .header h1 {
             font-size: 28px;
             font-weight: 900;
-            color: #ffffff;
+            color: #fff;
             margin-bottom: 6px;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: color 0.3s;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
         }
 
         body.light-theme .header h1 {
             color: #0f172a;
-            text-shadow: 0 1px 4px rgba(255,255,255,0.8);
+            text-shadow: 0 1px 4px rgba(255, 255, 255, 0.8);
         }
 
         .header h1 span {
@@ -126,12 +115,12 @@
             color: #e2e8f0;
             font-weight: 600;
             transition: color 0.3s;
-            text-shadow: 0 1px 6px rgba(0,0,0,0.8);
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
         }
 
         body.light-theme .header p {
             color: #1e293b;
-            text-shadow: 0 1px 4px rgba(255,255,255,0.8);
+            text-shadow: 0 1px 4px rgba(255, 255, 255, 0.8);
         }
 
         .section-title {
@@ -143,7 +132,7 @@
             border-bottom: 2px solid #f97316;
             text-transform: uppercase;
             letter-spacing: 1px;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
         }
 
         body.light-theme .section-title {
@@ -152,7 +141,6 @@
             text-shadow: none;
         }
 
-        /* Карточки с высокой прозрачностью в светлой теме */
         .card {
             background: rgba(15, 23, 42, 0.7);
             backdrop-filter: blur(12px);
@@ -166,7 +154,7 @@
         }
 
         body.light-theme .card {
-            background: rgba(255, 255, 255, 0.45); /* Сделали значительно прозрачнее */
+            background: rgba(255, 255, 255, 0.45);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-color: rgba(234, 88, 12, 0.35);
@@ -185,7 +173,7 @@
 
         .card h2 {
             font-size: 18px;
-            color: #ffffff;
+            color: #fff;
             margin-bottom: 8px;
             font-weight: 800;
             transition: color 0.3s;
@@ -203,8 +191,7 @@
             transition: color 0.3s;
         }
 
-        body.light-theme .card p,
-        body.light-theme .card ul {
+        body.light-theme .card p, body.light-theme .card ul {
             color: #0f172a;
             font-weight: 500;
         }
@@ -221,7 +208,7 @@
             display: inline-block;
             padding: 4px 10px;
             background: #f97316;
-            color: #ffffff;
+            color: #fff;
             border-radius: 6px;
             font-size: 11px;
             font-weight: 800;
@@ -308,7 +295,7 @@
             margin-bottom: 10px;
             border: 1px solid rgba(249, 115, 22, 0.5);
             text-align: center;
-            font-weight: bold;
+            font-weight: 700;
             transition: all 0.3s;
         }
 
@@ -318,12 +305,73 @@
             border-color: rgba(234, 88, 12, 0.5);
         }
 
+        .payment-list {
+            list-style: none !important;
+            padding-left: 0 !important;
+            margin-bottom: 12px;
+        }
+
+        .payment-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 13px;
+        }
+
+        body.light-theme .payment-row {
+            border-bottom-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-row:last-child {
+            border-bottom: none;
+        }
+
+        .payment-val {
+            font-weight: 800;
+            color: #f97316;
+        }
+
+        body.light-theme .payment-val {
+            color: #ea580c;
+        }
+
+        .copy-btn {
+            background: rgba(249, 115, 22, 0.2);
+            border: 1px solid #f97316;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-left: 8px;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #f97316;
+            color: #fff;
+        }
+
+        body.light-theme .copy-btn {
+            background: rgba(234, 88, 12, 0.15);
+            border-color: #ea580c;
+            color: #0f172a;
+        }
+
+        body.light-theme .copy-btn:hover {
+            background: #ea580c;
+            color: #fff;
+        }
+
         .btn {
             display: block;
             width: 100%;
             padding: 12px 0;
             background: #f97316;
-            color: #ffffff;
+            color: #fff;
             text-decoration: none;
             font-weight: 800;
             font-size: 13px;
@@ -343,14 +391,14 @@
 
         .btn-black {
             background: rgba(15, 23, 42, 0.9);
-            color: #ffffff;
+            color: #fff;
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: none;
         }
 
         body.light-theme .btn-black {
             background: rgba(15, 23, 42, 0.85);
-            color: #ffffff;
+            color: #fff;
         }
 
         .btn-black:hover {
@@ -358,8 +406,8 @@
         }
 
         .btn-yt {
-            background: #FF0000;
-            color: #ffffff;
+            background: red;
+            color: #fff;
             box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
         }
 
@@ -369,7 +417,7 @@
 
         .btn-ymoney {
             background: #8b5cf6;
-            color: #ffffff;
+            color: #fff;
             box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
         }
 
@@ -405,7 +453,7 @@
         .authors {
             margin-top: 10px;
             font-size: 13px;
-            color: #ffffff;
+            color: #fff;
             font-weight: 800;
             background: rgba(15, 23, 42, 0.7);
             backdrop-filter: blur(10px);
@@ -424,220 +472,207 @@
     </style>
 </head>
 <body>
+    <div class="container">
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+            <span id="themeIcon">☀️</span> <span id="themeText">Светлая тема</span>
+        </button>
 
-<div class="container">
-    <!-- Кнопка смены темы -->
-    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
-        <span id="themeIcon">☀️</span> <span id="themeText">Светлая тема</span>
-    </button>
-
-    <div class="header">
-        <h1>CS2 <span>CYBERHUB</span></h1>
-        <p>Парный проект по информатике | Настройка, конфиги и аналитика</p>
-    </div>
-
-    <!-- Услуги и Прайс -->
-    <div class="section-title">Прайс-лист услуг</div>
-    <div class="card">
-        <h2>Настройка ПК и CS2 под ключ</h2>
-        <ul class="price-list">
-            <li class="price-item">
-                <span>Оптимизация Windows & NVIDIA/AMD</span>
-                <span class="price-tag">500 ₽</span>
-            </li>
-            <li class="price-item">
-                <span>Параметры запуска Steam & CS2</span>
-                <span class="price-tag">300 ₽</span>
-            </li>
-            <li class="price-item">
-                <span>Кастомное разрешение 4:3 stretched</span>
-                <span class="price-tag">250 ₽</span>
-            </li>
-            <li class="price-item">
-                <span>Полный сетап (ПК + CS2 + Прицел/Сенса)</span>
-                <span class="price-tag">900 ₽</span>
-            </li>
-        </ul>
-    </div>
-
-    <!-- Оплата и реквизиты -->
-    <div class="section-title">Оплата и Реквизиты</div>
-    <div class="card">
-        <h2>Оплата услуг через ЮMoney</h2>
-        <p>Для оплаты настройки или поддержки нашего проекта переведите нужную сумму на кошелёк:</p>
-        <div class="code-box">4100 1196 4990 6521</div>
-        <a href="https://yoomoney.ru/to/4100119649906521" target="_blank" class="btn btn-ymoney">Перейти к оплате на ЮMoney</a>
-    </div>
-
-    <!-- Инструкция -->
-    <div class="section-title">Инструкции по настройке</div>
-
-    <div class="card">
-        <h2>1. Параметры запуска Steam</h2>
-        <p>Нажмите ПКМ на CS2 в Steam -> Свойства -> Параметры запуска:</p>
-        <div class="code-box">-novid -high -threads 8 +cl_cmdrate 128 +cl_updaterate 128 -nojoy +fps_max 0</div>
-    </div>
-
-    <!-- Выпадающая плашка настройки графики -->
-    <div class="card">
-        <div class="accordion-header" onclick="toggleAccordion()">
-            <h2>2. Настройки графики</h2>
-            <span class="accordion-icon">▼</span>
+        <div class="header">
+            <h1>CS2 <span>CYBERHUB</span></h1>
+            <p>Парный проект по информатике | Настройка, конфиги и аналитика</p>
         </div>
-        <div class="accordion-content" id="graphicsContent">
-            <p>Рекомендуемые киберспортивные параметры графики для высокого FPS и максимальной чёткости:</p>
-            <ul>
-                <li><b>Разрешение:</b> 1280x960 или 1440x1080 (4:3 Stretched)</li>
-                <li><b>Режим дисплея:</b> На весь экран</li>
-                <li><b>Повышенный контраст игроков:</b> Включено</li>
-                <li><b>Сглаживание:</b> 4x MSAA (или 2x MSAA)</li>
-                <li><b>Качество теней:</b> Низкое / Среднее</li>
-                <li><b>Детализация моделей и текстур:</b> Низкое</li>
-                <li><b>Детализация шейдеров и частиц:</b> Низкое</li>
-                <li><b>Глобальное затененение (Ambient Occlusion):</b> Выключено</li>
-                <li><b>NVIDIA Reflex Low Latency:</b> Включено + Буст</li>
+
+        <div class="section-title">Прайс-лист услуг</div>
+        <div class="card">
+            <h2>Настройка ПК и CS2 под ключ</h2>
+            <ul class="price-list">
+                <li class="price-item"><span>Оптимизация Windows &amp; NVIDIA/AMD</span><span class="price-tag">500 ₽</span></li>
+                <li class="price-item"><span>Параметры запуска Steam &amp; CS2</span><span class="price-tag">300 ₽</span></li>
+                <li class="price-item"><span>Кастомное разрешение 4:3 stretched</span><span class="price-tag">250 ₽</span></li>
+                <li class="price-item"><span>Полный сетап (ПК + CS2 + Прицел/Сенса)</span><span class="price-tag">900 ₽</span></li>
             </ul>
         </div>
-    </div>
 
-    <!-- Про-игроки -->
-    <div class="section-title">Про-игроки и конфиги</div>
+        <div class="section-title">Оплата и Реквизиты</div>
+        <div class="card">
+            <h2>Оплата услуг через СБП (ЮMoney)</h2>
+            <p>Для оплаты настройки или поддержки нашего проекта переведите нужную сумму по Системе быстрых платежей (СБП):</p>
+            <ul class="payment-list">
+                <li class="payment-row">
+                    <span>📱 Номер телефона (СБП):</span>
+                    <span><strong class="payment-val" id="phoneNum">+7 (992) 237-06-72</strong><button class="copy-btn" onclick="copyPhone()">Копировать</button></span>
+                </li>
+                <li class="payment-row">
+                    <span>🏦 Банк получателя:</span>
+                    <span class="payment-val">ЮMoney (YooMoney)</span>
+                </li>
+                <li class="payment-row">
+                    <span>👤 Получатель:</span>
+                    <span class="payment-val">Ренат Б. / Самир Б.</span>
+                </li>
+            </ul>
+            <a href="https://yoomoney.ru/transfer" target="_blank" class="btn btn-ymoney">Перевести через ЮMoney</a>
+        </div>
 
-    <!-- ZywOo -->
-    <div class="card">
-        <span class="badge">Team Vitality</span>
-        <img src="https://img-cdn.hltv.org/playerbodyshot/blnoWFtH8GUJZjhr8H0P4u.png?bg=3e4c54&h=800&ixlib=java-2.1.0&rect=121%2C8%2C467%2C467&w=800&s=e3a0e62125c9cf3f44077e5c0792687a" alt="ZywOo">
-        <h2>ZywOo (Mathieu Herbaut)</h2>
-        <p>Легендарный снайпер и многократный MVP турниров. Подробные параметры:</p>
-        <ul>
-            <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 2.0 | <b>eDPI:</b> 800</li>
-            <li><b>Zoom Sensitivity:</b> 1.0</li>
-            <li><b>Разрешение:</b> 1280x960 (4:3 Stretched, 240Hz)</li>
-            <li><b>Прицел:</b> Зеленый статичный крест</li>
-        </ul>
-        <div class="code-box">CSGO-2zK3P-3O3U3-k8mOq-s6Pz5-983yC</div>
-        <a href="https://www.hltv.org/player/11893/zywoo" target="_blank" class="btn">Профиль ZywOo на HLTV</a>
-        <a href="https://prosettings.net/players/zywoo/" target="_blank" class="btn btn-black">Полный конфиг ZywOo</a>
-    </div>
+        <div class="section-title">Инструкции по настройке</div>
+        <div class="card">
+            <h2>1. Параметры запуска Steam</h2>
+            <p>Нажмите ПКМ на CS2 в Steam -&gt; Свойства -&gt; Параметры запуска:</p>
+            <div class="code-box">-novid -high -threads 8 +cl_cmdrate 128 +cl_updaterate 128 -nojoy +fps_max 0</div>
+        </div>
 
-    <!-- m0NESY -->
-    <div class="card">
-        <span class="badge">m0NESY / Falcons</span>
-        <img src="https://img.championat.com/lpv1nwIFuogZ-DFpIvJArHEJrL638I7pKYyBK5-3BCo/p(w:1350/h:900)/news/big/i/s/team-falcons-s-m0nesy-proshla-v-final-iem-cologne-major-2026-v-cs-2_1781988221468219053.jpg" alt="m0NESY">
-        <h2>m0NESY (Ilya Osipov)</h2>
-        <p>Феноменальный снайпер CS2. Невероятная скорость реакции, микро-механика и реактивные флики с AWP.</p>
-        <ul>
-            <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 2.0 | <b>eDPI:</b> 800</li>
-            <li><b>Zoom Sensitivity:</b> 1.0</li>
-            <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
-        </ul>
-        <div class="code-box">CSGO-wA43v-3O3U3-k8mOq-s6Pz5-983yC</div>
-        <a href="https://www.hltv.org/player/19230/m0nesy" target="_blank" class="btn">Профиль m0NESY на HLTV</a>
-        <a href="https://prosettings.net/players/m0nesy/" target="_blank" class="btn btn-black">Полный конфиг m0NESY</a>
-    </div>
+        <div class="card">
+            <div class="accordion-header" onclick="toggleAccordion()">
+                <h2>2. Настройки графики</h2>
+                <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-content" id="graphicsContent">
+                <p>Рекомендуемые киберспортивные параметры графики для высокого FPS и максимальной чёткости:</p>
+                <ul>
+                    <li><b>Разрешение:</b> 1280x960 или 1440x1080 (4:3 Stretched)</li>
+                    <li><b>Режим дисплея:</b> На весь экран</li>
+                    <li><b>Повышенный контраст игроков:</b> Включено</li>
+                    <li><b>Сглаживание:</b> 4x MSAA (или 2x MSAA)</li>
+                    <li><b>Качество теней:</b> Низкое / Среднее</li>
+                    <li><b>Детализация моделей и текстур:</b> Низкое</li>
+                    <li><b>Детализация шейдеров и частиц:</b> Низкое</li>
+                    <li><b>Глобальное затененение (Ambient Occlusion):</b> Выключено</li>
+                    <li><b>NVIDIA Reflex Low Latency:</b> Включено + Буст</li>
+                </ul>
+            </div>
+        </div>
 
-    <!-- donk -->
-    <div class="card">
-        <span class="badge">Team Spirit</span>
-        <img src="https://img-cdn.hltv.org/gallerypicture/puqgaF3CcnGqdXYczXVNit.jpg?auto=compress&ixlib=java-2.1.0&q=75&w=1600&s=37fe05ad8ebc37b787005875d995419a" alt="donk">
-        <h2>donk (Danil Kryshkovets)</h2>
-        <p>Молодой энтри-рифлер с космическим импактом и идеальным спрей-контролем.</p>
-        <ul>
-            <li><b>DPI:</b> 800 | <b>Sensitivity:</b> 1.25</li>
-            <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
-        </ul>
-        <div class="code-box">CSGO-2S4mZ-A8e6z-p3j38-z8d8q-983yC</div>
-        <a href="https://www.hltv.org/player/21167/donk" target="_blank" class="btn">Профиль donk на HLTV</a>
-    </div>
+        <div class="section-title">Про-игроки и конфиги</div>
+        <div class="card">
+            <span class="badge">Team Vitality</span>
+            <img src="https://img-cdn.hltv.org/playerbodyshot/blnoWFtH8GUJZjhr8H0P4u.png?bg=3e4c54&amp;h=800&amp;ixlib=java-2.1.0&amp;rect=121%2C8%2C467%2C467&amp;w=800&amp;s=e3a0e62125c9cf3f44077e5c0792687a" alt="ZywOo">
+            <h2>ZywOo (Mathieu Herbaut)</h2>
+            <p>Легендарный снайпер и многократный MVP турниров. Подробные параметры:</p>
+            <ul>
+                <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 2.0 | <b>eDPI:</b> 800</li>
+                <li><b>Zoom Sensitivity:</b> 1.0</li>
+                <li><b>Разрешение:</b> 1280x960 (4:3 Stretched, 240Hz)</li>
+                <li><b>Прицел:</b> Зеленый статичный крест</li>
+            </ul>
+            <div class="code-box">CSGO-2zK3P-3O3U3-k8mOq-s6Pz5-983yC</div>
+            <a href="https://www.hltv.org/player/11893/zywoo" target="_blank" class="btn">Профиль ZywOo на HLTV</a>
+            <a href="https://prosettings.net/players/zywoo/" target="_blank" class="btn btn-black">Полный конфиг ZywOo</a>
+        </div>
 
-    <!-- s1mple -->
-    <div class="card">
-        <span class="badge">Legend</span>
-        <img src="https://images.cybersport.ru/images/as-is/plain/4b/4bdd623d-d92c-4555-bf5e-0bf652bbfdf8.jpg" alt="s1mple">
-        <h2>s1mple (Oleksandr Kostyliev)</h2>
-        <p>Легенда Counter-Strike с лучшей исторической статистикой на про-сцене.</p>
-        <ul>
-            <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 3.09</li>
-            <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
-        </ul>
-        <div class="code-box">CSGO-iG34v-8e2z3-m84u3-z8d8q-983yC</div>
-        <a href="https://www.hltv.org/player/7998/s1mple" target="_blank" class="btn">Профиль s1mple на HLTV</a>
-    </div>
+        <div class="card">
+            <span class="badge">m0NESY / Falcons</span>
+            <img src="https://img.championat.com/lpv1nwIFuogZ-DFpIvJArHEJrL638I7pKYyBK5-3BCo/p(w:1350/h:900)/news/big/i/s/team-falcons-s-m0nesy-proshla-v-final-iem-cologne-major-2026-v-cs-2_1781988221468219053.jpg" alt="m0NESY">
+            <h2>m0NESY (Ilya Osipov)</h2>
+            <p>Феноменальный снайпер CS2. Невероятная скорость реакции, микро-механика и реактивные флики с AWP.</p>
+            <ul>
+                <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 2.0 | <b>eDPI:</b> 800</li>
+                <li><b>Zoom Sensitivity:</b> 1.0</li>
+                <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
+            </ul>
+            <div class="code-box">CSGO-wA43v-3O3U3-k8mOq-s6Pz5-983yC</div>
+            <a href="https://www.hltv.org/player/19230/m0nesy" target="_blank" class="btn">Профиль m0NESY на HLTV</a>
+            <a href="https://prosettings.net/players/m0nesy/" target="_blank" class="btn btn-black">Полный конфиг m0NESY</a>
+        </div>
 
-    <!-- Тренировки -->
-    <div class="section-title">Комплекс тренировок</div>
-    <div class="card">
-        <h2>Тренировка стрельбы и механики</h2>
-        <ul>
-            <li><b>Aim Botz / KSTS / CS2 AIM:</b> 500 наводок и фликов с AK-47 и M4A1-S.</li>
-            <li><b>Prefire Maps (Mirage Course):</b> Чек углов и отработка быстрых пиков.</li>
-            <li><b>Контр-стрейфы:</b> Мгновенная остановка перед выстрелом.</li>
-            <li><b>Nades Training (Astralis Maps):</b> Изучение смоков, молотовых и флешек.</li>
-        </ul>
-        <a href="https://youtu.be/dXiMLi6YrZw?si=G3lCoMAQ2u4w4E4G" target="_blank" class="btn btn-yt">Лучшие карты для тренировок в CS 2 (YouTube)</a>
-        <a href="https://youtu.be/dBE6m4KWi5o?si=7N4XBeXc6Cqaq1yP" target="_blank" class="btn btn-black">Гайд по контр-стрейфам (YouTube)</a>
-    </div>
+        <div class="card">
+            <span class="badge">Team Spirit</span>
+            <img src="https://img-cdn.hltv.org/gallerypicture/puqgaF3CcnGqdXYczXVNit.jpg?auto=compress&amp;ixlib=java-2.1.0&amp;q=75&amp;w=1600&amp;s=37fe05ad8ebc37b787005875d995419a" alt="donk">
+            <h2>donk (Danil Kryshkovets)</h2>
+            <p>Молодой энтри-рифлер с космическим импактом и идеальным спрей-контролем.</p>
+            <ul>
+                <li><b>DPI:</b> 800 | <b>Sensitivity:</b> 1.25</li>
+                <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
+            </ul>
+            <div class="code-box">CSGO-2S4mZ-A8e6z-p3j38-z8d8q-983yC</div>
+            <a href="https://www.hltv.org/player/21167/donk" target="_blank" class="btn">Профиль donk на HLTV</a>
+        </div>
 
-    <!-- Контакты -->
-    <div class="section-title">Контакты и заказы</div>
-    <div class="card">
-        <h2>Связаться с нами</h2>
-        <ul>
-            <li><b>Email:</b> <a href="mailto:trainingcs2cybersport@gmail.com" class="contact-link">trainingcs2cybersport@gmail.com</a></li>
-            <li><b>Телефон:</b> <a href="tel:+79922676767" class="contact-link">+7 (992) 267 67 67</a></li>
-        </ul>
-        <a href="mailto:trainingcs2cybersport@gmail.com" class="btn btn-black">Написать на Email</a>
-    </div>
+        <div class="card">
+            <span class="badge">Legend</span>
+            <img src="https://images.cybersport.ru/images/as-is/plain/4b/4bdd623d-d92c-4555-bf5e-0bf652bbfdf8.jpg" alt="s1mple">
+            <h2>s1mple (Oleksandr Kostyliev)</h2>
+            <p>Легенда Counter-Strike с лучшей исторической статистикой на про-сцене.</p>
+            <ul>
+                <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 3.09</li>
+                <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
+            </ul>
+            <div class="code-box">CSGO-iG34v-8e2z3-m84u3-z8d8q-983yC</div>
+            <a href="https://www.hltv.org/player/7998/s1mple" target="_blank" class="btn">Профиль s1mple на HLTV</a>
+        </div>
 
-    <!-- Футер -->
-    <div class="footer">
-        Проект по информатике | 9Б класс
-        <div class="authors">
-            Авторы работы: Байдин Ренат & Бирганов Самир
+        <div class="section-title">Комплекс тренировок</div>
+        <div class="card">
+            <h2>Тренировка стрельбы и механики</h2>
+            <ul>
+                <li><b>Aim Botz / KSTS / CS2 AIM:</b> 500 наводок и фликов с AK-47 и M4A1-S.</li>
+                <li><b>Prefire Maps (Mirage Course):</b> Чек углов и отработка быстрых пиков.</li>
+                <li><b>Контр-стрейфы:</b> Мгновенная остановка перед выстрелом.</li>
+                <li><b>Nades Training (Astralis Maps):</b> Изучение смоков, молотовых и флешек.</li>
+            </ul>
+            <a href="https://youtu.be/dXiMLi6YrZw?si=G3lCoMAQ2u4w4E4G" target="_blank" class="btn btn-yt">Лучшие карты для тренировок в CS 2 (YouTube)</a>
+            <a href="https://youtu.be/dBE6m4KWi5o?si=7N4XBeXc6Cqaq1yP" target="_blank" class="btn btn-black">Гайд по контр-стрейфам (YouTube)</a>
+        </div>
+
+        <div class="section-title">Контакты и заказы</div>
+        <div class="card">
+            <h2>Связаться с нами</h2>
+            <ul>
+                <li><b>Email:</b> <a href="mailto:trainingcs2cybersport@gmail.com" class="contact-link">trainingcs2cybersport@gmail.com</a></li>
+                <li><b>Телефон:</b> <a href="tel:+79922370672" class="contact-link">+7 (992) 237-06-72</a></li>
+            </ul>
+            <a href="mailto:trainingcs2cybersport@gmail.com" class="btn btn-black">Написать на Email</a>
+        </div>
+
+        <div class="footer">
+            Проект по информатике | 9Б класс
+            <div class="authors">Авторы работы: Байдин Ренат &amp; Бирганов Самир</div>
         </div>
     </div>
-</div>
 
-<script>
-    function toggleAccordion() {
-        const header = document.querySelector('.accordion-header');
-        const content = document.getElementById('graphicsContent');
-        header.classList.toggle('active');
-        content.classList.toggle('active');
-    }
-
-    function toggleTheme() {
-        const themeIcon = document.getElementById('themeIcon');
-        const themeText = document.getElementById('themeText');
-        
-        document.body.classList.toggle('light-theme');
-        const isLight = document.body.classList.contains('light-theme');
-        
-        localStorage.setItem('theme', isLight ? 'light' : 'dark');
-        
-        if (isLight) {
-            themeIcon.textContent = '🌙';
-            themeText.textContent = 'Тёмная тема';
-        } else {
-            themeIcon.textContent = '☀️';
-            themeText.textContent = 'Светлая тема';
+    <script>
+        function toggleAccordion() {
+            const e = document.querySelector(".accordion-header"),
+                t = document.getElementById("graphicsContent");
+            e.classList.toggle("active");
+            t.classList.toggle("active");
         }
-    }
 
-    window.addEventListener('DOMContentLoaded', () => {
-        const savedTheme = localStorage.getItem('theme');
-        const themeIcon = document.getElementById('themeIcon');
-        const themeText = document.getElementById('themeText');
-
-        if (savedTheme === 'light') {
-            document.body.classList.add('light-theme');
-            if (themeIcon && themeText) {
-                themeIcon.textContent = '🌙';
-                themeText.textContent = 'Тёмная тема';
+        function toggleTheme() {
+            const e = document.getElementById("themeIcon"),
+                t = document.getElementById("themeText");
+            document.body.classList.toggle("light-theme");
+            const n = document.body.classList.contains("light-theme");
+            localStorage.setItem("theme", n ? "light" : "dark");
+            if (n) {
+                e.textContent = "🌙";
+                t.textContent = "Тёмная тема";
+            } else {
+                e.textContent = "☀️";
+                t.textContent = "Светлая тема";
             }
         }
-    });
-</script>
 
+        function copyPhone() {
+            const e = document.getElementById("phoneNum").innerText;
+            navigator.clipboard.writeText(e).then(() => {
+                alert("Номер телефона скопирован в буфер обмена!");
+            }).catch((e) => {
+                console.error("Ошибка копирования: ", e);
+            });
+        }
+
+        window.addEventListener("DOMContentLoaded", () => {
+            const e = localStorage.getItem("theme"),
+                t = document.getElementById("themeIcon"),
+                n = document.getElementById("themeText");
+            if ("light" === e) {
+                document.body.classList.add("light-theme");
+                if (t && n) {
+                    t.textContent = "🌙";
+                    n.textContent = "Тёмная тема";
+                }
+            }
+        });
+    </script>
 </body>
 </html>
