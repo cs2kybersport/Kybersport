@@ -12,6 +12,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
+        /* Единый красивый фон как на скриншоте */
         body {
             background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
                         url("https://upload.wikimedia.org/wikipedia/ru/d/db/Counter-strike_2.jpg") no-repeat center center fixed;
@@ -25,26 +26,9 @@
             transition: background 0.3s ease, color 0.3s ease;
         }
 
-        /* Настройка фона для ПК */
         @media (min-width: 900px) {
             body {
                 background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
-                            url("https://i.ytimg.com/vi/3bCj7XWvdsQ/maxresdefault.jpg") no-repeat center center fixed;
-                background-size: cover;
-            }
-        }
-
-        /* Светлая тема */
-        body.light-theme {
-            background: linear-gradient(rgba(241, 245, 249, 0.85), rgba(241, 245, 249, 0.85)), 
-                        url("https://upload.wikimedia.org/wikipedia/ru/d/db/Counter-strike_2.jpg") no-repeat center center fixed;
-            background-size: cover;
-            color: #0f172a;
-        }
-
-        @media (min-width: 900px) {
-            body.light-theme {
-                background: linear-gradient(rgba(241, 245, 249, 0.85), rgba(241, 245, 249, 0.85)), 
                             url("https://i.ytimg.com/vi/3bCj7XWvdsQ/maxresdefault.jpg") no-repeat center center fixed;
                 background-size: cover;
             }
@@ -82,13 +66,6 @@
             box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
         }
 
-        body.light-theme .theme-toggle {
-            background: #ffffff;
-            color: #0f172a;
-            border-color: #ea580c;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
         .header {
             text-align: center;
             margin-bottom: 25px;
@@ -105,11 +82,6 @@
             transition: color 0.3s;
         }
 
-        body.light-theme .header h1 {
-            color: #0f172a;
-            text-shadow: none;
-        }
-
         .header h1 span {
             color: #f97316;
         }
@@ -119,10 +91,6 @@
             color: #cbd5e1;
             font-weight: 600;
             transition: color 0.3s;
-        }
-
-        body.light-theme .header p {
-            color: #475569;
         }
 
         .section-title {
@@ -137,27 +105,16 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
-        body.light-theme .section-title {
-            text-shadow: none;
-        }
-
-        /* Прозрачные карточки с фоном из затемнения */
+        /* Тёмные карточки (по умолчанию) */
         .card {
-            background: rgba(15, 23, 42, 0.65);
-            backdrop-filter: blur(8px);
+            background: rgba(26, 31, 46, 0.85);
+            backdrop-filter: blur(10px);
             border-radius: 14px;
             padding: 16px;
             margin-bottom: 16px;
-            border: 1px solid rgba(249, 115, 22, 0.4);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            transition: background 0.3s, border 0.3s, color 0.3s;
-        }
-
-        body.light-theme .card {
-            background: rgba(255, 255, 255, 0.85);
-            border-color: rgba(234, 88, 12, 0.4);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            color: #1e293b;
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
         }
 
         .card img {
@@ -177,21 +134,12 @@
             transition: color 0.3s;
         }
 
-        body.light-theme .card h2 {
-            color: #0f172a;
-        }
-
         .card p, .card ul {
             font-size: 13px;
             color: #e2e8f0;
             line-height: 1.5;
             margin-bottom: 10px;
             transition: color 0.3s;
-        }
-
-        body.light-theme .card p,
-        body.light-theme .card ul {
-            color: #334155;
         }
 
         .card ul {
@@ -212,6 +160,61 @@
             font-weight: 800;
             margin-bottom: 8px;
             text-transform: uppercase;
+        }
+
+        /* СВЕТЛАЯ ТЕМА (Сохраняет фон, меняет стиль карточек) */
+        body.light-theme .theme-toggle {
+            background: #ffffff;
+            color: #0f172a;
+            border-color: #f97316;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        body.light-theme .header h1 {
+            color: #ffffff;
+        }
+
+        body.light-theme .header p {
+            color: #f1f5f9;
+        }
+
+        body.light-theme .card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(249, 115, 22, 0.5);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            color: #0f172a;
+        }
+
+        body.light-theme .card h2 {
+            color: #0f172a;
+        }
+
+        body.light-theme .card p, 
+        body.light-theme .card ul {
+            color: #334155;
+        }
+
+        body.light-theme .price-item {
+            border-bottom-color: rgba(0, 0, 0, 0.1);
+            color: #0f172a;
+        }
+
+        body.light-theme .code-box {
+            background: #f1f5f9;
+            color: #ea580c;
+            border-color: #f97316;
+        }
+
+        body.light-theme .btn-black {
+            background: #0f172a;
+            color: #ffffff;
+        }
+
+        body.light-theme .authors {
+            background: rgba(255, 255, 255, 0.92);
+            color: #0f172a;
+            border-color: rgba(249, 115, 22, 0.5);
         }
 
         /* Аккордеон / Выпадающая плашка */
@@ -267,10 +270,6 @@
             font-weight: 600;
         }
 
-        body.light-theme .price-item {
-            border-bottom-color: rgba(0, 0, 0, 0.1);
-        }
-
         .price-item:last-child {
             border-bottom: none;
         }
@@ -285,7 +284,7 @@
         }
 
         .code-box {
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(15, 23, 42, 0.9);
             color: #f97316;
             padding: 10px;
             border-radius: 8px;
@@ -296,13 +295,7 @@
             border: 1px solid rgba(249, 115, 22, 0.5);
             text-align: center;
             font-weight: bold;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        body.light-theme .code-box {
-            background: rgba(241, 245, 249, 0.9);
-            color: #ea580c;
-            border-color: rgba(234, 88, 12, 0.4);
+            transition: all 0.3s;
         }
 
         .btn {
@@ -329,15 +322,10 @@
         }
 
         .btn-black {
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(15, 23, 42, 0.85);
             color: #ffffff;
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: none;
-        }
-
-        body.light-theme .btn-black {
-            background: #0f172a;
-            color: #ffffff;
         }
 
         .btn-black:hover {
@@ -369,11 +357,6 @@
             padding-top: 20px;
             line-height: 1.6;
             font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        body.light-theme .footer {
-            color: #475569;
         }
 
         .authors {
@@ -381,18 +364,12 @@
             font-size: 13px;
             color: #ffffff;
             font-weight: 800;
-            background: rgba(15, 23, 42, 0.65);
+            background: rgba(26, 31, 46, 0.85);
             padding: 10px;
             border-radius: 8px;
             border: 1px solid rgba(249, 115, 22, 0.4);
             text-transform: uppercase;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        body.light-theme .authors {
-            background: rgba(255, 255, 255, 0.85);
-            color: #0f172a;
-            border-color: rgba(234, 88, 12, 0.4);
+            transition: all 0.3s;
         }
     </style>
 </head>
@@ -563,7 +540,6 @@
 </div>
 
 <script>
-    // Переключение анимированной плашки аккордеона
     function toggleAccordion() {
         const header = document.querySelector('.accordion-header');
         const content = document.getElementById('graphicsContent');
@@ -571,7 +547,6 @@
         content.classList.toggle('active');
     }
 
-    // Переключение темы и сохранение состояния в localStorage
     function toggleTheme() {
         const themeIcon = document.getElementById('themeIcon');
         const themeText = document.getElementById('themeText');
@@ -590,7 +565,6 @@
         }
     }
 
-    // Восстановление выбранной темы при загрузке страницы
     window.addEventListener('DOMContentLoaded', () => {
         const savedTheme = localStorage.getItem('theme');
         const themeIcon = document.getElementById('themeIcon');
