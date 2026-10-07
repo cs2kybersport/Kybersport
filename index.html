@@ -279,16 +279,19 @@
             color: #f97316;
             font-weight: 800;
             background: rgba(249, 115, 22, 0.2);
-            padding: 4px 10px;
+            padding: 6px 12px;
             border-radius: 6px;
             border: 1px solid rgba(249, 115, 22, 0.5);
             cursor: pointer;
             transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .price-tag:hover {
             background: #f97316;
             color: #fff;
+            transform: scale(1.05);
         }
 
         .code-box {
@@ -373,74 +376,37 @@
             color: #fff;
         }
 
-        /* Интерактивный блок сумм и формы */
         .sum-buttons {
             display: flex;
             gap: 6px;
             flex-wrap: wrap;
-            margin: 10px 0;
+            margin: 10px 0 14px 0;
         }
 
         .sum-btn {
             flex: 1;
-            min-width: 70px;
-            padding: 8px 4px;
+            min-width: 80px;
+            padding: 10px 6px;
             background: rgba(15, 23, 42, 0.8);
             border: 1px solid rgba(249, 115, 22, 0.5);
             color: #fff;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 12px;
-            font-weight: 700;
+            font-weight: 800;
             cursor: pointer;
             text-align: center;
+            text-decoration: none;
             transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .sum-btn:hover, .sum-btn.active {
+        .sum-btn:hover {
             background: #f97316;
             border-color: #f97316;
             color: #fff;
-        }
-
-        .input-group {
-            margin-bottom: 10px;
-        }
-
-        .input-group label {
-            display: block;
-            font-size: 11px;
-            font-weight: 700;
-            margin-bottom: 4px;
-            color: #e2e8f0;
-            text-transform: uppercase;
-        }
-
-        body.light-theme .input-group label {
-            color: #0f172a;
-        }
-
-        .custom-input, .custom-select {
-            width: 100%;
-            padding: 10px;
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(249, 115, 22, 0.5);
-            border-radius: 8px;
-            color: #fff;
-            font-size: 13px;
-            font-weight: 600;
-            outline: none;
-            transition: all 0.2s;
-        }
-
-        body.light-theme .custom-input, body.light-theme .custom-select {
-            background: rgba(255, 255, 255, 0.8);
-            color: #0f172a;
-            border-color: rgba(234, 88, 12, 0.5);
-        }
-
-        .custom-input:focus, .custom-select:focus {
-            border-color: #f97316;
-            box-shadow: 0 0 8px rgba(249, 115, 22, 0.4);
+            transform: translateY(-2px);
         }
 
         .btn {
@@ -574,17 +540,29 @@
         <div class="card">
             <h2>Настройка ПК и CS2 под ключ</h2>
             <ul class="price-list">
-                <li class="price-item"><span>Оптимизация Windows &amp; NVIDIA/AMD</span><span class="price-tag" onclick="selectServiceAmount(500)">500 ₽</span></li>
-                <li class="price-item"><span>Параметры запуска Steam &amp; CS2</span><span class="price-tag" onclick="selectServiceAmount(300)">300 ₽</span></li>
-                <li class="price-item"><span>Кастомное разрешение 4:3 stretched</span><span class="price-tag" onclick="selectServiceAmount(250)">250 ₽</span></li>
-                <li class="price-item"><span>Полный сетап (ПК + CS2 + Прицел/Сенса)</span><span class="price-tag" onclick="selectServiceAmount(900)">900 ₽</span></li>
+                <li class="price-item">
+                    <span>Оптимизация Windows &amp; NVIDIA/AMD</span>
+                    <button class="price-tag" onclick="payViaYoomoney(500)">500 ₽</button>
+                </li>
+                <li class="price-item">
+                    <span>Параметры запуска Steam &amp; CS2</span>
+                    <button class="price-tag" onclick="payViaYoomoney(300)">300 ₽</button>
+                </li>
+                <li class="price-item">
+                    <span>Кастомное разрешение 4:3 stretched</span>
+                    <button class="price-tag" onclick="payViaYoomoney(250)">250 ₽</button>
+                </li>
+                <li class="price-item">
+                    <span>Полный сетап (ПК + CS2 + Прицел/Сенса)</span>
+                    <button class="price-tag" onclick="payViaYoomoney(900)">900 ₽</button>
+                </li>
             </ul>
         </div>
 
         <div class="section-title">Оплата и Реквизиты</div>
         <div class="card">
             <h2>Оплата услуг через СБП (ЮMoney)</h2>
-            <p>Для оплаты настройки или поддержки нашего проекта переведите нужную сумму по Системе быстрых платежей (СБП):</p>
+            <p>Нажмите на нужную сумму для моментального перехода к оплате в ЮMoney:</p>
             <ul class="payment-list">
                 <li class="payment-row">
                     <span>📱 Номер телефона (СБП):</span>
@@ -600,48 +578,23 @@
                 </li>
             </ul>
 
-            <!-- Выбор суммы -->
-            <div class="input-group">
-                <label>Выберите или введите сумму (₽):</label>
-                <div class="sum-buttons">
-                    <button class="sum-btn" onclick="setYoomoneyAmount(250)">250 ₽</button>
-                    <button class="sum-btn" onclick="setYoomoneyAmount(300)">300 ₽</button>
-                    <button class="sum-btn" onclick="setYoomoneyAmount(500)">500 ₽</button>
-                    <button class="sum-btn" onclick="setYoomoneyAmount(900)">900 ₽</button>
-                </div>
-                <input type="number" id="ymAmount" class="custom-input" placeholder="Введите сумму..." value="500" oninput="updateYoomoneyLink()">
+            <!-- Быстрые кнопки мгновенного перехода в ЮMoney -->
+            <div class="sum-buttons">
+                <button class="sum-btn" onclick="payViaYoomoney(250)">Оплатить 250 ₽</button>
+                <button class="sum-btn" onclick="payViaYoomoney(300)">Оплатить 300 ₽</button>
+                <button class="sum-btn" onclick="payViaYoomoney(500)">Оплатить 500 ₽</button>
+                <button class="sum-btn" onclick="payViaYoomoney(900)">Оплатить 900 ₽</button>
             </div>
 
-            <a id="ymPayBtn" href="https://yoomoney.ru/transfer/quickpay?receiver=410011893000000&sum=500" target="_blank" class="btn btn-ymoney">Перевести через ЮMoney</a>
+            <button class="btn btn-ymoney" onclick="payViaYoomoney(500)">Перейти к оплате в ЮMoney (500 ₽)</button>
         </div>
 
-        <!-- Новый блок оплаты за игры (CKassa) -->
         <div class="section-title">Пополнение игр (CKassa)</div>
         <div class="card">
             <h2>Оплата и Донат в игры</h2>
-            <p>Быстрое пополнение игрового баланса через платёжный шлюз CKassa:</p>
+            <p>Быстрый переход к пополнению баланса через платёжный шлюз CKassa:</p>
             
-            <div class="input-group">
-                <label>Выберите игру / сервис:</label>
-                <select id="gameSelect" class="custom-select">
-                    <option value="steam">Steam (Пополнение баланса)</option>
-                    <option value="pubg">PUBG Mobile (UC)</option>
-                    <option value="brawlstars">Brawl Stars (Гемы/Пасс)</option>
-                    <option value="genshin">Genshin Impact (Кристаллы)</option>
-                </select>
-            </div>
-
-            <div class="input-group">
-                <label>Логин / Player ID:</label>
-                <input type="text" id="gameAccountId" class="custom-input" placeholder="Введите Ваш ID или логин...">
-            </div>
-
-            <div class="input-group">
-                <label>Сумма пополнения (₽):</label>
-                <input type="number" id="gameAmount" class="custom-input" placeholder="Введите сумму..." value="100">
-            </div>
-
-            <button class="btn btn-ckassa" onclick="payGameCkassa()">Оплатить через CKassa</button>
+            <a href="https://game.ckassa.ru/pay" target="_blank" class="btn btn-ckassa">Перейти к оплате игр на CKassa</a>
         </div>
 
         <div class="section-title">Инструкции по настройке</div>
@@ -760,6 +713,13 @@
     </div>
 
     <script>
+        // Функция мгновенного редиректа в ЮMoney с нужной суммой и номером телефона
+        function payViaYoomoney(amount) {
+            const phone = "79922370672";
+            const url = `https://yoomoney.ru/transfer/quickpay?receiver=${phone}&sum=${amount}&comment=CS2_CYBERHUB_Service`;
+            window.open(url, '_blank');
+        }
+
         function toggleAccordion() {
             const e = document.querySelector(".accordion-header"),
                 t = document.getElementById("graphicsContent");
@@ -791,37 +751,6 @@
             });
         }
 
-        // Автозаполнение ЮMoney и кнопок
-        function setYoomoneyAmount(val) {
-            document.getElementById("ymAmount").value = val;
-            updateYoomoneyLink();
-        }
-
-        function selectServiceAmount(val) {
-            setYoomoneyAmount(val);
-            document.getElementById("ymAmount").scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function updateYoomoneyLink() {
-            const val = document.getElementById("ymAmount").value || 100;
-            const link = document.getElementById("ymPayBtn");
-            link.href = `https://yoomoney.ru/transfer/quickpay?receiver=410011893000000&sum=${val}`;
-        }
-
-        // Перенаправление на CKassa
-        function payGameCkassa() {
-            const accountId = document.getElementById("gameAccountId").value;
-            const amount = document.getElementById("gameAmount").value;
-            
-            if (!accountId) {
-                alert("Пожалуйста, введите Ваш ID или логин!");
-                return;
-            }
-            
-            // Переход на платёжный шлюз CKassa
-            window.open(`https://game.ckassa.ru/pay?account=${encodeURIComponent(accountId)}&amount=${amount}`, '_blank');
-        }
-
         window.addEventListener("DOMContentLoaded", () => {
             const e = localStorage.getItem("theme"),
                 t = document.getElementById("themeIcon"),
@@ -833,8 +762,8 @@
                     n.textContent = "Тёмная тема";
                 }
             }
-            updateYoomoneyLink();
         });
     </script>
 </body>
 </html>
+```
