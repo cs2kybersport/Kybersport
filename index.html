@@ -413,7 +413,7 @@
             color: #0f172a;
         }
 
-        .custom-input, .custom-select {
+        .custom-input {
             width: 100%;
             padding: 10px;
             background: rgba(15, 23, 42, 0.8);
@@ -426,7 +426,7 @@
             transition: all 0.2s;
         }
 
-        body.light-theme .custom-input, body.light-theme .custom-select {
+        body.light-theme .custom-input {
             background: rgba(255, 255, 255, 0.8);
             color: #0f172a;
             border-color: rgba(234, 88, 12, 0.5);
@@ -454,23 +454,6 @@
         .btn:hover {
             background: #ea580c;
             transform: translateY(-2px);
-        }
-
-        .btn-black {
-            background: rgba(15, 23, 42, 0.9);
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: none;
-        }
-
-        .btn-black:hover {
-            background: rgba(30, 41, 59, 0.9);
-        }
-
-        .btn-yt {
-            background: red;
-            color: #fff;
-            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
         }
 
         .btn-ymoney {
@@ -591,32 +574,22 @@
             <button onclick="payCustom()" class="btn btn-ymoney">Перевести на номер +79922370672</button>
         </div>
 
-        <div class="section-title">Пополнение игр (CKassa)</div>
+        <div class="section-title">Пополнение Steam</div>
         <div class="card">
-            <h2>Оплата и Донат в игры</h2>
-            <p>Переход на шлюз CKassa с автоподставлением данных:</p>
-            
-            <div class="input-group">
-                <label>Выберите игру:</label>
-                <select id="gameSelect" class="custom-select">
-                    <option value="steam">Steam (Пополнение баланса)</option>
-                    <option value="pubg">PUBG Mobile (UC)</option>
-                    <option value="brawlstars">Brawl Stars (Гемы/Пасс)</option>
-                    <option value="genshin">Genshin Impact (Кристаллы)</option>
-                </select>
-            </div>
+            <h2>Пополнение баланса Steam</h2>
+            <p>Переход на прямой шлюз пополнения Steam через CKassa:</p>
 
             <div class="input-group">
-                <label>Логин / Player ID:</label>
-                <input type="text" id="gameAccountId" class="custom-input" placeholder="Введите Ваш ID или логин...">
+                <label>Логин Steam:</label>
+                <input type="text" id="steamAccountId" class="custom-input" placeholder="Введите Ваш логин Steam...">
             </div>
 
             <div class="input-group">
                 <label>Сумма пополнения (₽):</label>
-                <input type="number" id="gameAmount" class="custom-input" placeholder="Введите сумму..." value="100">
+                <input type="number" id="steamAmount" class="custom-input" placeholder="Введите сумму..." value="100">
             </div>
 
-            <button class="btn btn-ckassa" onclick="payGameCkassa()">Оплатить через CKassa</button>
+            <button class="btn btn-ckassa" onclick="paySteamCkassa()">Пополнить Steam через CKassa</button>
         </div>
 
         <div class="section-title">Инструкции по настройке</div>
@@ -689,25 +662,24 @@
     <script>
         const PHONE_NUMBER = "79922370672";
 
-        // Функция моментальной оплаты при клике на сумму/услугу
+        // Перевод через ЮMoney с автоподстановкой суммы и номера
         function payInstant(sum) {
             const url = `https://yoomoney.ru/transfer/quickpay?receiver=${PHONE_NUMBER}&sum=${sum}`;
             window.open(url, '_blank');
         }
 
-        // Оплата произвольной суммы из инпута
         function payCustom() {
             const sum = document.getElementById("ymAmount").value || 100;
             payInstant(sum);
         }
 
-        // Оплата через CKassa
-        function payGameCkassa() {
-            const accountId = document.getElementById("gameAccountId").value;
-            const amount = document.getElementById("gameAmount").value;
+        // Пополнение только Steam через CKassa
+        function paySteamCkassa() {
+            const accountId = document.getElementById("steamAccountId").value;
+            const amount = document.getElementById("steamAmount").value;
             
             if (!accountId) {
-                alert("Пожалуйста, введите Ваш ID или логин!");
+                alert("Пожалуйста, введите Ваш логин Steam!");
                 return;
             }
             
