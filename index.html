@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
-    <title>CS2 CYBERHUB — Pro Configs</title>
+    <title>CS2 CYBERHUB — Configs & Steam Top Up</title>
     <style>
         * {
             box-sizing: border-box;
@@ -244,9 +244,6 @@
             color: #f97316;
             text-transform: uppercase;
             margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
         body.light-theme .config-title {
@@ -276,6 +273,7 @@
 
         .btn-group {
             display: flex;
+            flex-direction: column;
             gap: 6px;
         }
 
@@ -334,6 +332,108 @@
             background: #ea580c;
         }
 
+        /* Price List Style */
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(249, 115, 22, 0.3);
+            font-size: 13px;
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+        }
+
+        .price-val {
+            font-weight: 900;
+            color: #f97316;
+            font-size: 14px;
+        }
+
+        body.light-theme .price-val {
+            color: #ea580c;
+        }
+
+        /* Form Controls */
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            color: #cbd5e1;
+        }
+
+        body.light-theme .form-label {
+            color: #475569;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(249, 115, 22, 0.4);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 13px;
+            outline: none;
+        }
+
+        body.light-theme .form-input {
+            background: #fff;
+            color: #0f172a;
+        }
+
+        .form-input:focus {
+            border-color: #f97316;
+        }
+
+        .amount-presets {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .amount-btn {
+            flex: 1;
+            padding: 8px 0;
+            background: rgba(249, 115, 22, 0.15);
+            border: 1px solid rgba(249, 115, 22, 0.4);
+            border-radius: 6px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        body.light-theme .amount-btn {
+            color: #0f172a;
+        }
+
+        .amount-btn:hover {
+            background: #f97316;
+            color: #fff;
+        }
+
+        .total-calc {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .total-calc span {
+            color: #10b981;
+            font-weight: 800;
+        }
+
         .footer {
             text-align: center;
             font-size: 12px;
@@ -374,12 +474,64 @@
 
         <div class="header">
             <h1>CS2 <span>CYBERHUB</span></h1>
-            <p>База конфигов и настроек про-игроков CS2</p>
+            <p>База конфигов, пополнение Steam и настройки CS2</p>
         </div>
 
-        <div class="section-title">Конфиги про-игроков</div>
+        <!-- 1. STEAM TOP UP -->
+        <div class="section-title">💳 Пополнение Steam</div>
+        <div class="card">
+            <p class="player-desc">Мгновенное пополнение баланса Steam (CIS / РФ) с минимальной комиссией.</p>
+            
+            <div class="form-group">
+                <label class="form-label">Логин Steam (не никнейм):</label>
+                <input type="text" id="steamLogin" class="form-input" placeholder="Введите ваш логин...">
+            </div>
 
-        <!-- 1. m0NESY -->
+            <div class="form-group">
+                <label class="form-label">Сумма пополнения (₽):</label>
+                <input type="number" id="steamAmount" class="form-input" value="500" oninput="updateTotal()">
+            </div>
+
+            <div class="amount-presets">
+                <button class="amount-btn" onclick="setAmount(100)">100 ₽</button>
+                <button class="amount-btn" onclick="setAmount(500)">500 ₽</button>
+                <button class="amount-btn" onclick="setAmount(1000)">1000 ₽</button>
+                <button class="amount-btn" onclick="setAmount(2500)">2500 ₽</button>
+            </div>
+
+            <div class="total-calc">
+                <span>К оплате (комиссия 10%):</span>
+                <span id="totalPrice">550 ₽</span>
+            </div>
+
+            <button class="btn btn-download" onclick="processPayment()">Оплатить через СБП / Карту</button>
+        </div>
+
+        <!-- 2. PRICE LIST -->
+        <div class="section-title">🏷️ Прайс-лист услуг</div>
+        <div class="card">
+            <div class="price-item">
+                <span>Индивидуальная настройка autoexec.cfg</span>
+                <span class="price-val">290 ₽</span>
+            </div>
+            <div class="price-item">
+                <span>Оптимизация CS2 (Boost FPS / Latency)</span>
+                <span class="price-val">490 ₽</span>
+            </div>
+            <div class="price-item">
+                <span>Полная настройка ПК под киберспорт</span>
+                <span class="price-val">990 ₽</span>
+            </div>
+            <div class="price-item">
+                <span>Подбор комплектующих для CS2</span>
+                <span class="price-val">350 ₽</span>
+            </div>
+        </div>
+
+        <!-- 3. CONFIGS SECTION -->
+        <div class="section-title">🔥 Конфиги про-игроков</div>
+
+        <!-- m0NESY -->
         <div class="card">
             <span class="badge">Team Falcons</span>
             <img src="https://img.championat.com/lpv1nwIFuogZ-DFpIvJArHEJrL638I7pKYyBK5-3BCo/p(w:1350/h:900)/news/big/i/s/team-falcons-s-m0nesy-proshla-v-final-iem-cologne-major-2026-v-cs-2_1781988221468219053.jpg" alt="m0NESY">
@@ -398,9 +550,7 @@
             </div>
 
             <div class="config-block">
-                <div class="config-title">
-                    <span>⚙️ Конфиг (autoexec)</span>
-                </div>
+                <div class="config-title">⚙️ Команды autoexec</div>
                 <textarea id="cfg-m0nesy" class="config-area" readonly>sensitivity 2.00;
 zoom_sensitivity_ratio 1.00;
 viewmodel_fov 68;
@@ -410,17 +560,16 @@ viewmodel_offset_z -1.5;
 viewmodel_presetpos 1;
 cl_crosshaircode CSGO-wA43v-3O3U3-k8mOq-s6Pz5-983yC;
 fps_max 0;</textarea>
-
-                <div class="btn-group">
-                    <button class="btn btn-secondary" onclick="copyValue('cfg-m0nesy', 'Конфиг m0NESY')">Скопировать</button>
-                    <button class="btn btn-download" onclick="downloadCfg('m0nesy_autoexec.cfg', 'cfg-m0nesy')">Скачать .cfg</button>
-                </div>
+                <button class="btn btn-secondary" onclick="copyValue('cfg-m0nesy', 'Конфиг m0NESY')">Скопировать текст</button>
             </div>
 
-            <a href="https://www.hltv.org/player/19230/m0nesy" target="_blank" class="btn" style="margin-top:8px;">Профиль HLTV</a>
+            <div class="btn-group">
+                <a href="https://www.hltv.org/player/19230/m0nesy" target="_blank" class="btn">Профиль HLTV</a>
+                <button class="btn btn-download" onclick="downloadCfg('m0nesy_autoexec.cfg', 'cfg-m0nesy')">Скачать конфиг (.cfg)</button>
+            </div>
         </div>
 
-        <!-- 2. donk -->
+        <!-- donk -->
         <div class="card">
             <span class="badge">Team Spirit</span>
             <img src="https://img-cdn.hltv.org/gallerypicture/1qfHisdneJ-3vE85PFXyWg.jpg?auto=compress&amp;ixlib=java-2.1.0&amp;m=%2Fm.png&amp;mw=320&amp;mx=59&amp;my=1421&amp;q=75&amp;w=2400&amp;s=7b321189a9dd67bc5beaec2723e004cf" alt="donk">
@@ -439,9 +588,7 @@ fps_max 0;</textarea>
             </div>
 
             <div class="config-block">
-                <div class="config-title">
-                    <span>⚙️ Конфиг (autoexec)</span>
-                </div>
+                <div class="config-title">⚙️ Команды autoexec</div>
                 <textarea id="cfg-donk" class="config-area" readonly>sensitivity 1.25;
 zoom_sensitivity_ratio 1.00;
 viewmodel_fov 68;
@@ -451,17 +598,16 @@ viewmodel_offset_z -1.5;
 viewmodel_presetpos 1;
 cl_crosshaircode CSGO-xPVXN-4vAuq-HNmWV-Awctc-pL3ED;
 fps_max 0;</textarea>
-
-                <div class="btn-group">
-                    <button class="btn btn-secondary" onclick="copyValue('cfg-donk', 'Конфиг donk')">Скопировать</button>
-                    <button class="btn btn-download" onclick="downloadCfg('donk_autoexec.cfg', 'cfg-donk')">Скачать .cfg</button>
-                </div>
+                <button class="btn btn-secondary" onclick="copyValue('cfg-donk', 'Конфиг donk')">Скопировать текст</button>
             </div>
 
-            <a href="https://www.hltv.org/player/21167/donk" target="_blank" class="btn" style="margin-top:8px;">Профиль HLTV</a>
+            <div class="btn-group">
+                <a href="https://www.hltv.org/player/21167/donk" target="_blank" class="btn">Профиль HLTV</a>
+                <button class="btn btn-download" onclick="downloadCfg('donk_autoexec.cfg', 'cfg-donk')">Скачать конфиг (.cfg)</button>
+            </div>
         </div>
 
-        <!-- 3. ZywOo -->
+        <!-- ZywOo -->
         <div class="card">
             <span class="badge">Team Vitality</span>
             <img src="https://img-cdn.hltv.org/playerbodyshot/blnoWFtH8GUJZjhr8H0P4u.png?bg=3e4c54&amp;h=800&amp;ixlib=java-2.1.0&amp;rect=121%2C8%2C467%2C467&amp;w=800&amp;s=e3a0e62125c9cf3f44077e5c0792687a" alt="ZywOo">
@@ -480,9 +626,7 @@ fps_max 0;</textarea>
             </div>
 
             <div class="config-block">
-                <div class="config-title">
-                    <span>⚙️ Конфиг (autoexec)</span>
-                </div>
+                <div class="config-title">⚙️ Команды autoexec</div>
                 <textarea id="cfg-zywoo" class="config-area" readonly>sensitivity 2.00;
 zoom_sensitivity_ratio 1.00;
 viewmodel_fov 68;
@@ -492,22 +636,21 @@ viewmodel_offset_z -1.5;
 viewmodel_presetpos 1;
 cl_crosshaircode CSGO-2zK3P-3O3U3-k8mOq-s6Pz5-983yC;
 fps_max 0;</textarea>
-
-                <div class="btn-group">
-                    <button class="btn btn-secondary" onclick="copyValue('cfg-zywoo', 'Конфиг ZywOo')">Скопировать</button>
-                    <button class="btn btn-download" onclick="downloadCfg('zywoo_autoexec.cfg', 'cfg-zywoo')">Скачать .cfg</button>
-                </div>
+                <button class="btn btn-secondary" onclick="copyValue('cfg-zywoo', 'Конфиг ZywOo')">Скопировать текст</button>
             </div>
 
-            <a href="https://www.hltv.org/player/11893/zywoo" target="_blank" class="btn" style="margin-top:8px;">Профиль HLTV</a>
+            <div class="btn-group">
+                <a href="https://www.hltv.org/player/11893/zywoo" target="_blank" class="btn">Профиль HLTV</a>
+                <button class="btn btn-download" onclick="downloadCfg('zywoo_autoexec.cfg', 'cfg-zywoo')">Скачать конфиг (.cfg)</button>
+            </div>
         </div>
 
-        <!-- 4. s1mple -->
+        <!-- s1mple -->
         <div class="card">
             <span class="badge legend">LEGEND</span>
             <img src="https://staticg.sportskeeda.com/editor/2024/04/e3b51-17144587925231-1920.jpg" alt="s1mple">
             <h2>s1mple (Oleksandr Kostyliev)</h2>
-            <p class="player-desc">Легендарный игрок, GOAT дисциплин Counter-Strike и обладатель кучи MVP.</p>
+            <p class="player-desc">Легендарный игрок, GOAT дисциплин Counter-Strike и обладатель множества MVP.</p>
 
             <ul>
                 <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 3.09 | <b>eDPI:</b> 1236</li>
@@ -521,9 +664,7 @@ fps_max 0;</textarea>
             </div>
 
             <div class="config-block">
-                <div class="config-title">
-                    <span>⚙️ Конфиг (autoexec)</span>
-                </div>
+                <div class="config-title">⚙️ Команды autoexec</div>
                 <textarea id="cfg-s1mple" class="config-area" readonly>sensitivity 3.09;
 zoom_sensitivity_ratio 1.00;
 viewmodel_fov 68;
@@ -533,14 +674,13 @@ viewmodel_offset_z -1.5;
 viewmodel_presetpos 1;
 cl_crosshaircode CSGO-V9AQt-XiEkj-qcEqC-Xsbx7-UfdBN;
 fps_max 0;</textarea>
-
-                <div class="btn-group">
-                    <button class="btn btn-secondary" onclick="copyValue('cfg-s1mple', 'Конфиг s1mple')">Скопировать</button>
-                    <button class="btn btn-download" onclick="downloadCfg('s1mple_autoexec.cfg', 'cfg-s1mple')">Скачать .cfg</button>
-                </div>
+                <button class="btn btn-secondary" onclick="copyValue('cfg-s1mple', 'Конфиг s1mple')">Скопировать текст</button>
             </div>
 
-            <a href="https://www.hltv.org/player/7998/s1mple" target="_blank" class="btn" style="margin-top:8px;">Профиль HLTV</a>
+            <div class="btn-group">
+                <a href="https://www.hltv.org/player/7998/s1mple" target="_blank" class="btn">Профиль HLTV</a>
+                <button class="btn btn-download" onclick="downloadCfg('s1mple_autoexec.cfg', 'cfg-s1mple')">Скачать конфиг (.cfg)</button>
+            </div>
         </div>
 
         <div class="footer">
@@ -583,6 +723,29 @@ fps_max 0;</textarea>
             link.download = filename;
             link.click();
             URL.revokeObjectURL(link.href);
+        }
+
+        function setAmount(val) {
+            document.getElementById('steamAmount').value = val;
+            updateTotal();
+        }
+
+        function updateTotal() {
+            const val = parseFloat(document.getElementById('steamAmount').value) || 0;
+            const total = Math.round(val * 1.1); // 10% комиссия
+            document.getElementById('totalPrice').textContent = total + ' ₽';
+        }
+
+        function processPayment() {
+            const login = document.getElementById('steamLogin').value.trim();
+            const amount = document.getElementById('steamAmount').value;
+
+            if (!login) {
+                alert('Пожалуйста, введите ваш логин Steam!');
+                return;
+            }
+
+            alert(`Переход к оплате...\nЛогин: ${login}\nСумма пополнения: ${amount} ₽`);
         }
 
         window.addEventListener("DOMContentLoaded", () => {
