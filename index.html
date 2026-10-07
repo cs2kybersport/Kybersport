@@ -131,7 +131,80 @@
             text-transform: uppercase;
         }
 
-        /* Полностью прозрачный прайс-лист */
+        /* Сворачиваемая плашка (Accordion / Accordion Details) */
+        .accordion-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(8px);
+            border-radius: 14px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(249, 115, 22, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 16px;
+            background: transparent;
+            color: #ffffff;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: left;
+        }
+
+        .accordion-header:hover {
+            background: rgba(249, 115, 22, 0.1);
+        }
+
+        .accordion-icon {
+            width: 24px;
+            height: 24px;
+            fill: #f97316;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+            padding: 0 16px;
+        }
+
+        .accordion-content.show {
+            max-height: 2000px; /* Достаточно для всего содержимого */
+            padding: 0 16px 16px 16px;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        .sub-card {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(249, 115, 22, 0.25);
+        }
+
+        .sub-card h3 {
+            font-size: 14px;
+            color: #f97316;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        /* Прайс-лист */
         .price-list {
             list-style: none !important;
             padding-left: 0 !important;
@@ -174,6 +247,7 @@
             font-weight: bold;
         }
 
+        /* Кнопки */
         .btn {
             display: block;
             width: 100%;
@@ -190,6 +264,7 @@
             transition: all 0.2s;
             margin-bottom: 8px;
             box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -206,6 +281,26 @@
 
         .btn-black:hover {
             background: rgba(30, 41, 59, 0.9);
+        }
+
+        .btn-yt {
+            background: #FF0000;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+        }
+
+        .btn-yt:hover {
+            background: #cc0000;
+        }
+
+        .btn-tg {
+            background: #229ED9;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(34, 158, 217, 0.3);
+        }
+
+        .btn-tg:hover {
+            background: #1d8ac0;
         }
 
         .contact-link {
@@ -270,23 +365,52 @@
         </ul>
     </div>
 
-    <!-- Инструкция -->
-    <div class="section-title">Инструкции по настройке</div>
+    <!-- Интерактивная плашка: Настройки графики -->
+    <div class="section-title">Инструкции и гайды</div>
 
-    <div class="card">
-        <h2>1. Параметры запуска Steam</h2>
-        <p>Нажмите ПКМ на CS2 в Steam -> Свойства -> Параметры запуска:</p>
-        <div class="code-box">-novid -high -threads 8 +cl_cmdrate 128 +cl_updaterate 128 -nojoy +fps_max 0</div>
-    </div>
+    <div class="accordion-card">
+        <button class="accordion-header" id="graphicsToggle">
+            <span>⚙️ Настройки графики</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/>
+            </svg>
+        </button>
 
-    <div class="card">
-        <h2>2. Разрешение и герцовка</h2>
-        <p>Настройка растянутого формата 4:3 без чёрных полос:</p>
-        <ul>
-            <li>В панели управления NVIDIA / AMD выберите масштабирование <b>«Во весь экран»</b> на <b>ГП</b>.</li>
-            <li>Создайте кастомное разрешение <b>1280x960</b> или <b>1440x1080</b>.</li>
-            <li>В CS2 поставьте формат <b>4:3</b> и режим <b>«На весь экран»</b>.</li>
-        </ul>
+        <div class="accordion-content" id="graphicsContent">
+            <!-- 1. Параметры запуска -->
+            <div class="sub-card">
+                <h3>1. Параметры запуска Steam</h3>
+                <p>Откройте Steam ➔ ПКМ на Counter-Strike 2 ➔ Свойства ➔ Параметры запуска:</p>
+                <div class="code-box">-novid -high -threads 8 +cl_cmdrate 128 +cl_updaterate 128 -nojoy +fps_max 0</div>
+            </div>
+
+            <!-- 2. Разрешение 4:3 Stretched -->
+            <div class="sub-card">
+                <h3>2. Разрешение и 4:3 Stretched</h3>
+                <p>Настройка растянутого формата без чёрных полос по бокам:</p>
+                <ul>
+                    <li><b>NVIDIA:</b> Панель управления ➔ Регулировка размера и положения рабочего стола ➔ Масштабирование: <b>«Во весь экран»</b> ➔ Выполнить масштабирование на: <b>ГП</b>.</li>
+                    <li><b>AMD:</b> AMD Software ➔ Дисплей ➔ Режим масштабирования: <b>«Полная панель»</b>.</li>
+                    <li>В CS2 выберите формат <b>4:3</b>, разрешение <b>1280x960</b> / <b>1440x1080</b> и режим <b>«На весь экран»</b>.</li>
+                </ul>
+            </div>
+
+            <!-- 3. Внутриигровые настройки графики CS2 -->
+            <div class="sub-card">
+                <h3>3. Графика в CS2 для максимального FPS</h3>
+                <ul>
+                    <li><b>Повышенный контраст игроков:</b> Вкл</li>
+                    <li><b>Сглаживание:</b> 2x MSAA или 4x MSAA</li>
+                    <li><b>Общее качество теней:</b> Низкое или Среднее</li>
+                    <li><b>Детализация моделей и текстур:</b> Низкое</li>
+                    <li><b>Детализация шейдеров:</b> Низкое</li>
+                    <li><b>Детализация частиц:</b> Низкое</li>
+                    <li><b>Глобальное затенение:</b> Выкл</li>
+                    <li><b>NVIDIA Reflex Low Latency:</b> Вкл + Буст</li>
+                    <li><b>FidelityFX Super Resolution (FSR):</b> Выключено (Наивысшее качество)</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <!-- Про-игроки -->
@@ -358,12 +482,13 @@
     <div class="card">
         <h2>Тренировка стрельбы и механики</h2>
         <ul>
-            <li><b>Aim Botz:</b> 500 наводка и флики с AK-47 и M4A1-S.</li>
-            <li><b>Prefire Maps:</b> Чек углов и правильный пик.</li>
-            <li><b>Контр-стрейфы:</b> Отработка мгновенного остановки движения перед выстрелом.</li>
-            <li><b>Nades Training:</b> Заучивание быстрых флешек и смоков.</li>
+            <li><b>Aim Botz / KSTS / CS2 AIM:</b> 500 наводок и фликов с AK-47 и M4A1-S.</li>
+            <li><b>Prefire Maps (Mirage Course):</b> Чек углов и отработка быстрых пиков.</li>
+            <li><b>Контр-стрейфы:</b> Мгновенная остановка перед выстрелом.</li>
+            <li><b>Nades Training (Astralis Maps):</b> Изучение смоков, молотовых и флешек.</li>
         </ul>
-        <a href="https://youtu.be/dBE6m4KWi5o?si=7N4XBeXc6Cqaq1yP" target="_blank" class="btn">Гайд по контр-стрейфам (YouTube)</a>
+        <a href="https://youtu.be/dXiMLi6YrZw?si=G3lCoMAQ2u4w4E4G" target="_blank" class="btn btn-yt">Лучшие карты для тренировок в CS 2 (YouTube)</a>
+        <a href="https://youtu.be/dBE6m4KWi5o?si=7N4XBeXc6Cqaq1yP" target="_blank" class="btn btn-black">Гайд по контр-стрейфам (YouTube)</a>
     </div>
 
     <!-- Контакты -->
@@ -371,11 +496,12 @@
     <div class="card">
         <h2>Связаться с нами</h2>
         <ul>
+            <li><b>Telegram канал:</b> <a href="https://t.me/cs2kybersport" target="_blank" class="contact-link">t.me/cs2kybersport</a></li>
             <li><b>Email:</b> <a href="mailto:trainingcs2@gmail.com" class="contact-link">trainingcs2@gmail.com</a></li>
             <li><b>Телефон:</b> <a href="tel:+79922676767" class="contact-link">+7 (992) 267 67 67</a></li>
         </ul>
-        <a href="mailto:trainingcs2@gmail.com" class="btn">Написать на Email</a>
-        <a href="tel:+79922676767" class="btn btn-black">Позвонить</a>
+        <a href="https://t.me/cs2kybersport" target="_blank" class="btn btn-tg">Наш Telegram Канал</a>
+        <a href="mailto:trainingcs2@gmail.com" class="btn btn-black">Написать на Email</a>
     </div>
 
     <!-- Футер -->
@@ -387,5 +513,19 @@
     </div>
 </div>
 
+<!-- JavaScript для анимации сворачиваемой плашки -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleBtn = document.getElementById('graphicsToggle');
+        const content = document.getElementById('graphicsContent');
+
+        toggleBtn.addEventListener('click', function() {
+            toggleBtn.classList.toggle('active');
+            content.classList.toggle('show');
+        });
+    });
+</script>
+
 </body>
 </html>
+```
