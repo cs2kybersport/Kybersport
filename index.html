@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Отключаем передачу Referrer, чтобы внешние картинки без проблем загружались -->
+    <meta name="referrer" content="no-referrer">
     <title>CS2 CYBERHUB</title>
     <style>
         * {
@@ -13,11 +15,11 @@
         }
 
         /* --- ТЁМНАЯ ТЕМА (ПО УМОЛЧАНИЮ) --- */
-        /* Фон для ПК / Ноутбуков / Планшетов */
+        /* Фон для ПК / Планшетов */
         body {
             background-color: #0b0f19;
             background-image: 
-                radial-gradient(rgba(11, 15, 25, 0.35), rgba(11, 15, 25, 0.75)),
+                linear-gradient(rgba(11, 15, 25, 0.65), rgba(11, 15, 25, 0.85)),
                 url("https://i.ytimg.com/vi/3bCj7XWvdsQ/maxresdefault.jpg");
             background-size: cover;
             background-position: center;
@@ -32,30 +34,28 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Фон для ТЕЛЕФОНОВ (ширина экрана до 767px) */
+        /* Фон для ТЕЛЕФОНОВ (до 767px) */
         @media (max-width: 767px) {
             body {
                 background-image: 
-                    radial-gradient(rgba(11, 15, 25, 0.35), rgba(11, 15, 25, 0.75)),
+                    linear-gradient(rgba(11, 15, 25, 0.65), rgba(11, 15, 25, 0.85)),
                     url("https://pic.rtbcdn.ru/video/2025-07-18/ac/74/ac7421528283e1aeee43fa96c756ca98.jpg");
             }
         }
 
         /* --- СВЕТЛАЯ ТЕМА --- */
-        /* Фон для ПК в светлой теме */
         body.light-theme {
             background-color: #cbd5e1;
             background-image: 
-                radial-gradient(rgba(241, 245, 249, 0.55), rgba(203, 213, 225, 0.8)),
+                linear-gradient(rgba(241, 245, 249, 0.75), rgba(203, 213, 225, 0.85)),
                 url("https://i.ytimg.com/vi/3bCj7XWvdsQ/maxresdefault.jpg");
             color: #0f172a;
         }
 
-        /* Фон для ТЕЛЕФОНОВ в светлой теме */
         @media (max-width: 767px) {
             body.light-theme {
                 background-image: 
-                    radial-gradient(rgba(241, 245, 249, 0.55), rgba(203, 213, 225, 0.8)),
+                    linear-gradient(rgba(241, 245, 249, 0.75), rgba(203, 213, 225, 0.85)),
                     url("https://pic.rtbcdn.ru/video/2025-07-18/ac/74/ac7421528283e1aeee43fa96c756ca98.jpg");
             }
         }
@@ -75,7 +75,7 @@
             gap: 8px;
             margin: 0 auto 20px auto;
             padding: 8px 18px;
-            background: rgba(15, 23, 42, 0.65);
+            background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid #f97316;
@@ -94,7 +94,7 @@
         }
 
         body.light-theme .theme-toggle {
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.85);
             color: #0f172a;
             border-color: #ea580c;
         }
@@ -155,9 +155,9 @@
             text-shadow: none;
         }
 
-        /* ПОЛУПРОЗРАЧНЫЕ КАРТОЧКИ (через них просвечивает фоновая картинка) */
+        /* Карточки */
         .card {
-            background: rgba(15, 23, 42, 0.55);
+            background: rgba(15, 23, 42, 0.7);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-radius: 14px;
@@ -169,7 +169,7 @@
         }
 
         body.light-theme .card {
-            background: rgba(255, 255, 255, 0.55);
+            background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-color: rgba(234, 88, 12, 0.4);
@@ -302,7 +302,7 @@
         }
 
         .code-box {
-            background: rgba(15, 23, 42, 0.7);
+            background: rgba(15, 23, 42, 0.85);
             color: #f97316;
             padding: 10px;
             border-radius: 8px;
@@ -317,7 +317,7 @@
         }
 
         body.light-theme .code-box {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             color: #ea580c;
             border-color: rgba(234, 88, 12, 0.5);
         }
@@ -346,7 +346,7 @@
         }
 
         .btn-black {
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(15, 23, 42, 0.9);
             color: #ffffff;
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: none;
@@ -397,7 +397,7 @@
             font-size: 13px;
             color: #ffffff;
             font-weight: 800;
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(15, 23, 42, 0.7);
             backdrop-filter: blur(10px);
             padding: 10px;
             border-radius: 8px;
@@ -407,7 +407,7 @@
         }
 
         body.light-theme .authors {
-            background: rgba(255, 255, 255, 0.65);
+            background: rgba(255, 255, 255, 0.75);
             color: #0f172a;
             border-color: rgba(234, 88, 12, 0.4);
         }
