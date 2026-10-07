@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
-    <title>CS2 CYBERHUB — Configs & Steam Top Up</title>
+    <title>CS2 CYBERHUB</title>
     <style>
         * {
             box-sizing: border-box;
@@ -15,7 +15,7 @@
 
         body {
             background-color: #0b0f19;
-            background-image: linear-gradient(rgba(11, 15, 25, 0.75), rgba(11, 15, 25, 0.9)), url("https://i.ytimg.com/vi/3bCj7XWvdsQ/maxresdefault.jpg");
+            background-image: linear-gradient(rgba(11, 15, 25, 0.65), rgba(11, 15, 25, 0.85)), url("https://i.ytimg.com/vi/3bCj7XWvdsQ/maxresdefault.jpg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -31,21 +31,27 @@
 
         @media (max-width: 767px) {
             body {
-                background-image: linear-gradient(rgba(11, 15, 25, 0.75), rgba(11, 15, 25, 0.9)), url("https://pic.rtbcdn.ru/video/2025-07-18/ac/74/ac7421528283e1aeee43fa96c756ca98.jpg");
+                background-image: linear-gradient(rgba(11, 15, 25, 0.65), rgba(11, 15, 25, 0.85)), url("https://pic.rtbcdn.ru/video/2025-07-18/ac/74/ac7421528283e1aeee43fa96c756ca98.jpg");
             }
         }
 
         body.light-theme {
             background-color: #cbd5e1;
-            background-image: linear-gradient(rgba(241, 245, 249, 0.6), rgba(203, 213, 225, 0.7)), url("https://i.ytimg.com/vi/3bCj7XWvdsQ/maxresdefault.jpg");
+            background-image: linear-gradient(rgba(241, 245, 249, 0.5), rgba(203, 213, 225, 0.6)), url("https://i.ytimg.com/vi/3bCj7XWvdsQ/maxresdefault.jpg");
             color: #0f172a;
+        }
+
+        @media (max-width: 767px) {
+            body.light-theme {
+                background-image: linear-gradient(rgba(241, 245, 249, 0.5), rgba(203, 213, 225, 0.6)), url("https://pic.rtbcdn.ru/video/2025-07-18/ac/74/ac7421528283e1aeee43fa96c756ca98.jpg");
+            }
         }
 
         .container {
             width: 100%;
-            max-width: 460px;
+            max-width: 450px;
             background: transparent;
-            padding: 5px;
+            padding: 10px;
         }
 
         .theme-toggle {
@@ -55,8 +61,9 @@
             gap: 8px;
             margin: 0 auto 20px auto;
             padding: 8px 18px;
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid #f97316;
             border-radius: 20px;
             color: #fff;
@@ -73,7 +80,7 @@
         }
 
         body.light-theme .theme-toggle {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.55);
             color: #0f172a;
             border-color: #ea580c;
         }
@@ -90,12 +97,13 @@
             margin-bottom: 6px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            transition: color 0.3s;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
         }
 
         body.light-theme .header h1 {
             color: #0f172a;
-            text-shadow: none;
+            text-shadow: 0 1px 4px rgba(255, 255, 255, 0.8);
         }
 
         .header h1 span {
@@ -106,10 +114,13 @@
             font-size: 13px;
             color: #e2e8f0;
             font-weight: 600;
+            transition: color 0.3s;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
         }
 
         body.light-theme .header p {
-            color: #334155;
+            color: #1e293b;
+            text-shadow: 0 1px 4px rgba(255, 255, 255, 0.8);
         }
 
         .section-title {
@@ -121,16 +132,19 @@
             border-bottom: 2px solid #f97316;
             text-transform: uppercase;
             letter-spacing: 1px;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
         }
 
         body.light-theme .section-title {
             color: #ea580c;
             border-bottom-color: #ea580c;
+            text-shadow: none;
         }
 
         .card {
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(15, 23, 42, 0.7);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-radius: 14px;
             padding: 16px;
             margin-bottom: 16px;
@@ -140,15 +154,17 @@
         }
 
         body.light-theme .card {
-            background: rgba(255, 255, 255, 0.65);
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-color: rgba(234, 88, 12, 0.35);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             color: #0f172a;
         }
 
         .card img {
             width: 100%;
-            height: 210px;
+            height: 220px;
             object-fit: cover;
             border-radius: 10px;
             margin-bottom: 12px;
@@ -158,12 +174,26 @@
         .card h2 {
             font-size: 18px;
             color: #fff;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             font-weight: 800;
+            transition: color 0.3s;
         }
 
         body.light-theme .card h2 {
             color: #0f172a;
+        }
+
+        .card p, .card ul {
+            font-size: 13px;
+            color: #f1f5f9;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        body.light-theme .card p, body.light-theme .card ul {
+            color: #0f172a;
+            font-weight: 500;
         }
 
         .player-desc {
@@ -180,8 +210,6 @@
 
         .card ul {
             padding-left: 18px;
-            font-size: 13px;
-            margin-bottom: 12px;
         }
 
         .card ul li {
@@ -202,235 +230,268 @@
 
         .badge.legend {
             background: linear-gradient(45deg, #f59e0b, #ef4444);
+            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.5);
         }
 
-        .code-box {
-            background: rgba(15, 23, 42, 0.9);
-            color: #f97316;
-            padding: 8px 10px;
-            border-radius: 8px;
-            font-family: monospace;
-            font-size: 12px;
-            word-break: break-all;
-            margin-bottom: 10px;
-            border: 1px solid rgba(249, 115, 22, 0.5);
+        .accordion-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-weight: 700;
+            cursor: pointer;
+            user-select: none;
         }
 
-        body.light-theme .code-box {
-            background: rgba(255, 255, 255, 0.8);
-            color: #ea580c;
+        .accordion-header h2 {
+            margin-bottom: 0;
         }
 
-        .config-block {
-            background: rgba(8, 12, 22, 0.85);
-            border: 1px dashed rgba(249, 115, 22, 0.6);
-            border-radius: 10px;
-            padding: 12px;
-            margin: 12px 0;
-        }
-
-        body.light-theme .config-block {
-            background: rgba(241, 245, 249, 0.9);
-            border-color: rgba(234, 88, 12, 0.6);
-        }
-
-        .config-title {
-            font-size: 12px;
-            font-weight: 800;
+        .accordion-icon {
+            font-size: 16px;
             color: #f97316;
-            text-transform: uppercase;
-            margin-bottom: 8px;
+            transition: transform 0.3s ease;
         }
 
-        body.light-theme .config-title {
-            color: #ea580c;
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
         }
 
-        .config-area {
-            width: 100%;
-            height: 85px;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(249, 115, 22, 0.3);
-            border-radius: 6px;
-            color: #38bdf8;
-            font-family: monospace;
-            font-size: 11px;
-            padding: 8px;
-            resize: none;
-            outline: none;
-            margin-bottom: 8px;
-            line-height: 1.4;
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
         }
 
-        body.light-theme .config-area {
-            background: #fff;
-            color: #0284c7;
+        .accordion-content.active {
+            max-height: 1000px;
+            transition: max-height 0.4s ease-in-out;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(249, 115, 22, 0.3);
         }
 
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
+        .price-list {
+            list-style: none !important;
+            padding-left: 0 !important;
         }
 
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 10px 0;
-            background: #f97316;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 12px;
-            border-radius: 8px;
-            text-align: center;
-            text-transform: uppercase;
-            border: none;
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: #ea580c;
-        }
-
-        .btn-secondary {
-            background: rgba(249, 115, 22, 0.2);
-            border: 1px solid #f97316;
-            color: #fff;
-        }
-
-        body.light-theme .btn-secondary {
-            color: #0f172a;
-        }
-
-        .btn-download {
-            background: #10b981;
-        }
-
-        .btn-download:hover {
-            background: #059669;
-        }
-
-        .copy-sm-btn {
-            background: #f97316;
-            border: none;
-            color: #fff;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 10px;
-            font-weight: 800;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
-
-        .copy-sm-btn:hover {
-            background: #ea580c;
-        }
-
-        /* Price List Style */
         .price-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 0;
-            border-bottom: 1px dashed rgba(249, 115, 22, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             font-size: 13px;
+            font-weight: 600;
+        }
+
+        body.light-theme .price-item {
+            border-bottom-color: rgba(0, 0, 0, 0.15);
         }
 
         .price-item:last-child {
             border-bottom: none;
         }
 
-        .price-val {
-            font-weight: 900;
+        .price-tag {
             color: #f97316;
-            font-size: 14px;
-        }
-
-        body.light-theme .price-val {
-            color: #ea580c;
-        }
-
-        /* Form Controls */
-        .form-group {
-            margin-bottom: 12px;
-        }
-
-        .form-label {
-            display: block;
-            font-size: 11px;
             font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-            color: #cbd5e1;
-        }
-
-        body.light-theme .form-label {
-            color: #475569;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(249, 115, 22, 0.4);
-            border-radius: 8px;
-            color: #fff;
-            font-size: 13px;
-            outline: none;
-        }
-
-        body.light-theme .form-input {
-            background: #fff;
-            color: #0f172a;
-        }
-
-        .form-input:focus {
-            border-color: #f97316;
-        }
-
-        .amount-presets {
-            display: flex;
-            gap: 6px;
-            margin-bottom: 12px;
-        }
-
-        .amount-btn {
-            flex: 1;
-            padding: 8px 0;
-            background: rgba(249, 115, 22, 0.15);
-            border: 1px solid rgba(249, 115, 22, 0.4);
+            background: rgba(249, 115, 22, 0.2);
+            padding: 6px 12px;
             border-radius: 6px;
-            color: #fff;
-            font-size: 12px;
-            font-weight: 700;
+            border: 1px solid rgba(249, 115, 22, 0.5);
             cursor: pointer;
+            transition: all 0.2s;
         }
 
-        body.light-theme .amount-btn {
-            color: #0f172a;
-        }
-
-        .amount-btn:hover {
+        .price-tag:hover {
             background: #f97316;
             color: #fff;
         }
 
-        .total-calc {
-            font-size: 12px;
-            color: #94a3b8;
-            margin-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
+        .code-box {
+            background: rgba(15, 23, 42, 0.85);
+            color: #f97316;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 13px;
+            word-break: break-all;
+            margin-bottom: 10px;
+            border: 1px solid rgba(249, 115, 22, 0.5);
+            text-align: center;
+            font-weight: 700;
+            transition: all 0.3s;
         }
 
-        .total-calc span {
-            color: #10b981;
+        body.light-theme .code-box {
+            background: rgba(255, 255, 255, 0.6);
+            color: #ea580c;
+            border-color: rgba(234, 88, 12, 0.5);
+        }
+
+        .payment-list {
+            list-style: none !important;
+            padding-left: 0 !important;
+            margin-bottom: 12px;
+        }
+
+        .payment-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 13px;
+        }
+
+        body.light-theme .payment-row {
+            border-bottom-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-row:last-child {
+            border-bottom: none;
+        }
+
+        .payment-val {
+            font-weight: 800;
+            color: #f97316;
+        }
+
+        body.light-theme .payment-val {
+            color: #ea580c;
+        }
+
+        .copy-btn {
+            background: rgba(249, 115, 22, 0.2);
+            border: 1px solid #f97316;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-left: 8px;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #f97316;
+            color: #fff;
+        }
+
+        body.light-theme .copy-btn {
+            background: rgba(234, 88, 12, 0.15);
+            border-color: #ea580c;
+            color: #0f172a;
+        }
+
+        .sum-buttons {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+
+        .sum-btn {
+            flex: 1;
+            min-width: 70px;
+            padding: 8px 4px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(249, 115, 22, 0.5);
+            color: #fff;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .sum-btn:hover {
+            background: #f97316;
+            border-color: #f97316;
+            color: #fff;
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #e2e8f0;
+            text-transform: uppercase;
+        }
+
+        body.light-theme .input-group label {
+            color: #0f172a;
+        }
+
+        .custom-input {
+            width: 100%;
+            padding: 10px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(249, 115, 22, 0.5);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        body.light-theme .custom-input {
+            background: rgba(255, 255, 255, 0.8);
+            color: #0f172a;
+            border-color: rgba(234, 88, 12, 0.5);
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            background: #f97316;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 13px;
+            border-radius: 8px;
+            text-align: center;
+            text-transform: uppercase;
+            border: none;
+            transition: all 0.2s;
+            margin-bottom: 8px;
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+        }
+
+        .btn-ymoney {
+            background: #8b5cf6;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-ymoney:hover {
+            background: #7c3aed;
+        }
+
+        .btn-ckassa {
+            background: #2563eb;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .contact-link {
+            color: #f97316;
+            text-decoration: none;
             font-weight: 800;
         }
 
@@ -441,6 +502,7 @@
             margin-top: 25px;
             border-top: 1px solid rgba(249, 115, 22, 0.4);
             padding-top: 20px;
+            line-height: 1.6;
             font-weight: 600;
         }
 
@@ -449,19 +511,20 @@
         }
 
         .authors {
-            margin-top: 8px;
-            font-size: 12px;
+            margin-top: 10px;
+            font-size: 13px;
             color: #fff;
             font-weight: 800;
             background: rgba(15, 23, 42, 0.7);
-            padding: 8px;
+            backdrop-filter: blur(10px);
+            padding: 10px;
             border-radius: 8px;
             border: 1px solid rgba(249, 115, 22, 0.4);
             text-transform: uppercase;
         }
 
         body.light-theme .authors {
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.5);
             color: #0f172a;
         }
     </style>
@@ -474,213 +537,170 @@
 
         <div class="header">
             <h1>CS2 <span>CYBERHUB</span></h1>
-            <p>База конфигов, пополнение Steam и настройки CS2</p>
+            <p>Парный проект по информатике | Настройка, конфиги и аналитика</p>
         </div>
 
-        <!-- 1. STEAM TOP UP -->
-        <div class="section-title">💳 Пополнение Steam</div>
+        <div class="section-title">Прайс-лист услуг</div>
         <div class="card">
-            <p class="player-desc">Мгновенное пополнение баланса Steam (CIS / РФ) с минимальной комиссией.</p>
-            
-            <div class="form-group">
-                <label class="form-label">Логин Steam (не никнейм):</label>
-                <input type="text" id="steamLogin" class="form-input" placeholder="Введите ваш логин...">
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">Сумма пополнения (₽):</label>
-                <input type="number" id="steamAmount" class="form-input" value="500" oninput="updateTotal()">
-            </div>
-
-            <div class="amount-presets">
-                <button class="amount-btn" onclick="setAmount(100)">100 ₽</button>
-                <button class="amount-btn" onclick="setAmount(500)">500 ₽</button>
-                <button class="amount-btn" onclick="setAmount(1000)">1000 ₽</button>
-                <button class="amount-btn" onclick="setAmount(2500)">2500 ₽</button>
-            </div>
-
-            <div class="total-calc">
-                <span>К оплате (комиссия 10%):</span>
-                <span id="totalPrice">550 ₽</span>
-            </div>
-
-            <button class="btn btn-download" onclick="processPayment()">Оплатить через СБП / Карту</button>
+            <h2>Настройка ПК и CS2 под ключ</h2>
+            <p>Нажмите на цену, чтобы сразу перейти к оплате нужной суммы:</p>
+            <ul class="price-list">
+                <li class="price-item"><span>Оптимизация Windows &amp; NVIDIA/AMD</span><span class="price-tag" onclick="payInstant(500)">500 ₽</span></li>
+                <li class="price-item"><span>Параметры запуска Steam &amp; CS2</span><span class="price-tag" onclick="payInstant(300)">300 ₽</span></li>
+                <li class="price-item"><span>Кастомное разрешение 4:3 stretched</span><span class="price-tag" onclick="payInstant(250)">250 ₽</span></li>
+                <li class="price-item"><span>Полный сетап (ПК + CS2 + Прицел/Сенса)</span><span class="price-tag" onclick="payInstant(900)">900 ₽</span></li>
+            </ul>
         </div>
 
-        <!-- 2. PRICE LIST -->
-        <div class="section-title">🏷️ Прайс-лист услуг</div>
+        <div class="section-title">Оплата и Реквизиты</div>
         <div class="card">
-            <div class="price-item">
-                <span>Индивидуальная настройка autoexec.cfg</span>
-                <span class="price-val">290 ₽</span>
+            <h2>Быстрый перевод через ЮMoney / СБП</h2>
+            <p>Нажмите на быструю сумму или введите свою — перекинет прямо на форму перевода с вбитым номером:</p>
+            <ul class="payment-list">
+                <li class="payment-row">
+                    <span>📱 Номер телефона:</span>
+                    <span><strong class="payment-val" id="phoneNum">+7 (992) 237-06-72</strong><button class="copy-btn" onclick="copyPhone()">Копировать</button></span>
+                </li>
+                <li class="payment-row">
+                    <span>🏦 Банк:</span>
+                    <span class="payment-val">ЮMoney (СБП)</span>
+                </li>
+                <li class="payment-row">
+                    <span>👤 Получатель:</span>
+                    <span class="payment-val">Ренат Б. / Самир Б.</span>
+                </li>
+            </ul>
+
+            <div class="input-group">
+                <label>Быстрый выбор суммы (сразу откроет оплату):</label>
+                <div class="sum-buttons">
+                    <button class="sum-btn" onclick="payInstant(250)">250 ₽</button>
+                    <button class="sum-btn" onclick="payInstant(300)">300 ₽</button>
+                    <button class="sum-btn" onclick="payInstant(500)">500 ₽</button>
+                    <button class="sum-btn" onclick="payInstant(900)">900 ₽</button>
+                </div>
             </div>
-            <div class="price-item">
-                <span>Оптимизация CS2 (Boost FPS / Latency)</span>
-                <span class="price-val">490 ₽</span>
+
+            <div class="input-group">
+                <label>Или введите свою сумму (₽):</label>
+                <input type="number" id="ymAmount" class="custom-input" placeholder="Введите сумму..." value="500">
             </div>
-            <div class="price-item">
-                <span>Полная настройка ПК под киберспорт</span>
-                <span class="price-val">990 ₽</span>
+
+            <button onclick="payCustom()" class="btn btn-ymoney">Перевести на номер +79922370672</button>
+        </div>
+
+        <div class="section-title">Пополнение Steam</div>
+        <div class="card">
+            <h2>Пополнение баланса Steam</h2>
+            <p>Переход на прямой шлюз пополнения Steam через CKassa:</p>
+
+            <div class="input-group">
+                <label>Логин Steam:</label>
+                <input type="text" id="steamAccountId" class="custom-input" placeholder="Введите Ваш логин Steam...">
             </div>
-            <div class="price-item">
-                <span>Подбор комплектующих для CS2</span>
-                <span class="price-val">350 ₽</span>
+
+            <div class="input-group">
+                <label>Сумма пополнения (₽):</label>
+                <input type="number" id="steamAmount" class="custom-input" placeholder="Введите сумму..." value="100">
+            </div>
+
+            <button class="btn btn-ckassa" onclick="paySteamCkassa()">Пополнить Steam через CKassa</button>
+        </div>
+
+        <div class="section-title">Инструкции по настройке</div>
+        <div class="card">
+            <h2>1. Параметры запуска Steam</h2>
+            <p>Нажмите ПКМ на CS2 в Steam -&gt; Свойства -&gt; Параметры запуска:</p>
+            <div class="code-box">-novid -high -threads 8 +cl_cmdrate 128 +cl_updaterate 128 -nojoy +fps_max 0</div>
+        </div>
+
+        <div class="card">
+            <div class="accordion-header" onclick="toggleAccordion()">
+                <h2>2. Настройки графики</h2>
+                <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-content" id="graphicsContent">
+                <p>Рекомендуемые киберспортивные параметры графики для высокого FPS:</p>
+                <ul>
+                    <li><b>Разрешение:</b> 1280x960 или 1440x1080 (4:3 Stretched)</li>
+                    <li><b>Режим дисплея:</b> На весь экран</li>
+                    <li><b>Повышенный контраст игроков:</b> Включено</li>
+                    <li><b>Сглаживание:</b> 4x MSAA</li>
+                    <li><b>Качество теней:</b> Низкое / Среднее</li>
+                    <li><b>NVIDIA Reflex Low Latency:</b> Включено + Буст</li>
+                </ul>
             </div>
         </div>
 
-        <!-- 3. CONFIGS SECTION -->
-        <div class="section-title">🔥 Конфиги про-игроков</div>
-
-        <!-- m0NESY -->
+        <div class="section-title">Про-игроки и конфиги</div>
+        
+        <!-- 1. m0NESY -->
         <div class="card">
             <span class="badge">Team Falcons</span>
             <img src="https://img.championat.com/lpv1nwIFuogZ-DFpIvJArHEJrL638I7pKYyBK5-3BCo/p(w:1350/h:900)/news/big/i/s/team-falcons-s-m0nesy-proshla-v-final-iem-cologne-major-2026-v-cs-2_1781988221468219053.jpg" alt="m0NESY">
             <h2>m0NESY (Ilya Osipov)</h2>
-            <p class="player-desc">Снайпер-вундеркинд с безумной реакцией и агрессивным стилем игры с AWP.</p>
-
+            <p class="player-desc">Молодой вундеркинд и один из лучших снайперов мировой сцены, известнейший своими невероятными флик-шотами и молниеносной реакцией с AWP.</p>
+            <p>Параметры:</p>
             <ul>
-                <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 2.00 | <b>eDPI:</b> 800</li>
-                <li><b>Zoom Sensitivity:</b> 1.00</li>
+                <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 2.0 | <b>eDPI:</b> 800</li>
                 <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
             </ul>
-
-            <div class="code-box">
-                <span id="crosshair-m0nesy">CSGO-wA43v-3O3U3-k8mOq-s6Pz5-983yC</span>
-                <button class="copy-sm-btn" onclick="copyText('crosshair-m0nesy', 'Прицел m0NESY')">Копия</button>
-            </div>
-
-            <div class="config-block">
-                <div class="config-title">⚙️ Команды autoexec</div>
-                <textarea id="cfg-m0nesy" class="config-area" readonly>sensitivity 2.00;
-zoom_sensitivity_ratio 1.00;
-viewmodel_fov 68;
-viewmodel_offset_x 2.5;
-viewmodel_offset_y 0;
-viewmodel_offset_z -1.5;
-viewmodel_presetpos 1;
-cl_crosshaircode CSGO-wA43v-3O3U3-k8mOq-s6Pz5-983yC;
-fps_max 0;</textarea>
-                <button class="btn btn-secondary" onclick="copyValue('cfg-m0nesy', 'Конфиг m0NESY')">Скопировать текст</button>
-            </div>
-
-            <div class="btn-group">
-                <a href="https://www.hltv.org/player/19230/m0nesy" target="_blank" class="btn">Профиль HLTV</a>
-                <button class="btn btn-download" onclick="downloadCfg('m0nesy_autoexec.cfg', 'cfg-m0nesy')">Скачать конфиг (.cfg)</button>
-            </div>
+            <div class="code-box">CSGO-wA43v-3O3U3-k8mOq-s6Pz5-983yC</div>
+            <a href="https://www.hltv.org/player/19230/m0nesy" target="_blank" class="btn">Профиль m0NESY на HLTV</a>
         </div>
 
-        <!-- donk -->
+        <!-- 2. donk -->
         <div class="card">
             <span class="badge">Team Spirit</span>
             <img src="https://img-cdn.hltv.org/gallerypicture/1qfHisdneJ-3vE85PFXyWg.jpg?auto=compress&amp;ixlib=java-2.1.0&amp;m=%2Fm.png&amp;mw=320&amp;mx=59&amp;my=1421&amp;q=75&amp;w=2400&amp;s=7b321189a9dd67bc5beaec2723e004cf" alt="donk">
             <h2>donk (Danil Kryshkovets)</h2>
-            <p class="player-desc">Феноменальный рифлер с идеальным контролем спрея и ультра-агрессивными энтри.</p>
-
+            <p class="player-desc">Молодой феномен и рифлер, разрывающий про-сцену феноменальным аимом, невероятным контролем спрея и ультра-агрессивным стилем игры.</p>
+            <p>Параметры:</p>
             <ul>
                 <li><b>DPI:</b> 800 | <b>Sensitivity:</b> 1.25 | <b>eDPI:</b> 1000</li>
-                <li><b>Zoom Sensitivity:</b> 1.00</li>
                 <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
             </ul>
-
-            <div class="code-box">
-                <span id="crosshair-donk">CSGO-xPVXN-4vAuq-HNmWV-Awctc-pL3ED</span>
-                <button class="copy-sm-btn" onclick="copyText('crosshair-donk', 'Прицел donk')">Копия</button>
-            </div>
-
-            <div class="config-block">
-                <div class="config-title">⚙️ Команды autoexec</div>
-                <textarea id="cfg-donk" class="config-area" readonly>sensitivity 1.25;
-zoom_sensitivity_ratio 1.00;
-viewmodel_fov 68;
-viewmodel_offset_x 2.5;
-viewmodel_offset_y 0;
-viewmodel_offset_z -1.5;
-viewmodel_presetpos 1;
-cl_crosshaircode CSGO-xPVXN-4vAuq-HNmWV-Awctc-pL3ED;
-fps_max 0;</textarea>
-                <button class="btn btn-secondary" onclick="copyValue('cfg-donk', 'Конфиг donk')">Скопировать текст</button>
-            </div>
-
-            <div class="btn-group">
-                <a href="https://www.hltv.org/player/21167/donk" target="_blank" class="btn">Профиль HLTV</a>
-                <button class="btn btn-download" onclick="downloadCfg('donk_autoexec.cfg', 'cfg-donk')">Скачать конфиг (.cfg)</button>
-            </div>
+            <div class="code-box">CSGO-xPVXN-4vAuq-HNmWV-Awctc-pL3ED</div>
+            <a href="https://www.hltv.org/player/21167/donk" target="_blank" class="btn">Профиль donk на HLTV</a>
         </div>
 
-        <!-- ZywOo -->
+        <!-- 3. ZywOo -->
         <div class="card">
             <span class="badge">Team Vitality</span>
             <img src="https://img-cdn.hltv.org/playerbodyshot/blnoWFtH8GUJZjhr8H0P4u.png?bg=3e4c54&amp;h=800&amp;ixlib=java-2.1.0&amp;rect=121%2C8%2C467%2C467&amp;w=800&amp;s=e3a0e62125c9cf3f44077e5c0792687a" alt="ZywOo">
             <h2>ZywOo (Mathieu Herbaut)</h2>
-            <p class="player-desc">Универсальный французский гений с невероятным игровым интеллектом.</p>
-
+            <p class="player-desc">Французский гений, неоднократный №1 игрок мира по версии HLTV. Отличается невероятно стабильной, умной и хладнокровной игрой с любым оружием.</p>
+            <p>Параметры:</p>
             <ul>
-                <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 2.00 | <b>eDPI:</b> 800</li>
-                <li><b>Zoom Sensitivity:</b> 1.00</li>
+                <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 2.0 | <b>eDPI:</b> 800</li>
                 <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
             </ul>
-
-            <div class="code-box">
-                <span id="crosshair-zywoo">CSGO-2zK3P-3O3U3-k8mOq-s6Pz5-983yC</span>
-                <button class="copy-sm-btn" onclick="copyText('crosshair-zywoo', 'Прицел ZywOo')">Копия</button>
-            </div>
-
-            <div class="config-block">
-                <div class="config-title">⚙️ Команды autoexec</div>
-                <textarea id="cfg-zywoo" class="config-area" readonly>sensitivity 2.00;
-zoom_sensitivity_ratio 1.00;
-viewmodel_fov 68;
-viewmodel_offset_x 2.5;
-viewmodel_offset_y 0;
-viewmodel_offset_z -1.5;
-viewmodel_presetpos 1;
-cl_crosshaircode CSGO-2zK3P-3O3U3-k8mOq-s6Pz5-983yC;
-fps_max 0;</textarea>
-                <button class="btn btn-secondary" onclick="copyValue('cfg-zywoo', 'Конфиг ZywOo')">Скопировать текст</button>
-            </div>
-
-            <div class="btn-group">
-                <a href="https://www.hltv.org/player/11893/zywoo" target="_blank" class="btn">Профиль HLTV</a>
-                <button class="btn btn-download" onclick="downloadCfg('zywoo_autoexec.cfg', 'cfg-zywoo')">Скачать конфиг (.cfg)</button>
-            </div>
+            <div class="code-box">CSGO-2zK3P-3O3U3-k8mOq-s6Pz5-983yC</div>
+            <a href="https://www.hltv.org/player/11893/zywoo" target="_blank" class="btn">Профиль ZywOo на HLTV</a>
         </div>
 
-        <!-- s1mple -->
+        <!-- 4. s1mple -->
         <div class="card">
             <span class="badge legend">LEGEND</span>
             <img src="https://staticg.sportskeeda.com/editor/2024/04/e3b51-17144587925231-1920.jpg" alt="s1mple">
             <h2>s1mple (Oleksandr Kostyliev)</h2>
-            <p class="player-desc">Легендарный игрок, GOAT дисциплин Counter-Strike и обладатель множества MVP.</p>
-
+            <p class="player-desc">Легенда CS и лучший игрок в истории CS:GO (GOAT). Обладатель рекордного количества индивидуальных наград MVP и чемпион Major-турниров.</p>
+            <p>Параметры:</p>
             <ul>
                 <li><b>DPI:</b> 400 | <b>Sensitivity:</b> 3.09 | <b>eDPI:</b> 1236</li>
-                <li><b>Zoom Sensitivity:</b> 1.00</li>
                 <li><b>Разрешение:</b> 1280x960 (4:3 Stretched)</li>
             </ul>
+            <div class="code-box">CSGO-V9AQt-XiEkj-qcEqC-Xsbx7-UfdBN</div>
+            <a href="https://www.hltv.org/player/7998/s1mple" target="_blank" class="btn">Профиль s1mple на HLTV</a>
+        </div>
 
-            <div class="code-box">
-                <span id="crosshair-s1mple">CSGO-V9AQt-XiEkj-qcEqC-Xsbx7-UfdBN</span>
-                <button class="copy-sm-btn" onclick="copyText('crosshair-s1mple', 'Прицел s1mple')">Копия</button>
-            </div>
-
-            <div class="config-block">
-                <div class="config-title">⚙️ Команды autoexec</div>
-                <textarea id="cfg-s1mple" class="config-area" readonly>sensitivity 3.09;
-zoom_sensitivity_ratio 1.00;
-viewmodel_fov 68;
-viewmodel_offset_x 2.5;
-viewmodel_offset_y 0;
-viewmodel_offset_z -1.5;
-viewmodel_presetpos 1;
-cl_crosshaircode CSGO-V9AQt-XiEkj-qcEqC-Xsbx7-UfdBN;
-fps_max 0;</textarea>
-                <button class="btn btn-secondary" onclick="copyValue('cfg-s1mple', 'Конфиг s1mple')">Скопировать текст</button>
-            </div>
-
-            <div class="btn-group">
-                <a href="https://www.hltv.org/player/7998/s1mple" target="_blank" class="btn">Профиль HLTV</a>
-                <button class="btn btn-download" onclick="downloadCfg('s1mple_autoexec.cfg', 'cfg-s1mple')">Скачать конфиг (.cfg)</button>
-            </div>
+        <div class="section-title">Контакты</div>
+        <div class="card">
+            <h2>Связаться с нами</h2>
+            <ul>
+                <li><b>Email:</b> <a href="mailto:trainingcs2cybersport@gmail.com" class="contact-link">trainingcs2cybersport@gmail.com</a></li>
+                <li><b>Телефон:</b> <a href="tel:+79922370672" class="contact-link">+7 (992) 237-06-72</a></li>
+            </ul>
         </div>
 
         <div class="footer">
@@ -690,70 +710,69 @@ fps_max 0;</textarea>
     </div>
 
     <script>
-        function toggleTheme() {
-            const icon = document.getElementById("themeIcon");
-            const text = document.getElementById("themeText");
-            document.body.classList.toggle("light-theme");
-            const isLight = document.body.classList.contains("light-theme");
-            localStorage.setItem("theme", isLight ? "light" : "dark");
+        const PHONE_NUMBER = "79922370672";
+
+        function payInstant(sum) {
+            const url = `https://yoomoney.ru/transfer/quickpay?receiver=${PHONE_NUMBER}&sum=${sum}`;
+            window.open(url, '_blank');
+        }
+
+        function payCustom() {
+            const sum = document.getElementById("ymAmount").value || 100;
+            payInstant(sum);
+        }
+
+        function paySteamCkassa() {
+            const accountId = document.getElementById("steamAccountId").value;
+            const amount = document.getElementById("steamAmount").value;
             
-            icon.textContent = isLight ? "🌙" : "☀️";
-            text.textContent = isLight ? "Тёмная тема" : "Светлая тема";
-        }
-
-        function copyText(elementId, label) {
-            const txt = document.getElementById(elementId).innerText;
-            navigator.clipboard.writeText(txt).then(() => {
-                alert(label + " скопирован!");
-            });
-        }
-
-        function copyValue(elementId, label) {
-            const val = document.getElementById(elementId).value;
-            navigator.clipboard.writeText(val).then(() => {
-                alert(label + " скопирован в буфер!");
-            });
-        }
-
-        function downloadCfg(filename, elementId) {
-            const text = document.getElementById(elementId).value;
-            const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = filename;
-            link.click();
-            URL.revokeObjectURL(link.href);
-        }
-
-        function setAmount(val) {
-            document.getElementById('steamAmount').value = val;
-            updateTotal();
-        }
-
-        function updateTotal() {
-            const val = parseFloat(document.getElementById('steamAmount').value) || 0;
-            const total = Math.round(val * 1.1); // 10% комиссия
-            document.getElementById('totalPrice').textContent = total + ' ₽';
-        }
-
-        function processPayment() {
-            const login = document.getElementById('steamLogin').value.trim();
-            const amount = document.getElementById('steamAmount').value;
-
-            if (!login) {
-                alert('Пожалуйста, введите ваш логин Steam!');
+            if (!accountId) {
+                alert("Пожалуйста, введите Ваш логин Steam!");
                 return;
             }
+            
+            window.open(`https://game.ckassa.ru/pay?account=${encodeURIComponent(accountId)}&amount=${amount}`, '_blank');
+        }
 
-            alert(`Переход к оплате...\nЛогин: ${login}\nСумма пополнения: ${amount} ₽`);
+        function toggleAccordion() {
+            const e = document.querySelector(".accordion-header"),
+                t = document.getElementById("graphicsContent");
+            e.classList.toggle("active");
+            t.classList.toggle("active");
+        }
+
+        function toggleTheme() {
+            const e = document.getElementById("themeIcon"),
+                t = document.getElementById("themeText");
+            document.body.classList.toggle("light-theme");
+            const n = document.body.classList.contains("light-theme");
+            localStorage.setItem("theme", n ? "light" : "dark");
+            if (n) {
+                e.textContent = "🌙";
+                t.textContent = "Тёмная тема";
+            } else {
+                e.textContent = "☀️";
+                t.textContent = "Светлая тема";
+            }
+        }
+
+        function copyPhone() {
+            const e = document.getElementById("phoneNum").innerText;
+            navigator.clipboard.writeText(e).then(() => {
+                alert("Номер телефона скопирован!");
+            });
         }
 
         window.addEventListener("DOMContentLoaded", () => {
-            const theme = localStorage.getItem("theme");
-            if (theme === "light") {
+            const e = localStorage.getItem("theme"),
+                t = document.getElementById("themeIcon"),
+                n = document.getElementById("themeText");
+            if ("light" === e) {
                 document.body.classList.add("light-theme");
-                document.getElementById("themeIcon").textContent = "🌙";
-                document.getElementById("themeText").textContent = "Тёмная тема";
+                if (t && n) {
+                    t.textContent = "🌙";
+                    n.textContent = "Тёмная тема";
+                }
             }
         });
     </script>
