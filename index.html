@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Отключаем передачу Referrer, чтобы внешние картинки без проблем загружались -->
     <meta name="referrer" content="no-referrer">
     <title>CS2 CYBERHUB</title>
     <style>
@@ -33,7 +32,6 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Фон для ТЕЛЕФОНОВ (до 767px) */
         @media (max-width: 767px) {
             body {
                 background-image: 
@@ -42,11 +40,11 @@
             }
         }
 
-        /* --- СВЕТЛАЯ ТЕМА --- */
+        /* --- СВЕТЛАЯ ТЕМА (ПОВЫШЕННАЯ ПРОЗРАЧНОСТЬ) --- */
         body.light-theme {
             background-color: #cbd5e1;
             background-image: 
-                linear-gradient(rgba(241, 245, 249, 0.75), rgba(203, 213, 225, 0.85)),
+                linear-gradient(rgba(241, 245, 249, 0.5), rgba(203, 213, 225, 0.6)),
                 url("https://i.ytimg.com/vi/3bCj7XWvdsQ/maxresdefault.jpg");
             color: #0f172a;
         }
@@ -54,7 +52,7 @@
         @media (max-width: 767px) {
             body.light-theme {
                 background-image: 
-                    linear-gradient(rgba(241, 245, 249, 0.75), rgba(203, 213, 225, 0.85)),
+                    linear-gradient(rgba(241, 245, 249, 0.5), rgba(203, 213, 225, 0.6)),
                     url("https://pic.rtbcdn.ru/video/2025-07-18/ac/74/ac7421528283e1aeee43fa96c756ca98.jpg");
             }
         }
@@ -93,7 +91,7 @@
         }
 
         body.light-theme .theme-toggle {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.55);
             color: #0f172a;
             border-color: #ea580c;
         }
@@ -116,7 +114,7 @@
 
         body.light-theme .header h1 {
             color: #0f172a;
-            text-shadow: none;
+            text-shadow: 0 1px 4px rgba(255,255,255,0.8);
         }
 
         .header h1 span {
@@ -132,8 +130,8 @@
         }
 
         body.light-theme .header p {
-            color: #334155;
-            text-shadow: none;
+            color: #1e293b;
+            text-shadow: 0 1px 4px rgba(255,255,255,0.8);
         }
 
         .section-title {
@@ -154,7 +152,7 @@
             text-shadow: none;
         }
 
-        /* Карточки */
+        /* Карточки с высокой прозрачностью в светлой теме */
         .card {
             background: rgba(15, 23, 42, 0.7);
             backdrop-filter: blur(12px);
@@ -168,11 +166,11 @@
         }
 
         body.light-theme .card {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-color: rgba(234, 88, 12, 0.4);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            background: rgba(255, 255, 255, 0.45); /* Сделали значительно прозрачнее */
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-color: rgba(234, 88, 12, 0.35);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             color: #0f172a;
         }
 
@@ -207,7 +205,8 @@
 
         body.light-theme .card p,
         body.light-theme .card ul {
-            color: #1e293b;
+            color: #0f172a;
+            font-weight: 500;
         }
 
         .card ul {
@@ -230,7 +229,6 @@
             text-transform: uppercase;
         }
 
-        /* Выпадающая плашка */
         .accordion-header {
             display: flex;
             justify-content: space-between;
@@ -267,7 +265,6 @@
             border-top: 1px solid rgba(249, 115, 22, 0.3);
         }
 
-        /* Прайс-лист */
         .price-list {
             list-style: none !important;
             padding-left: 0 !important;
@@ -284,7 +281,7 @@
         }
 
         body.light-theme .price-item {
-            border-bottom-color: rgba(0, 0, 0, 0.12);
+            border-bottom-color: rgba(0, 0, 0, 0.15);
         }
 
         .price-item:last-child {
@@ -316,7 +313,7 @@
         }
 
         body.light-theme .code-box {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.6);
             color: #ea580c;
             border-color: rgba(234, 88, 12, 0.5);
         }
@@ -352,7 +349,7 @@
         }
 
         body.light-theme .btn-black {
-            background: #0f172a;
+            background: rgba(15, 23, 42, 0.85);
             color: #ffffff;
         }
 
@@ -386,6 +383,10 @@
             font-weight: 800;
         }
 
+        body.light-theme .contact-link {
+            color: #ea580c;
+        }
+
         .footer {
             text-align: center;
             font-size: 12px;
@@ -398,7 +399,7 @@
         }
 
         body.light-theme .footer {
-            color: #334155;
+            color: #1e293b;
         }
 
         .authors {
@@ -416,7 +417,7 @@
         }
 
         body.light-theme .authors {
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.5);
             color: #0f172a;
             border-color: rgba(234, 88, 12, 0.4);
         }
