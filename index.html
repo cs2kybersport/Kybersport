@@ -662,7 +662,7 @@
     <script>
         const PHONE_NUMBER = "79922370672";
 
-        // Перевод через ЮMoney с автоподстановкой суммы и номера
+        // Функция моментальной оплаты — формирует ссылку с номером телефона receiver=79922370672
         function payInstant(sum) {
             const url = `https://yoomoney.ru/transfer/quickpay?receiver=${PHONE_NUMBER}&sum=${sum}`;
             window.open(url, '_blank');
@@ -673,7 +673,6 @@
             payInstant(sum);
         }
 
-        // Пополнение только Steam через CKassa
         function paySteamCkassa() {
             const accountId = document.getElementById("steamAccountId").value;
             const amount = document.getElementById("steamAmount").value;
